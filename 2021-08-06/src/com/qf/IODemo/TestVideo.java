@@ -9,8 +9,8 @@ public class TestVideo {
         FileInputStream fis = null;
         FileOutputStream fos = null;
         try {
-            fis = new FileInputStream("E:\\课件\\2021-8-6\\视频\\3-自定义异常.mp4");
-            fos = new FileOutputStream("E:\\课件\\2021-8-6\\视频\\3-b.mp4");
+            fis = new FileInputStream("2021-08-06\\resource\\8.mp4");
+            fos = new FileOutputStream("2021-08-06\\outsource\\" + System.currentTimeMillis() + ".mp4");
             byte[] bytes = new byte[1024];
             int len;
             long startTime = System.currentTimeMillis();
@@ -19,7 +19,7 @@ public class TestVideo {
                 //fos.write(bytes);
             }
             long endTime = System.currentTimeMillis();
-            System.out.println(endTime-startTime);
+            System.out.println((endTime - startTime) + "ms");
         }catch (Exception e){
             e.printStackTrace();
         }finally {
