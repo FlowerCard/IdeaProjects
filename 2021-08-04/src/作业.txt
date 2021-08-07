@@ -1,0 +1,2 @@
+List、set所有方法
+Collections所有方法熟练使用
