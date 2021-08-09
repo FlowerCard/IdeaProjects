@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * ͼƬ�ϴ�
+ * 图片操作
  */
 public class TestImageFile {
     public static void main(String[] args) {
