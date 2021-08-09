@@ -2,7 +2,7 @@ package com.qf.test08091.test01;
 
 import java.io.*;
 
-public class TestBufferedInputStream {
+public class TestBufferedInputStreamAndBufferedOutputStream {
     public static void main(String[] args) {
         File file;
         InputStream is;
