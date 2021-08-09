@@ -14,7 +14,7 @@ public class TestCopyFileUtil {
         File file = new File("2021-08-09\\resource\\集合作业.txt");
         try {
 //            copyFileUtil.copyFile(file);
-            copyFileUtil.copyFile(file,"GBK");
+            copyFileUtil.copyFile(file,"UTF-8");
         } catch (Exception e) {
             e.printStackTrace();
         }
