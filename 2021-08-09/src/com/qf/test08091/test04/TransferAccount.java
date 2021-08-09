@@ -13,14 +13,13 @@ import java.util.*;
 public class TransferAccount {
     public static void main(String[] args) {
         Map<Integer, User> userMap = new HashMap<>();
-        userMap.put(1,new User("Tom",1000));
-        userMap.put(2,new User("Lucy",1000));
+        User user = new User();
+        userMap.put(0,new User("Tom",1000));
+        userMap.put(1,new User("Lucy",1000));
 
-        Collection set = userMap.values();
-        Iterator it = set.iterator();
-        while (it.hasNext()) {
+        user.transfer(userMap,"Tom","Lucy",500);
 
-        }
+        System.out.println(userMap);
 
     }
 }

@@ -1,5 +1,9 @@
 package com.qf.test08091.test04.pojo;
 
+import com.qf.test08091.test04.AccountException;
+
+import java.util.*;
+
 /**
  * Created on 2021/8/9.
  *
@@ -9,6 +13,46 @@ package com.qf.test08091.test04.pojo;
 public class User {
     private String userName;
     private Integer userMoney;
+
+    /**
+     * 转账
+     * @param map           传入集合
+     * @param userNameout   转出账户
+     * @param userNamein    转入账户
+     * @param userMoney     转账金额
+     */
+    public void transfer(Map map,String userNameout,String userNamein,Integer userMoney) {
+        Collection collection = map.values();
+        Iterator it = collection.iterator();
+        while (it.hasNext()) {
+            User user = (User) it.next();
+            if (user.getUserMoney() >= userMoney) {
+                if (user.getUserName().equals(userNamein)) {
+                    user.setUserMoney(user.getUserMoney() + userMoney);
+                }
+                if (user.getUserName().equals(userNameout)) {
+                    user.setUserMoney(user.getUserMoney() - userMoney);
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(userName, user.userName) && Objects.equals(userMoney, user.userMoney);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, userMoney);
+    }
 
     public User() {
     }
