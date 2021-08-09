@@ -21,7 +21,7 @@ public class User {
      * @param userNamein    转入账户
      * @param userMoney     转账金额
      */
-    public void transfer(Map map,String userNameout,String userNamein,Integer userMoney) {
+    public void transfer(Map map,String userNameout,String userNamein,Integer userMoney) throws AccountException{
         Collection collection = map.values();
         Iterator it = collection.iterator();
         while (it.hasNext()) {
@@ -33,6 +33,8 @@ public class User {
                 if (user.getUserName().equals(userNameout)) {
                     user.setUserMoney(user.getUserMoney() - userMoney);
                 }
+            }else {
+                throw new AccountException("账户余额不足");
             }
         }
     }
