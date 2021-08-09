@@ -13,10 +13,9 @@ public class CopyFileUtil {
     /**
      * 复制文件
      * @param file  文件名 / 文件路径
-     * @throws CopyFileException
      * @throws IOException
      */
-    public void copyFile(File file) throws CopyFileException, IOException {
+    public void copyFile(File file) throws IOException {
         String fileName = file.getName();
         int point = fileName.lastIndexOf(".");
         FileInputStream fis = new FileInputStream(file);
