@@ -165,7 +165,7 @@ list.add(new Student(“Kevin”, 24, 100, “class04”));
 在这个list 的基础上，完成下列要求：
 1） 计算所有学生的平均年龄
 2） 计算各个班级的平均分
-�求：
+�求：
 1） 使用一个Map，以老师的名字作为键，以老师教授的课程名作为值，表示上述
 课程安排。
 2） 增加了一位新老师Allen 教JDBC
@@ -173,4 +173,4 @@ list.add(new Student(“Kevin”, 24, 100, “class04”));
 4） 遍历Map，输出所有的老师及老师教授的课程(Set<Map.Entry<String,String>>、Set<String> get(key))
 5） 利用Map，输出所有教JSP 的老师
 
-
+
