@@ -5,6 +5,9 @@ import javax.imageio.stream.FileImageOutputStream;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Í¼Æ¬ÉÏ´«
+ */
 public class TestImageFile {
     public static void main(String[] args) {
         File file;
