@@ -12,7 +12,6 @@ public class SellTicket extends Thread{
      * 初始100张票
      */
     private Integer ticket = 100;
-    private final Object object = new Object();
 
     /**
      * 重写run方法
@@ -23,14 +22,14 @@ public class SellTicket extends Thread{
         String name = Thread.currentThread().getName();
 
         while (true) {
-            //同步方法
-            synchronized (object) {
+            //同步代码块
+            synchronized (this) {
                 if (this.ticket > 0) {
                     System.out.println(name + "正在出票：" + this.ticket);
                     this.ticket--;
                 }
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
