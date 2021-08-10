@@ -13,6 +13,7 @@ public class MyThreadTest {
         //线程命名
         myThread.setName("t1");
 
+        //创建线程的同时，指定线程名词
         MyThread myThread2 = new MyThread("t2");
 
         //启动线程
