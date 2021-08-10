@@ -31,9 +31,9 @@ public class SellTicket extends Thread{
         while (true) {
             //同步代码块
             synchronized (object) {
-                if (this.ticket > 0) {
-                    System.out.println(name + "正在出票：" + this.ticket);
-                    this.ticket--;
+                if (ticket > 0) {
+                    System.out.println(name + "正在出票：" + ticket);
+                    ticket--;
                 }
                 try {
                     Thread.sleep(100);
