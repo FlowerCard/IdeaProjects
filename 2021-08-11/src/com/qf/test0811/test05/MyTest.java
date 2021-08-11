@@ -13,6 +13,58 @@ import java.util.concurrent.*;
 public class MyTest {
 
     /**
+     * ConcurrentLinkedQueue
+     * 并发性最好的队列
+     */
+    @Test
+    public void testConcurrentLinkedQueue() {
+
+        /**
+         * 创建ConcurrentLinkedQueue
+         */
+        ConcurrentLinkedQueue<Integer> queue = new ConcurrentLinkedQueue<>();
+
+        /**
+         * 创建线程池
+         */
+        ExecutorService service = Executors.newFixedThreadPool(3);
+
+        /**
+         * 提交任务
+         */
+        for (int i = 0; i < 3; i++) {
+            service.submit(new Runnable() {
+                @Override
+                public void run() {
+                    for (int j = 0; j < 10; j++) {
+                        /**
+                         * queue 添加 内容
+                         */
+                        queue.add(j);
+                    }
+                }
+            });
+        }
+
+        /**
+         * 任务关闭
+         */
+        service.shutdown();
+
+        while (!service.isTerminated()) {
+            //等待所有的线程结束
+        }
+
+        /**
+         * 遍历内容
+         */
+        for (Integer value : queue) {
+            System.out.println("value = " + value);
+        }
+
+    }
+
+    /**
      * ConcurrentHashMap
      * 是一个线程安全的HashMap
      *   JDK7：分段锁
