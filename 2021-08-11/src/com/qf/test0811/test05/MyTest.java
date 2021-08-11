@@ -3,6 +3,7 @@ package com.qf.test0811.test05;
 import org.junit.Test;
 
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,6 +14,42 @@ import java.util.concurrent.Executors;
  *
  */
 public class MyTest {
+
+    /**
+     * CopyOnWriteArraySet
+     * 底层使用的是 CopyOnWriteArrayList
+     * CopyOnWriteArraySet 的add方法，其实就是调用了 addIfAbsent()，这个方法就是CopyOnWriteArrayList的
+     */
+    @Test
+    public void testCopyOnWriteArraySet() {
+
+        CopyOnWriteArraySet<Integer> set = new CopyOnWriteArraySet<>();
+
+        ExecutorService service = Executors.newFixedThreadPool(3);
+
+        Runnable setAdd = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 10; i++) {
+                    set.add(i);
+                }
+            }
+        };
+
+        for (int i = 0; i < 3; i++) {
+            service.submit(setAdd);
+        }
+
+        service.shutdown();
+        while (!service.isTerminated()) {
+            //等待所有线程结束
+        }
+
+        for (Integer value : set) {
+            System.out.println("value = " + value);
+        }
+
+    }
 
     /**
      * CopyOnWriteArrayList
