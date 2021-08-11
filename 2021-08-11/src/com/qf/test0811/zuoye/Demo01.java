@@ -22,7 +22,13 @@ public class Demo01 {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
+                /**
+                 * 赋值随机数
+                 */
                 ints[i][j] = new Random().nextInt(100);
+                /**
+                 * 赋值循环相加数
+                 */
 //                ints[i][j] = i + j;
             }
         }
