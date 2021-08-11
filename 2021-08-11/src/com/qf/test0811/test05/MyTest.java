@@ -31,7 +31,7 @@ public class MyTest {
                 /**
                  * 使用 LinkedBlockingQueue 的 put 方法需要捕获异常
                  */
-                queue.put("tom" + i);
+                queue.put("jack" + i);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
