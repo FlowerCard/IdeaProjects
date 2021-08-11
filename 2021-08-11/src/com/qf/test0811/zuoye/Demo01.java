@@ -44,7 +44,7 @@ public class Demo01 {
         /**
          * 执行任务
          */
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < ints.length; i++) {
             final int temp = i;
             service.submit(new Runnable() {
                 @Override
