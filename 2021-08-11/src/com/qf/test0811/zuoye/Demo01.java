@@ -2,6 +2,7 @@ package com.qf.test0811.zuoye;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -22,6 +23,8 @@ public class Demo01 {
          * 其中一个数组长度随机生成
          */
         int[][] ints = new int[5][new Random().nextInt(50)];
+
+        CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
 
         for (int i = 0; i < ints.length; i++) {
             for (int j = 0; j < ints[i].length; j++) {
@@ -61,8 +64,12 @@ public class Demo01 {
                          */
                         sum += nums[j];
                     }
+                    list.add(sum);
                     System.out.println(Thread.currentThread().getName() + " -----> " + sum);
                     System.out.println("----------------------------------------");
+
+//                    System.out.println(sumArr);
+//                    System.out.println("----------------------------------------");
                 }
             });
         }
@@ -72,6 +79,19 @@ public class Demo01 {
         while (!service.isTerminated()) {
             //等待所有的线程结束
         }
+
+        /**
+         * list 求和
+         */
+        int sumArr = 0;
+        for (int i = 0; i < list.size(); i++) {
+            sumArr += list.get(i);
+            /**
+             * 查看 list 内容
+             */
+//            System.out.println(i + " ----> " + list.get(i));
+        }
+        System.out.println(sumArr);
 
     }
 
