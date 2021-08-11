@@ -1,6 +1,7 @@
 package com.qf.test0811.zuoye;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -21,7 +22,8 @@ public class Demo01 {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                ints[i][j] = i + j;
+                ints[i][j] = new Random().nextInt(100);
+//                ints[i][j] = i + j;
             }
         }
 
