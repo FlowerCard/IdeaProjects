@@ -2,10 +2,7 @@ package com.qf.test0811.test05;
 
 import org.junit.Test;
 
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author HuaPai
@@ -14,6 +11,60 @@ import java.util.concurrent.Executors;
  *
  */
 public class MyTest {
+
+    /**
+     * ConcurrentHashMap
+     * 是一个线程安全的HashMap
+     *   JDK7：分段锁
+     *   JDK8：synchronized + CAS【比较和交换，是由硬件搞定了】
+     * 整个API操作跟HashMap一样
+     */
+    @Test
+    public void testConcurrentHashMap() {
+
+        ConcurrentHashMap<String,String> chm = new ConcurrentHashMap<>();
+
+        ExecutorService service = Executors.newFixedThreadPool(3);
+
+//        for (int i = 0; i < 3; i++) {
+//            final int temp = i;
+//            service.submit(new Runnable() {
+//                @Override
+//                public void run() {
+//                    for (int j = 0; j < 10; j++) {
+//                        chm.put(temp * j + "", "tom" + temp * j);
+//                    }
+//                }
+//            });
+//        }
+
+        Runnable chmPut = new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        chm.put(i * j + "", "tom" + i * j);
+                    }
+                }
+            }
+        };
+
+        for (int i = 0; i < 3; i++) {
+            service.submit(chmPut);
+        }
+
+        service.shutdown();
+
+        while (!service.isTerminated()) {
+            //等待所有的线程结束
+        }
+
+        for (String value : chm.keySet()) {
+            System.out.println(chm.get(value));
+        }
+
+
+    }
 
     /**
      * CopyOnWriteArraySet
