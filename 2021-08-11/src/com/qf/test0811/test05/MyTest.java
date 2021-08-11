@@ -74,8 +74,14 @@ public class MyTest {
     @Test
     public void testConcurrentHashMap() {
 
+        /**
+         * 创建ConcurrentHashMap
+         */
         ConcurrentHashMap<String,String> chm = new ConcurrentHashMap<>();
 
+        /**
+         * 创建线程池
+         */
         ExecutorService service = Executors.newFixedThreadPool(3);
 
 //        for (int i = 0; i < 3; i++) {
