@@ -13,6 +13,63 @@ import java.util.concurrent.*;
 public class MyTest {
 
     /**
+     * BlockingQueue
+     * 阻塞队列
+     * 分类
+     *  有界队列：ArrayBlockingQueue
+     */
+    @Test
+    public void testArrayBlockingQueue() {
+        /**
+         *  创建ArrayBlockingQueue
+         *  这个类有三个带参构造器
+         *  使用该类的 put 方法，这个方式是线程安全的
+         */
+        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(5);
+
+        for (int i = 0; i < 5; i++) {
+            /**
+             * 使用 put 方法需要捕获 InterruptedException 异常
+             */
+            try {
+                queue.put(i);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (Integer value : queue) {
+            System.out.println(value);
+        }
+
+        System.out.println("------------------我是分割线------------------");
+
+        try {
+            //如果不从放满的队列中取出一个值，后面要进队列的数据将无法进入队列
+            Integer value = queue.take();
+            System.out.println(value);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("------------------我是分割线------------------");
+
+        //使用 put 方法存入元素时，如果队列是满的，就会无期限的等待，直到这个队列有空的位置
+        try {
+            queue.put(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        for (Integer value : queue) {
+            System.out.println("value = " + value);
+        }
+
+        System.out.println("------------------我是分割线------------------");
+
+    }
+
+    /**
      * ConcurrentLinkedQueue
      * 并发性最好的队列
      */
@@ -132,6 +189,9 @@ public class MyTest {
     @Test
     public void testCopyOnWriteArraySet() {
 
+        /**
+         * 创建CopyOnWriteArraySet
+         */
         CopyOnWriteArraySet<Integer> set = new CopyOnWriteArraySet<>();
 
         ExecutorService service = Executors.newFixedThreadPool(3);
