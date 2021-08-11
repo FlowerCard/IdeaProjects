@@ -16,6 +16,50 @@ public class MyTest {
      * BlockingQueue
      * 阻塞队列
      * 分类
+     *  无界队列：LinkedBlockingQueue
+     */
+    @Test
+    public void testLinkedBlockingQueue() {
+
+        /**
+         * 创建LinkedBlockingQueue
+         */
+        BlockingQueue<String> queue = new LinkedBlockingDeque<String>();
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                /**
+                 * 使用 LinkedBlockingQueue 的 put 方法需要捕获异常
+                 */
+                queue.put("tom" + i);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (String value : queue) {
+            System.out.println("value = " + value);
+        }
+
+        System.out.println("----------------------------我是分割线-----------------------------");
+
+        try {
+            queue.put("jack");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for (String value : queue) {
+            System.out.println("value = " + value);
+        }
+
+        System.out.println("----------------------------我是分割线-----------------------------");
+
+    }
+
+    /**
+     * BlockingQueue
+     * 阻塞队列
+     * 分类
      *  有界队列：ArrayBlockingQueue
      */
     @Test
