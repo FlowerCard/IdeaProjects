@@ -51,7 +51,7 @@ public class Demo01 {
                     nums = ints[temp];
 
                     /**
-                     * 查看每个线程拿到的数值
+                     * 查看每个线程拿到的一维数组
                      */
                     System.out.println(Thread.currentThread().getName() + " -----> " + Arrays.toString(ints[temp]));
 
