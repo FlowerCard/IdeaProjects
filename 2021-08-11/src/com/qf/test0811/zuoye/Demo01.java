@@ -68,8 +68,6 @@ public class Demo01 {
                     System.out.println(Thread.currentThread().getName() + " -----> " + sum);
                     System.out.println("----------------------------------------");
 
-//                    System.out.println(sumArr);
-//                    System.out.println("----------------------------------------");
                 }
             });
         }
