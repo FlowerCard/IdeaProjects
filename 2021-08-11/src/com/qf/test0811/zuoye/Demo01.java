@@ -18,10 +18,13 @@ public class Demo01 {
 
     public static void main(String[] args) {
 
-        int[][] ints = new int[5][5];
+        /**
+         * 其中一个数组长度随机生成
+         */
+        int[][] ints = new int[5][new Random().nextInt(50)];
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < ints.length; i++) {
+            for (int j = 0; j < ints[i].length; j++) {
                 /**
                  * 赋值随机数
                  */
@@ -50,7 +53,7 @@ public class Demo01 {
                     /**
                      * 查看每个线程拿到的数值
                      */
-//                    System.out.println(Thread.currentThread().getName() + " -----> " + Arrays.toString(ints[temp]));
+                    System.out.println(Thread.currentThread().getName() + " -----> " + Arrays.toString(ints[temp]));
 
                     for (int j = 0; j < nums.length; j++) {
                         /**
