@@ -2,6 +2,7 @@ package com.qf.test0811.test04;
 
 import org.junit.Test;
 
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -21,7 +22,7 @@ public class MyTest {
         Runnable runnable1 = new Runnable() {
             @Override
             public void run() {
-                myLock.setValue(1);
+                myLock.setValue(new Random().nextInt(100));
             }
         };
 

@@ -25,7 +25,7 @@ public class MyReentrantReaderWriteLock {
     public Integer getValue() {
         rl.lock();
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
             return value;
         }catch (Exception e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class MyReentrantReaderWriteLock {
         wl.lock();
         try {
             this.value = value;
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
