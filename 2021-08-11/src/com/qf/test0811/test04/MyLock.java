@@ -15,6 +15,10 @@ public class MyLock {
 
     private Integer value;
 
+    /**
+     * 写
+     * @param value 需要写入的值
+     */
     public void setValue(Integer value) {
         locker.lock();
         try {
@@ -27,6 +31,10 @@ public class MyLock {
         }
     }
 
+    /**
+     * 读
+     * @return 返回被读取的值
+     */
     public Integer getValue() {
         locker.lock();
         try {

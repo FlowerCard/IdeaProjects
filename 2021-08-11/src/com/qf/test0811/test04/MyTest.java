@@ -17,32 +17,36 @@ public class MyTest {
     @Test
     public void test02(){
         MyLock myLock = new MyLock();
-        ExecutorService service = Executors.newFixedThreadPool(2);
+        ExecutorService service = Executors.newFixedThreadPool(20);
 
-        Runnable runnable1 = new Runnable() {
+        Runnable write = new Runnable() {
             @Override
             public void run() {
                 myLock.setValue(new Random().nextInt(100));
             }
         };
 
-        Runnable runnable2 = new Runnable() {
+        Runnable read = new Runnable() {
             @Override
             public void run() {
-                myLock.getValue();
+                Integer value = myLock.getValue();
             }
         };
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < 2; i++) {
-            service.submit(runnable1);
+            service.submit(write);
         }
 
         for (int i = 0; i < 18; i++) {
-            service.submit(runnable2);
+            service.submit(read);
         }
 
         service.shutdown();
+
+        while (!service.isTerminated()) {
+            //等待所有线程结束
+        }
 
         long end = System.currentTimeMillis();
 
@@ -74,7 +78,7 @@ public class MyTest {
             @Override
             public void run() {
                 try {
-                    myLocker.getValue();
+                    Integer value = myLocker.getValue();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -91,6 +95,10 @@ public class MyTest {
         }
 
         service.shutdown();
+
+        while (!service.isTerminated()) {
+            //等待所有线程结束
+        }
 
         long end = System.currentTimeMillis();
 
