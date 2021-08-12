@@ -15,7 +15,7 @@ public class TcpClient02 {
         //如果服务器没有启动，则会报错：java.net.ConnectException: Connection refused: connect
 
         //1.创建Socket对象
-        Socket socket = new Socket("服务器地址", 10087);
+        Socket socket = new Socket("182.61.20.91", 10087);
 
         System.out.println("客户端启动了.......");
 
