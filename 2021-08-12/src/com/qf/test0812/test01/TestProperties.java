@@ -1,16 +1,15 @@
 package com.qf.test0812.test01;
 
-import java.io.*;
-import java.net.Socket;
-import java.util.Arrays;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class TcpCilent01 {
+public class TestProperties {
 
     public static void main(String[] args) {
 
-        Socket socket = null;
         Properties properties = new Properties();
 
         User user;
@@ -37,14 +36,12 @@ public class TcpCilent01 {
         System.out.println(userInfo);
 
         properties.setProperty("id",userInfo);
-        OutputStream out = null;
+        FileOutputStream out = null;
 
         try {
-            socket = new Socket("localhost",8088);
-//            out = new FileOutputStream("user.properties");
-            out = socket.getOutputStream();
-            properties.store(out,"Sign up");
-            socket.shutdownOutput();
+            out = new FileOutputStream("user.properties");
+            out.flush();
+            properties.store(out,"");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
