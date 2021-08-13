@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c2d2f13b-fe0e-4e22-98cd-aaacd5f40db7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java2105-exam.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test01/Test01.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test02/Book.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test02/BookTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test03/Login.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test04/Bread.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test04/BreadTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test04/Eater.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test04/Maker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test01/Test01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test02/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test02/BookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test03/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test04/Bread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test04/BreadTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test04/Eater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test04/Maker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2021-08-12/src/com/qf/test0812/test01/TcpCilent01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2021-08-12/src/com/qf/test0812/test01/TcpCilent01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2021-08-12/src/com/qf/test0812/test01/TcpServer01.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2021-08-12/src/com/qf/test0812/test01/TcpServer01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/2021-08-12/com/qf/test0812/test01/TcpCilent01.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/2021-08-12/com/qf/test0812/test01/TcpCilent01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/2021-08-12/com/qf/test0812/test01/TcpServer01.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/2021-08-12/com/qf/test0812/test01/TcpServer01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../user.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1wf5jOKVmyv1GhyvKBKWN5UFnWl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\Java2105-exam" />
+      <recent name="D:\IdeaProjects\Java2105-exam\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BreadTest">
+    <configuration name="BookTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.test02.BookTest" />
+      <module name="Java2105-exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.java2105.huangzihao.test02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BreadTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.test04.BreadTest" />
+      <module name="Java2105-exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.java2105.huangzihao.test04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.test03.Login" />
+      <module name="Java2105-exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.java2105.huangzihao.test03.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.MyClass" />
+      <module name="Java2105-exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.java2105.huangzihao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.test01.Test01" />
+      <module name="Java2105-exam" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.java2105.huangzihao.test01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BreadTest" />
+        <item itemvalue="Application.Login" />
+        <item itemvalue="Application.BookTest" />
+        <item itemvalue="Application.Test01" />
+        <item itemvalue="Application.MyClass" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c2d2f13b-fe0e-4e22-98cd-aaacd5f40db7" name="Default Changelist" comment="" />
+      <created>1628836940141</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628836940141</updated>
+      <workItem from="1628836941676" duration="4842000" />
+      <workItem from="1628841968414" duration="6000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

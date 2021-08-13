@@ -36,7 +36,7 @@ public class TcpCilent01 {
         String userInfo = user.toString();
         System.out.println(userInfo);
 
-        properties.setProperty("id",userInfo);
+        properties.put("id" + System.currentTimeMillis(),userInfo);
         OutputStream out = null;
 
         try {
