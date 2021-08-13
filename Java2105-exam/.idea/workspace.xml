@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2d2f13b-fe0e-4e22-98cd-aaacd5f40db7" name="Default Changelist" comment="千锋一阶段考试" />
+    <list default="true" id="c2d2f13b-fe0e-4e22-98cd-aaacd5f40db7" name="Default Changelist" comment="千锋一阶段考试">
+      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test01/ArraysUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test01/Test01.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java2105-exam/com/java2105/huangzihao/test01/Test01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/java2105/huangzihao/test01/Test01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/java2105/huangzihao/test01/Test01.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +45,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
@@ -50,7 +57,7 @@
       <recent name="D:\IdeaProjects\Java2105-exam\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BreadTest">
+  <component name="RunManager" selected="Application.Test01">
     <configuration name="BookTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.java2105.huangzihao.test02.BookTest" />
       <module name="Java2105-exam" />
@@ -116,23 +123,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test01" />
         <item itemvalue="Application.BreadTest" />
         <item itemvalue="Application.Login" />
         <item itemvalue="Application.BookTest" />
-        <item itemvalue="Application.Test01" />
         <item itemvalue="Application.MyClass" />
       </list>
     </recent_temporary>
@@ -147,7 +156,8 @@
       <updated>1628836940141</updated>
       <workItem from="1628836941676" duration="4842000" />
       <workItem from="1628841968414" duration="6000" />
-      <workItem from="1628842199440" duration="292000" />
+      <workItem from="1628842199440" duration="333000" />
+      <workItem from="1628842878378" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="千锋一阶段考试">
       <created>1628842250079</created>
@@ -156,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628842250079</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="千锋一阶段考试">
+      <created>1628842519836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1628842519836</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,5 +1,6 @@
 package com.java2105.huangzihao.test01;
 
+import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -37,7 +38,8 @@ public class Test01 {
         double avg = sum / arrs.length;
 
         //最大值，最小值
-        Arrays.sort(arrs);
+//        Arrays.sort(arrs);
+        ArraysUtil.sort(arrs);
         int max = arrs[arrs.length - 1];
         int min = arrs[0];
         System.out.println("第二步：求和求平均值");
