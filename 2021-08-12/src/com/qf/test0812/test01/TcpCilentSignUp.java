@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Scanner;
 
-public class TcpCilent01 {
+public class TcpCilentSignUp {
 
     public static void main(String[] args) {
 
@@ -20,6 +20,9 @@ public class TcpCilent01 {
         String pwd;
         Integer age;
         Double score;
+
+        System.out.println("客户机启动了======================");
+
         System.out.print("请输入ID：");
         id = scanner.next();
         System.out.print("请输入姓名：");
@@ -33,28 +36,37 @@ public class TcpCilent01 {
 
         user = new User(id,name,pwd,age,score);
 
-        String userInfo = user.toString();
-        System.out.println(userInfo);
+//        String userInfo = user.toString();
+//        System.out.println(userInfo);
+//        properties.put(user.getId(),userInfo);
 
-        properties.put("id",userInfo);
         OutputStream out = null;
+        ObjectOutputStream oos = null;
+        InputStream in = null;
+//        ObjectInputStream ois = null;
+
 
         try {
             socket = new Socket("localhost",8088);
-//            out = new FileOutputStream("user.properties");
+
+            //获得输出流
             out = socket.getOutputStream();
-            properties.store(out,"Sign up");
+            oos = new ObjectOutputStream(out);
+            oos.writeObject(user);
+//            properties.store(out,"Sign up");
             socket.shutdownOutput();
+
+            in = socket.getInputStream();
+            StringBuffer buffer = new StringBuffer();
+            int len;
+            byte[] bytes = new byte[1024];
+            while ((len = in.read(bytes)) != -1) {
+                buffer.append(new String(bytes,0,len));
+                System.out.println(new String(buffer));
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
 
     }

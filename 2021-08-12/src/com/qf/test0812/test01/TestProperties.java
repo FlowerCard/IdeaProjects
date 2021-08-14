@@ -1,18 +1,62 @@
 package com.qf.test0812.test01;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Properties;
-import java.util.Scanner;
+import org.omg.PortableServer.POA;
+
+import java.io.*;
+import java.util.*;
 
 public class TestProperties {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Properties properties = new Properties();
 
-        User user;
+
+
+        FileInputStream fileIn = new FileInputStream("user.properties");
+        properties.load(fileIn);
+        String value = properties.getProperty("1001");
+        String[] info = value.substring(1,value.length() - 1).split(",");
+        String userInfo = info[2].split(":")[1].trim();
+        System.out.println(userInfo);
+
+//        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("userTest.properties"));
+//        user = new User("1001","tom","123",20,60.0);
+//        oos.writeObject(user);
+//        oos.flush();
+//        oos.close();
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("userTest.properties"));
+//        Object object = ois.readObject();
+//        if (object instanceof User) {
+//            User user1 = (User) object;
+//            properties.load(fileIn);
+//            Set<String> propertyNames = properties.stringPropertyNames();
+//            Iterator<String> iterator = propertyNames.iterator();
+//            while (iterator.hasNext()) {
+//                if (iterator.next().equals(user1.getId())) {
+//                    flag = false;
+//                }
+//            }
+//
+//            if (flag) {
+//                FileOutputStream out = new FileOutputStream("user.properties",true);
+//                properties.store(out,"Sign up");
+//            } else {
+//                System.out.println("注册失败");
+//            }
+//
+//        }
+
+
+
+        /*properties.load(new FileInputStream("user.properties"));
+        Set<String> set = properties.stringPropertyNames();
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }*/
+
+        /*User user;
         Scanner scanner = new Scanner(System.in);
         String id;
         String name;
@@ -52,7 +96,7 @@ public class TestProperties {
                     e.printStackTrace();
                 }
             }
-        }
+        }*/
 
     }
 
