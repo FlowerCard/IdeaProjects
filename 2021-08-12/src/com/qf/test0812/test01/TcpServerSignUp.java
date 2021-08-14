@@ -13,7 +13,7 @@ public class TcpServerSignUp extends Thread {
     public boolean checkUser(String check) {
 
         try {
-            properties.load(new FileInputStream("2021-08-12\\user.properties"));
+            properties.load(new FileInputStream("user.properties"));
 
             if (properties.getProperty(check) == null) {
                 return true;
@@ -47,7 +47,7 @@ public class TcpServerSignUp extends Thread {
                         try {
                             //获取输入流
                             InputStream in = socket.getInputStream();
-                            FileOutputStream out = new FileOutputStream("2021-08-12\\user.properties",true);
+                            FileOutputStream out = new FileOutputStream("user.properties",true);
                             OutputStream serverOut = socket.getOutputStream();
                             String userSignUp;
 
@@ -63,10 +63,10 @@ public class TcpServerSignUp extends Thread {
                             if (singUp.checkUser(check)) {
                                 properties.setProperty(check,userSignUp);
                                 properties.store(out,"Sign UP");
-                                serverOut.write("注册成功".getBytes(StandardCharsets.UTF_8));
+                                serverOut.write(("注册成功 ---> " + serverSocket.getInetAddress().getHostAddress()).getBytes(StandardCharsets.UTF_8));
                                 serverOut.flush();
                             } else {
-                                serverOut.write("注册失败".getBytes(StandardCharsets.UTF_8));
+                                serverOut.write(("注册失败---> " + serverSocket.getInetAddress().getHostAddress()).getBytes(StandardCharsets.UTF_8));
                                 serverOut.flush();
                             }
                             socket.shutdownOutput();

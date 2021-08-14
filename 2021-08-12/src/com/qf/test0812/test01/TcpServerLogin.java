@@ -41,7 +41,7 @@ public class TcpServerLogin extends Thread {
                 InputStream in = finalSocket.getInputStream();
                 serverOut = finalSocket.getOutputStream();
                 Boolean flag = false;
-                properties.load(new FileInputStream("2021-08-12\\user.properties"));
+                properties.load(new FileInputStream("user.properties"));
                 int len;
                 byte[] bytes = new byte[1024];
                 StringBuffer buffer = new StringBuffer();
