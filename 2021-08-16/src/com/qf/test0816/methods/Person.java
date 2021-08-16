@@ -13,6 +13,14 @@ public class Person implements Serializable {
     private Integer personId;
     private String personName;
 
+    public void run(){
+        System.out.println("跑步");
+    }
+
+    private void eat(String foodName,int nums) {
+        System.out.println("吃了" + nums + "份" + foodName);
+    }
+
     public Person() {
     }
 
