@@ -1,5 +1,6 @@
 package com.qf.test0816.test02;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * @email HuaPai@odcn.live
  * Created on 2021/8/16.
  */
-public class Person {
+public class Person implements Serializable {
 
     private Integer personId;
     private String personName;

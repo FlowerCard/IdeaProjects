@@ -3,6 +3,7 @@ package com.qf.test0816.test02;
 import java.util.Comparator;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 /**
  * @author HuaPai
@@ -47,12 +48,30 @@ public class MethodReferenceTest {
         System.out.println("--------------------------------------------------------------");
 
         //类::实例方法
-//        Function<String,Integer> fun1 = new Function<String, Integer>() {
-//            @Override
-//            public Integer apply(String s) {
-////                return ;
-//            };
-//        };
+        Function<Person,String> fun1 = new Function<Person, String>() {
+            @Override
+            public String apply(Person person) {
+                return person.getPersonName();
+            }
+        };
+
+//        Function<Person,String> fun2 = person -> person.getPersonName();
+        Function<Person,String> fun2 = Person::getPersonName;
+        System.out.println(fun2.apply(new Person(10, "张三")));
+
+        System.out.println("--------------------------------------------------------------");
+
+        //类::new
+        Supplier<Person> sup1 = new Supplier<Person>() {
+            @Override
+            public Person get() {
+                return new Person();
+            }
+        };
+
+//        Supplier<Person> sup2 = () -> new Person();
+        Supplier<Person> sup2 = Person::new;
+        System.out.println(sup2.get());
 
 
     }
