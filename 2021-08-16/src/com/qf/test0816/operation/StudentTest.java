@@ -3,6 +3,7 @@ package com.qf.test0816.operation;
 import com.qf.test0816.operation.pojo.Student;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -48,6 +49,37 @@ public class StudentTest {
             Method changeGender = clazz.getDeclaredMethod("changeGender", String.class);
             //调用公有方法
             changeGender.invoke(student,"男");
+            System.out.println(student);
+
+            System.out.println("-------------------------我是分割线-------------------------");
+
+            //调用无参构造器创建对象
+            Object newInstance1 = clazz.newInstance();
+            if (newInstance1 instanceof Student) {
+                student = (Student) newInstance1;
+            }
+
+            //获取私有属性
+            Field studentId = clazz.getDeclaredField("studentId");
+            Field studentName = clazz.getDeclaredField("studentName");
+            Field gender = clazz.getDeclaredField("gender");
+            Field age = clazz.getDeclaredField("age");
+            Field score = clazz.getDeclaredField("score");
+
+            //设置暴力访问
+            studentId.setAccessible(true);
+            studentName.setAccessible(true);
+            gender.setAccessible(true);
+            age.setAccessible(true);
+            score.setAccessible(true);
+
+            //设置属性值
+            studentId.set(student,10000001);
+            studentName.set(student,"张三");
+            gender.set(student,"女");
+            age.set(student,22);
+            score.set(student,99.2);
+            //输出学生信息
             System.out.println(student);
 
         } catch (Exception e) {
