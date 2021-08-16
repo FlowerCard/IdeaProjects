@@ -41,8 +41,8 @@ public class StudentTest {
             //设置暴力访问
             minusScore.setAccessible(true);
             //调用私有方法
-            Object minusInVoke = minusScore.invoke(student, 5.5);
-            System.out.println(minusInVoke);
+            Object minusInvoke = minusScore.invoke(student, 5.5);
+            System.out.println(minusInvoke);
 
             //给学生修改性别
             Method changeGender = clazz.getDeclaredMethod("changeGender", String.class);
