@@ -10,6 +10,7 @@ package com.qf.test0817.singletondesignpatterntest;
  */
 public class Signleton02Test {
 
+
     // 1.构造器私有
     private Signleton02Test(){}
 
