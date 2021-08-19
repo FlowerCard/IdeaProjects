@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db4fed6-a31c-4492-8b1b-723d5fbdabae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2021-08-19.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/mysql-connector-java-5.1.25-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qf/test0819/test01/JdbcDepartmentsSQLTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qf/test0819/test01/JdbcEmployeesSQLTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qf/test0819/test01/JdbcLocationsSQLTest.java" afterDir="false" />
+    <list default="true" id="5db4fed6-a31c-4492-8b1b-723d5fbdabae" name="Changes" comment="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关">
+      <change afterPath="$PROJECT_DIR$/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +106,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629371481505</updated>
-      <workItem from="1629371482793" duration="3854000" />
+      <workItem from="1629371482793" duration="5483000" />
     </task>
+    <task id="LOCAL-00001" summary="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关">
+      <created>1629375565182</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629375565182</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,5 +131,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关" />
+    <option name="LAST_COMMIT_MESSAGE" value="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关" />
   </component>
 </project>
