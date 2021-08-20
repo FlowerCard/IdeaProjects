@@ -1,7 +1,5 @@
-package com.qf.test0820;
+package com.qf.test0820.test01;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.*;
