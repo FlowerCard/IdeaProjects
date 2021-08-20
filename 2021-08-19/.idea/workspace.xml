@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5db4fed6-a31c-4492-8b1b-723d5fbdabae" name="Changes" comment="增加jdbc.properties" />
+    <list default="true" id="5db4fed6-a31c-4492-8b1b-723d5fbdabae" name="Changes" comment="增加jdbc.properties">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,10 +34,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../QianFengPackages/视频课件/二阶段/2021-08-19/代码/jdbc-demo01" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.17006803" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -103,7 +106,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1629371481505</updated>
-      <workItem from="1629371482793" duration="6038000" />
+      <workItem from="1629371482793" duration="7527000" />
+      <workItem from="1629419058978" duration="3483000" />
+      <workItem from="1629423739264" duration="2863000" />
     </task>
     <task id="LOCAL-00001" summary="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关">
       <created>1629375565182</created>
@@ -119,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629377036267</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="增加jdbc.properties">
+      <created>1629377785711</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629377785711</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +147,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="JDBC快速入门练习&#10;&#10;1.反射获取数据库驱动&#10;&#10;2.创建连接&#10;&#10;3.编写SQL&#10;&#10;4.获取执行SQL的载体&#10;&#10;5.执行SQL&#10;&#10;6.处理结果&#10;&#10;7.释放资源，先开后关" />
