@@ -310,7 +310,7 @@ public class JdbcTest {
         try {
             String sql = "select country_id, country_name from t_countries";
             resultSet = JdbcUtils.jdbcQuery(JdbcUtils.getConnection(), sql);
-            Countries countries = null;
+            Countries countries;
             List<Countries> countriesList = new ArrayList<>();
             while (resultSet.next()) {
                 String countryId = resultSet.getString(1);
