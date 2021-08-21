@@ -49,7 +49,8 @@ public class JdbcTest {
     public void jdbcEmployeeDaoImplDeleteTest(){
         IEmployeeDao employeeDao = new EmployeeDaoImpl();
         try {
-            int i = employeeDao.deleteById(207L);
+            String sql = "delete from t_employees where EMPLOYEE_ID=?";
+            int i = employeeDao.deleteById(207L, sql);
             if (i > 0) {
                 System.out.println("删除成功");
             } else {
@@ -71,7 +72,8 @@ public class JdbcTest {
                 new Date(),"AC_ACCOUNT",25000L,0.0,101L,110L
         );
         try {
-            int update = employeeDao.update(employee);
+            String sql = "update t_employees set MANAGER_ID=? where EMPLOYEE_ID=?";
+            int update = employeeDao.update(employee, sql);
             if (update > 0) {
                 System.out.println("更新成功");
             } else {
@@ -93,7 +95,10 @@ public class JdbcTest {
                 new Date(),"AC_ACCOUNT",25000L,0.0,null,110L
         );
         try {
-            int insert = employeeDao.insert(employee);
+            String sql = "insert into t_employees (employee_id, first_name, last_name, email, phone_number, hire_date, " +
+                    "job_id, salary, commission_pct, manager_id, department_id) \n" +
+                    "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            int insert = employeeDao.insert(employee, sql);
             if (insert > 0) {
                 System.out.println("插入成功");
             } else {
@@ -113,7 +118,9 @@ public class JdbcTest {
         Employee employee = new Employee();
         employee.setEmployeeId(180L);
         try {
-            Employee byId = employeeDao.findById(employee.getEmployeeId());
+            String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, " +
+                    "commission_pct, manager_id, department_id from t_employees where EMPLOYEE_ID=?";
+            Employee byId = employeeDao.findById(employee.getEmployeeId(), sql);
             System.out.println(byId);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,7 +134,9 @@ public class JdbcTest {
     public void jdbcEmployeeDaoImplQueryAllTest(){
         IEmployeeDao employeeDao = new EmployeeDaoImpl();
         try {
-            List<Employee> all = employeeDao.findAll();
+            String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary," +
+                    " commission_pct, manager_id, department_id from t_employees";
+            List<Employee> all = employeeDao.findAll(sql);
             for (Employee employee1 : all) {
                 System.out.println(employee1);
             }

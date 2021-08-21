@@ -22,11 +22,12 @@ public class EmployeeDaoImpl implements IEmployeeDao {
      * 删除
      *
      * @param employeeId 需要删除的ID数据
+     * @param sql        需要执行的SQL
      * @return 返回受影响行
      */
     @Override
-    public int deleteById(Long employeeId) throws SQLException {
-        String sql = "delete from t_employees where EMPLOYEE_ID=?";
+    public int deleteById(Long employeeId, String sql) throws SQLException {
+//        String sql = "delete from t_employees where EMPLOYEE_ID=?";
         return JdbcUtils.delete(JdbcUtils.getConnection(),sql,employeeId);
     }
 
@@ -34,11 +35,12 @@ public class EmployeeDaoImpl implements IEmployeeDao {
      * 更新
      *
      * @param employee 需要更新的对象
+     * @param sql      需要执行的SQL
      * @return 返回受影响行数
      */
     @Override
-    public int update(Employee employee) throws SQLException {
-        String sql = "update t_employees set MANAGER_ID=? where EMPLOYEE_ID=?";
+    public int update(Employee employee, String sql) throws SQLException {
+//        String sql = "update t_employees set MANAGER_ID=? where EMPLOYEE_ID=?";
         return JdbcUtils.update(JdbcUtils.getConnection(),sql,employee.getManagerId(),employee.getEmployeeId());
     }
 
@@ -46,13 +48,14 @@ public class EmployeeDaoImpl implements IEmployeeDao {
      * 插入
      *
      * @param employee 需要插入的对象
+     * @param sql      需要执行的SQL
      * @return 返回受影响行数
      */
     @Override
-    public int insert(Employee employee) throws SQLException {
-        String sql = "insert into t_employees (employee_id, first_name, last_name, email, phone_number, hire_date, " +
-                "job_id, salary, commission_pct, manager_id, department_id) \n" +
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    public int insert(Employee employee, String sql) throws SQLException {
+//        String sql = "insert into t_employees (employee_id, first_name, last_name, email, phone_number, hire_date, " +
+//                "job_id, salary, commission_pct, manager_id, department_id) \n" +
+//                "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         return JdbcUtils.insert(JdbcUtils.getConnection(),sql,employee.getEmployeeId(),employee.getFirstName(),
                 employee.getLastName(),employee.getEmail(),employee.getPhoneNumber() ,employee.getHireDate(),
                 employee.getJobId(),employee.getSalary(), employee.getCommissionPct(), employee.getManagerId(),
@@ -62,12 +65,13 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     /**
      * 查找所有字段
      *
+     * @param sql   需要执行的SQL
      * @return 返回结果列表
      */
     @Override
-    public List<Employee> findAll() throws SQLException {
-        String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary," +
-                " commission_pct, manager_id, department_id from t_employees";
+    public List<Employee> findAll(String sql) throws SQLException {
+//        String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary," +
+//                " commission_pct, manager_id, department_id from t_employees";
         Connection connection = JdbcUtils.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -97,12 +101,13 @@ public class EmployeeDaoImpl implements IEmployeeDao {
      * 通过ID查询
      *
      * @param employeeId 对象ID
+     * @param sql        需要执行的SQL
      * @return 返回结果对象
      */
     @Override
-    public Employee findById(Long employeeId) throws SQLException {
-        String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, " +
-                "commission_pct, manager_id, department_id from t_employees where EMPLOYEE_ID=?";
+    public Employee findById(Long employeeId, String sql) throws SQLException {
+//        String sql = "select employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, " +
+//                "commission_pct, manager_id, department_id from t_employees where EMPLOYEE_ID=?";
         Connection connection = JdbcUtils.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setLong(1,employeeId);
