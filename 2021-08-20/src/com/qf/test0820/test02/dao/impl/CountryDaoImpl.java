@@ -24,7 +24,7 @@ public class CountryDaoImpl implements ICountryDao {
      */
     @Override
     public int deleteById(Long countryId, String sql) throws SQLException {
-        return 0;
+        return JdbcUtils.delete(JdbcUtils.getConnection(),sql,countryId);
     }
 
     /**
@@ -36,7 +36,7 @@ public class CountryDaoImpl implements ICountryDao {
      */
     @Override
     public int update(Countries countries, String sql) throws SQLException {
-        return 0;
+        return JdbcUtils.update(JdbcUtils.getConnection(),sql,countries.getCountryName(),countries.getCountryId());
     }
 
     /**
