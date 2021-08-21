@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 public class Employee implements Serializable {
 
+    private static final long serialVersionUID = -6510920586200791119L;
     //employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id
     private Long employeeId;
     private String firstName;

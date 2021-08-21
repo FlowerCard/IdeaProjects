@@ -22,45 +22,49 @@ public class DepartmentDaoImpl implements IDepartmentDao {
 
     /**
      * @param department 部门对象
+     * @param sql        需要执行的SQL
      * @return           受影响行数
      * @throws SQLException SQL异常
      */
     @Override
-    public int insert(Department department) throws SQLException {
-        String sql = "insert into t_departments (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) VALUES (?,?,?,?)";
+    public int insert(Department department, String sql) throws SQLException {
+//        String sql = "insert into t_departments (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) VALUES (?,?,?,?)";
         return JdbcUtils.insert(JdbcUtils.getConnection(),sql,department.getDepartmentId(),
                 department.getDepartmentName(),department.getManagerId(),department.getLocationId());
     }
 
     /**
      * @param department   部门对象
+     * @param sql
      * @return             受影响行数
      * @throws SQLException SQL异常
      */
     @Override
-    public int updateById(Department department) throws SQLException {
-        String sql = "update t_departments set MANAGER_ID=? where DEPARTMENT_ID=?";
-        return JdbcUtils.update(JdbcUtils.getConnection(),sql,department.getManagerId(),department.getDepartmentId());
+    public int update(Department department, String sql) throws SQLException {
+//        String sql = "update t_departments set MANAGER_ID=? where DEPARTMENT_ID=?";
+        return JdbcUtils.update(JdbcUtils.getConnection(),sql,department.getDepartmentId());
     }
 
     /**
      * @param departmentId  部门ID
+     * @param sql
      * @return              受影响行数
      * @throws SQLException SQL异常
      */
     @Override
-    public int deleteById(Long departmentId) throws SQLException {
-        String sql = "delete from t_departments where DEPARTMENT_ID=?";
+    public int deleteById(Long departmentId, String sql) throws SQLException {
+//        String sql = "delete from t_departments where DEPARTMENT_ID=?";
         return JdbcUtils.delete(JdbcUtils.getConnection(),sql,departmentId);
     }
 
     /**
      * @return              返回结果列表
      * @throws SQLException SQL异常
+     * @param sql
      */
     @Override
-    public List<Department> findAll() throws SQLException {
-        String sql = "select department_id, department_name, manager_id, location_id from t_departments";
+    public List<Department> findAll(String sql) throws SQLException {
+//        String sql = "select department_id, department_name, manager_id, location_id from t_departments";
         List<Department> departments = new ArrayList<>();
         Connection connection = JdbcUtils.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -83,8 +87,8 @@ public class DepartmentDaoImpl implements IDepartmentDao {
      * @throws SQLException SQL异常
      */
     @Override
-    public Department findById(Long departmentId) throws SQLException {
-        String sql = "select department_id, department_name, manager_id, location_id from t_departments where department_id=?";
+    public Department findById(Long departmentId,String sql) throws SQLException {
+//        String sql = "select department_id, department_name, manager_id, location_id from t_departments where department_id=?";
         Connection connection = JdbcUtils.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setLong(1,departmentId);

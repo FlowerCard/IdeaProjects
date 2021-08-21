@@ -11,6 +11,7 @@ import java.util.Objects;
  */
 public class Department implements Serializable {
 
+    private static final long serialVersionUID = -1305515842023052220L;
     private Long departmentId;
     private String departmentName;
     private Long managerId;

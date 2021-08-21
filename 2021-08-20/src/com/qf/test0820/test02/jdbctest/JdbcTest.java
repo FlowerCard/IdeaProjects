@@ -1,16 +1,21 @@
 package com.qf.test0820.test02.jdbctest;
 
+import com.qf.test0820.test02.dao.ICountryDao;
 import com.qf.test0820.test02.dao.IDepartmentDao;
 import com.qf.test0820.test02.dao.IEmployeeDao;
+import com.qf.test0820.test02.dao.impl.CountryDaoImpl;
 import com.qf.test0820.test02.dao.impl.DepartmentDaoImpl;
 import com.qf.test0820.test02.dao.impl.EmployeeDaoImpl;
+import com.qf.test0820.test02.pojo.Countries;
 import com.qf.test0820.test02.pojo.Department;
 import com.qf.test0820.test02.pojo.Employee;
 import com.qf.test0820.test02.utils.JdbcUtils;
 import org.junit.Test;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,10 +27,26 @@ import java.util.List;
 public class JdbcTest {
 
     /**
+     * 国家字段插入测试
+     */
+    @Test
+    public void jdbcCountryDaoImplInsertTest(){
+        ICountryDao countryDao = new CountryDaoImpl();
+        String sql = "insert into t_countries (COUNTRY_ID, COUNTRY_NAME) VALUES (?,?)";
+        Countries countries = new Countries("KR","Korea");
+        try {
+            int insert = countryDao.insert(countries, sql);
+            System.out.println(insert > 0 ? "插入成功" : "插入失败");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * EmployeeDaoImplDelect测试
      */
     @Test
-    public void jdbcEmployeeDaoImplDelete(){
+    public void jdbcEmployeeDaoImplDeleteTest(){
         IEmployeeDao employeeDao = new EmployeeDaoImpl();
         try {
             int i = employeeDao.deleteById(207L);
@@ -122,7 +143,8 @@ public class JdbcTest {
     public void jdbcDaoDeleteTest(){
         IDepartmentDao departmentDao = new DepartmentDaoImpl();
         try {
-            int i = departmentDao.deleteById(2721L);
+            String sql = "delete from t_departments where DEPARTMENT_ID=?";
+            int i = departmentDao.deleteById(2721L, sql);
             if (i > 0) {
                 System.out.println("删除成功");
             } else {
@@ -141,7 +163,8 @@ public class JdbcTest {
         IDepartmentDao departmentDao = new DepartmentDaoImpl();
         Department department = new Department(271L,"人事部",300L,"杭州");
         try {
-            int i = departmentDao.updateById(department);
+            String sql = "update t_departments set MANAGER_ID=? where DEPARTMENT_ID=?";
+            int i = departmentDao.update(department, sql);
             if (i > 0) {
                 System.out.println("修改成功");
             } else {
@@ -160,7 +183,8 @@ public class JdbcTest {
         IDepartmentDao departmentDao = new DepartmentDaoImpl();
         Department department = new Department(271L,"人事部",210L,"杭州");
         try {
-            int insert = departmentDao.insert(department);
+            String sql = "insert into t_departments (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID) VALUES (?,?,?,?)";
+            int insert = departmentDao.insert(department, sql);
             if (insert > 0) {
                 System.out.println("插入成功");
             } else {
@@ -181,7 +205,8 @@ public class JdbcTest {
         Department department = new Department();
         department.setDepartmentId(270L);
         try {
-            Department byId = departmentDao.findById(department.getDepartmentId());
+            String sql = "select department_id, department_name, manager_id, location_id from t_departments where department_id=?";
+            Department byId = departmentDao.findById(department.getDepartmentId(),sql);
             System.out.println(byId);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -196,7 +221,8 @@ public class JdbcTest {
     public void jdbcDaoQueryAllTest(){
         IDepartmentDao departmentDao = new DepartmentDaoImpl();
         try {
-            List<Department> departments = departmentDao.findAll();
+            String sql = "select department_id, department_name, manager_id, location_id from t_departments";
+            List<Department> departments = departmentDao.findAll(sql);
             for (Department department1 : departments) {
                 System.out.println(department1);
             }
@@ -253,31 +279,57 @@ public class JdbcTest {
         }
     }
 
-    /*@Test
-    public void jdbcQueryTest(){
-        Connection connection;
-        ResultSet resultSet;
+    @Test
+    public void jdbcQueryById(){
+        ResultSet resultSet = null;
         try {
-            connection = JdbcUtils.getConnection();
-            String sql = "select department_id, department_name, manager_id, location_id from t_departments";
-            Department department = new Department();
-            resultSet = JdbcUtils.jdbcQuery(connection, sql);
+            String sql = "select country_id, country_name from t_countries where COUNTRY_ID = ?";
+            resultSet = JdbcUtils.jdbcQuery(JdbcUtils.getConnection(), sql, "CN");
+            Countries countries = null;
             while (resultSet.next()) {
-                department.setDepartmentId(resultSet.getLong(1));
-                department.setDepartmentName(resultSet.getString(2));
-                department.setManagerId(resultSet.getLong(3));
-                department.setLocationId(resultSet.getString(4));
+                String countryId = resultSet.getString(1);
+                String countryName = resultSet.getString(2);
+                countries = new Countries(countryId,countryName);
             }
-            System.out.println(department);
+            System.out.println(countries);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             try {
-                JdbcUtils.release(null,null);
+                JdbcUtils.release(resultSet,null);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-    }*/
+
+    }
+
+    @Test
+    public void jdbcQueryTest(){
+        ResultSet resultSet = null;
+        try {
+            String sql = "select country_id, country_name from t_countries";
+            resultSet = JdbcUtils.jdbcQuery(JdbcUtils.getConnection(), sql);
+            Countries countries = null;
+            List<Countries> countriesList = new ArrayList<>();
+            while (resultSet.next()) {
+                String countryId = resultSet.getString(1);
+                String countryName = resultSet.getString(2);
+                countries = new Countries(countryId,countryName);
+                countriesList.add(countries);
+            }
+            for (Countries countries1 : countriesList) {
+                System.out.println(countries1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                JdbcUtils.release(resultSet,null);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

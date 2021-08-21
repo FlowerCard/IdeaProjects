@@ -104,15 +104,18 @@ public class JdbcUtils {
         }
     }
 
-//    public static void jdbcQuery(Connection connection,String sql,Object ... params) throws SQLException {
-//        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//        for (int i = 0; i < params.length; i++) {
-//            preparedStatement.setObject(i + 1,params[i]);
-//        }
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        List list = new ArrayList();
-//        while (resultSet)
-//    }
+    public static ResultSet jdbcQuery(Connection connection,String sql) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        return preparedStatement.executeQuery();
+    }
+
+    public static ResultSet jdbcQuery(Connection connection,String sql,Object ... params) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        for (int i = 0; i < params.length; i++) {
+            preparedStatement.setObject(i + 1,params[i]);
+        }
+        return preparedStatement.executeQuery();
+    }
 
 
 }
