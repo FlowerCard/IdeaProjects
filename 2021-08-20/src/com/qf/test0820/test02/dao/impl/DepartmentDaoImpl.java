@@ -51,7 +51,7 @@ public class DepartmentDaoImpl implements IDepartmentDao {
     @Override
     public int deleteById(Long departmentId) throws SQLException {
         String sql = "delete from t_departments where DEPARTMENT_ID=?";
-        return JdbcUtils.update(JdbcUtils.getConnection(),sql,departmentId);
+        return JdbcUtils.delete(JdbcUtils.getConnection(),sql,departmentId);
     }
 
     /**
