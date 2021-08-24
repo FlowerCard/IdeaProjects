@@ -25,8 +25,9 @@ public class Login {
         System.out.println("====================欢迎进入=========================");
         System.out.println("=====================1、注册=========================");
         System.out.println("=====================2、登录=========================");
-        int chose = scanner.nextInt();
-        if (chose == 1) {
+        System.out.println("=====================3、按任意键退出=========================");
+        String chose = scanner.next();
+        if ("1".equals(chose)) {
             System.out.println("请输入注册账号：");
             useraccount = scanner.next();
             System.out.println("请输入注册用户名：");
@@ -34,13 +35,13 @@ public class Login {
             System.out.println("请输入注册密码：");
             password = scanner.next();
             user = new User(useraccount,username,password,0D);
-            boolean signUP = loginService.signUp(user);
-            if (signUP) {
+            boolean signUp = loginService.signUp(user);
+            if (signUp) {
                 System.out.println("注册成功");
             } else {
                 System.out.println("注册失败");
             }
-        } else if (chose == 2) {
+        } else if ("2".equals(chose)) {
             System.out.println("默认登录用户名：123@163.com，密码：123");
             System.out.print("请输入用户名：");
             username = scanner.next();
@@ -52,6 +53,8 @@ public class Login {
             } else {
                 System.out.println("登录失败");
             }
+        } else {
+            System.exit(0);
         }
 
 

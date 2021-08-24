@@ -1,5 +1,6 @@
 package com.work.service.impl;
 
+import com.alibaba.druid.util.StringUtils;
 import com.work.dao.ILoginDao;
 import com.work.dao.impl.LoginDaoImpl;
 import com.work.pojo.User;
@@ -29,13 +30,21 @@ public class LoginServiceImpl implements ILoginService {
     public boolean login(String useraccount, String password) {
 
         try {
-            User user = loginDao.queryByAccount(useraccount, password);
-            if (user.getUseraccount() != null && user.getPassword() != null) {
-                System.out.println(user);
-                return true;
-            } else {
-                return false;
+            User user = loginDao.queryByAccount(useraccount);
+            if (null == user) {
+                throw new RuntimeException("账户不存在");
             }
+
+            if (StringUtils.isEmpty(password)) {
+                throw new RuntimeException("密码不能为空");
+            }
+
+            if (!password.equals(user.getPassword())) {
+                throw new RuntimeException("账号或密码错误");
+            }
+
+            System.out.println(user);
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();

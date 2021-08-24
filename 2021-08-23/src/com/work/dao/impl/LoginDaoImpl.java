@@ -41,19 +41,17 @@ public class LoginDaoImpl implements ILoginDao {
      * 查询用户名对应的数据
      *
      * @param account 需要查询的用户名
-     * @param password  密码
      * @return 返回对象
      * @throws SQLException 异常
      */
     @Override
-    public User queryByAccount(String account, String password) throws SQLException {
+    public User queryByAccount(String account) throws SQLException {
         queryRunner = new QueryRunner(DbUtils.getDataSource());
-        String sql = "select id, useraccount, username, password, balance from t_login where useraccount = ? and password = ?";
+        String sql = "select id, useraccount, username, password, balance from t_login where useraccount = ?";
         return queryRunner.query(
                 sql,
                 new BeanHandler<>(User.class),
-                account,
-                password
+                account
         );
     }
 
