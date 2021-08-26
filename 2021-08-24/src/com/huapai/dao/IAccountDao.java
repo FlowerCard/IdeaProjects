@@ -45,11 +45,11 @@ public interface IAccountDao {
 
     /**
      * 删除
-     * @param accountNum 用户Num
+     * @param accountId 用户Id
      * @return 返回受影响行数
      * @throws SQLException 异常
      */
-    public int deleteByNum(String accountNum) throws SQLException;
+    public int deleteById(String accountId) throws SQLException;
 
 
 }

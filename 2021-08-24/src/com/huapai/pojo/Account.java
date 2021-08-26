@@ -15,18 +15,18 @@ public class Account implements Serializable {
     private Long id;
     private String accountNum;
     private String accountName;
-    private String balance;
+    private Double balance;
 
     public Account() {
     }
 
-    public Account(String accountNum, String accountName, String balance) {
+    public Account(String accountNum, String accountName, Double balance) {
         this.accountNum = accountNum;
         this.accountName = accountName;
         this.balance = balance;
     }
 
-    public Account(Long id, String accountNum, String accountName, String balance) {
+    public Account(Long id, String accountNum, String accountName, Double balance) {
         this.id = id;
         this.accountNum = accountNum;
         this.accountName = accountName;
@@ -57,11 +57,11 @@ public class Account implements Serializable {
         this.accountName = accountName;
     }
 
-    public String getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 
