@@ -90,7 +90,21 @@ public class AccountServiceImpl implements IAccountService {
      */
     @Override
     public boolean withdrawal(String accountNum, Double amount) {
-        return false;
+        try {
+            DbUtil.begin();
+            Account account = accountDao.queryByNum(accountNum);
+            if (null == account) {
+                throw new RuntimeException("账户不能存在");
+            }
+            account.setBalance(account.getBalance() - amount);
+            accountDao.update(account);
+            DbUtil.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            DbUtil.rollback();
+            return false;
+        }
     }
 
     /**
