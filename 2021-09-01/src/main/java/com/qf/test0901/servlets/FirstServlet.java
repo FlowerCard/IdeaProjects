@@ -12,12 +12,13 @@ import java.io.IOException;
  * @email HuaPai@odcn.live
  * Created on 2021/9/1.
  */
-@WebServlet("/firstServlet")
+@WebServlet("/first")
 public class FirstServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String host = request.getHeader("host");
+        System.out.println("host = " + host);
     }
 
     @Override
