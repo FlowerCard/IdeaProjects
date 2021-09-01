@@ -64,8 +64,6 @@ public class LoginController extends HttpServlet {
                 if (user.getPassword().equals(password)) {
                     // 登录成功
                     response.getWriter().write("登录成功");
-                    RequestDispatcher requestDispatcher = request.getRequestDispatcher("update_user.html");
-                    requestDispatcher.forward(request,response);
                     return;
                 }
             }
