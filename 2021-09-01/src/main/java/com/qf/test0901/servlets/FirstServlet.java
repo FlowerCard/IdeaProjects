@@ -1,4 +1,4 @@
-package com.qf.test0901;
+package com.qf.test0901.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author ghy
- * @version 1.0
- * @date 2021-09-01
- **/
-@WebServlet("/sevenServlet")
-public class SevenServlet extends HttpServlet {
+ * @author HuaPai
+ * @email HuaPai@odcn.live
+ * Created on 2021/9/1.
+ */
+@WebServlet("/firstServlet")
+public class FirstServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
