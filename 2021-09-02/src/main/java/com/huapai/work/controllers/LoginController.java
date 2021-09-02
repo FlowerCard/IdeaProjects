@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 
             //校验验证码
             String vcode = (String) request.getSession().getAttribute("vcode");
-            if (!inputVcode.isEmpty() && inputVcode.equalsIgnoreCase(vcode)) {
+            if ((null != inputVcode || !"".equals(inputVcode.trim())) && inputVcode.equalsIgnoreCase(vcode)) {
                 //查找用户
                 String sql = "select id, useraccount, username, password, balance from t_login where useraccount = ?";
                 preparedStatement = connection.prepareStatement(sql);
@@ -73,6 +73,7 @@ public class LoginController extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/login.html");
         } finally {
 
             if (null != resultSet) {

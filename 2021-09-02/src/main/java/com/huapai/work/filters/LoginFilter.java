@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
         User user = (User) session.getAttribute("user");
         String requestURI = request.getRequestURI();
         if (requestURI.contains("/index.jsp") || requestURI.contains("login.html") || requestURI.contains("/css/") ||
-            requestURI.contains("/validateCoide")) {
+            requestURI.contains("/loginController") || requestURI.contains("/validateCoide")) {
             chain.doFilter(servletRequest,servletResponse);
         } else {
             if (null != user) { // 已经登陆
