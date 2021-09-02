@@ -63,11 +63,15 @@ public class LoginController extends HttpServlet {
                         session.setAttribute("user", user);
                         //跳转到登录成功页
                         response.sendRedirect(request.getContextPath() + "/login_success.html");
+                    } else {
+                        //账号或用户名错误，跳回登录页
+                        response.sendRedirect(request.getContextPath() + "/login.html");
                     }
+                } else {
+                    //账户不存在
+                    response.sendRedirect(request.getContextPath() + "/login.html");
                 }
             } else {
-                //账号或用户名错误，跳回登录页
-                //账户不存在
                 //验证码输入错误，跳回登录页
                 response.sendRedirect(request.getContextPath() + "/login.html");
             }
