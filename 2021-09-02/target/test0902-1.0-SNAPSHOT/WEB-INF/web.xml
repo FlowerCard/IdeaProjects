@@ -14,4 +14,13 @@
         <url-pattern>/login</url-pattern>
     </filter-mapping>
 
+   <!-- <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>com.huapai.work.filters.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/login_success.html</url-pattern>
+    </filter-mapping>-->
+
 </web-app>
