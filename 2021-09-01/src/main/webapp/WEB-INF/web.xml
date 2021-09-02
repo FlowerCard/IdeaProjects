@@ -3,4 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    
+    <servlet>
+        <servlet-name>secondServlet</servlet-name>
+        <servlet-class>com.qf.test0901.servlets.SecondServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>jack</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>jack123</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>secondServlet</servlet-name>
+        <url-pattern>/second</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
