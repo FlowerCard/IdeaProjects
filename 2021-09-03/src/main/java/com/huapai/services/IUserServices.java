@@ -1,6 +1,7 @@
 package com.huapai.services;
 
 import com.huapai.common.ResultVO;
+import com.huapai.pojo.User;
 
 /**
  * @author HuaPai
@@ -16,5 +17,12 @@ public interface IUserServices {
      * @return
      */
     public ResultVO login(String account,String password);
+
+    /**
+     * 注册
+     * @param user 用户
+     * @return 受影响行数
+     */
+    public Boolean register(User user);
     
 }

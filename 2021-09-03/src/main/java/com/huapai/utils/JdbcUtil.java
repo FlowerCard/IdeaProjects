@@ -22,96 +22,71 @@ public class JdbcUtil {
 
     static {
         try {
-            //反射加载数据库配置文件
             PROPERTIES.load(JdbcUtil.class.getClassLoader().getResourceAsStream("druid.properties"));
-            //加载Druid连接池配置
             dataSource = DruidDataSourceFactory.createDataSource(PROPERTIES);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * 获取数据源
-     * @return 返回数据源
-     */
-    public static DataSource getDataSource() {return dataSource;}
+    public static DataSource getDataSource() {
+        return dataSource;
+    }
 
-    /**
-     * 获取链接
-     * @return 返回链接
-     * @throws SQLException 异常
-     */
     public static Connection getConnection() throws SQLException {
-        //线程绑定获取Connection
+        //1.获取connection
         Connection connection = threadLocal.get();
         if (null == connection) {
             connection = dataSource.getConnection();
-            //把connection绑定到threadlocal中
+            //绑定
             threadLocal.set(connection);
         }
+        System.out.println(connection);
         return connection;
     }
 
-    /**
-     * 释放资源
-     * @param resultSet 结果集
-     * @param statement SQL运行载体
-     * @param connection 数据库链接
-     * @throws SQLException SQL异常
-     */
-    public static void release(ResultSet resultSet, Statement statement, Connection connection) throws SQLException {
-        if (null != resultSet) {
-            resultSet.close();
+    public static void release(ResultSet resultSet, Statement statement, Connection connection) {
+        try {
+            if (null != resultSet) {
+                resultSet.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        if (null != statement) {
-            statement.close();
+        try {
+            if (null != statement) {
+                statement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        if (null != connection) {
-            connection.close();
+        try {
+            if (null != connection) {
+                //解绑
+                threadLocal.remove();
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
-    /**
-     * 通用更新
-     * @param sql       SQL语句
-     * @param params    参数
-     * @return          返回受影响行数
-     * @throws SQLException SQL异常
-     */
-    public static int commonUpdate(String sql,Object ... params) throws SQLException {
+    public static int commonUpdate(String sql, Object... params) throws SQLException {
         PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-        if (null != params && 0 < params.length) {
+        if (null != params && params.length > 0) {
             for (int i = 0; i < params.length; i++) {
-                preparedStatement.setObject(i+1,params[i]);
+                preparedStatement.setObject(i + 1, params[i]);
             }
         }
         int row = preparedStatement.executeUpdate();
-        release(null,preparedStatement,null);
+        JdbcUtil.release(null, preparedStatement, null);
         return row;
     }
 
-    /**
-     * 通用查询
-     * @param sql       执行的SQL
-     * @param params    参数列表
-     * @return          返回结果集
-     * @throws SQLException SQL异常
-     */
-    public static ResultSet commonQuery(String sql, Object ... params) throws SQLException {
-        PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-        if (null != params && 0 < params.length) {
-            for (int i = 0; i < params.length; i++) {
-                preparedStatement.setObject(i+1,params[i]);
-            }
-        }
-        ResultSet executeQuery = preparedStatement.executeQuery();
-        release(executeQuery,preparedStatement,null);
-        return executeQuery;
-    }
 
     /**
-     * 事务开始
+     * 开启事务
      */
     public static void begin() {
         try {
@@ -122,24 +97,24 @@ public class JdbcUtil {
     }
 
     /**
-     * 事务提交
+     * 提交事务
      */
     public static void commit() {
         try {
             getConnection().commit();
-            release(null,null,getConnection());
+            JdbcUtil.release(null, null, getConnection());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 事务回滚
+     * 回滚事务
      */
     public static void rollback() {
         try {
             getConnection().rollback();
-            release(null,null,getConnection());
+            JdbcUtil.release(null, null, getConnection());
         } catch (SQLException e) {
             e.printStackTrace();
         }

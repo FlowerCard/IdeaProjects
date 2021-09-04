@@ -61,8 +61,7 @@ public class UserDaoImpl implements IUserDao {
                 "values (?,?,?,?,?,?,?)";
         return queryRunner.update(
                 sql,
-                user.getUseraccount(),user.getUsername(),user.getPassword(),user.getPassword(),user.getRealname(),
-                user.getIdcode(),new Date(),new Date()
+                user.getUseraccount(),user.getUsername(),user.getPassword(),user.getRealname(),user.getIdcode(),new Date(),new Date()
         );
     }
 

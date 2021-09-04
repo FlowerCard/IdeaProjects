@@ -29,7 +29,7 @@ public class LoginFilter implements Filter {
         String requestURI = request.getRequestURI();
         if (requestURI.endsWith(".html") || requestURI.endsWith("/user/login") || requestURI.endsWith("/user/register")
             || requestURI.contains("/validateCoide")) {
-            filterChain.doFilter(servletRequest,servletResponse);
+            filterChain.doFilter(request,response);
             return;
         }
 
@@ -39,7 +39,7 @@ public class LoginFilter implements Filter {
             return;
         }
         
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(request,response);
 
     }
 }

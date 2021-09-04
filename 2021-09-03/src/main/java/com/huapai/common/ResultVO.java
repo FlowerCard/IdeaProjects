@@ -62,11 +62,6 @@ public class ResultVO implements Serializable {
         this.message = message;
     }
 
-    public ResultVO(String message, Object data) {
-        this.message = message;
-        this.data = data;
-    }
-
     public ResultVO(Boolean success, String message, Object data) {
         this.success = success;
         this.message = message;

@@ -1,6 +1,7 @@
 package com.huapai.controller;
 
 import com.huapai.common.ResultVO;
+import com.huapai.constant.UserMessageConstant;
 import com.huapai.pojo.User;
 import com.huapai.services.IUserServices;
 import com.huapai.services.impl.UserServicesImpl;
@@ -28,8 +29,13 @@ public class UserLoginController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String useraccount = request.getParameter("useraccount");
         String password = request.getParameter("password");
+        String inputVcode = request.getParameter("inputVcode");
+        String code = (String) request.getSession().getAttribute("vcode");
 
-        ResultVO resultVO = userServices.login(useraccount, password);
+        ResultVO resultVO = ResultVO.fail("验证码错误");
+        if ((null != inputVcode || "".equals(inputVcode.trim())) && code.equalsIgnoreCase(inputVcode)) {
+            resultVO = userServices.login(useraccount, password);
+        }
 
         PrintWriter writer = response.getWriter();
         
@@ -40,7 +46,14 @@ public class UserLoginController extends HttpServlet {
             
             writer.write("<h1>" + data.getUsername() + "登录成功</h1>");
         } else {
-            writer.write(resultVO.getMessage());
+            if (resultVO.getMessage().equals(UserMessageConstant.UNKNOWN_USER)) {
+                response.sendRedirect(request.getContextPath() + "/pages/user/register.html");
+            } else {
+                writer.write(
+                        "<h1>" + resultVO.getMessage() + "</h1>" + "<a href='"
+                                + request.getContextPath() + "/pages/user/login.html'>返回</a>"
+                );
+            }
         }
     }
 
