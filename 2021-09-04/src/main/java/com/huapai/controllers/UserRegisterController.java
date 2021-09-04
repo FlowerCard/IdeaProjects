@@ -28,7 +28,6 @@ public class UserRegisterController extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ResultVO resultVO = ResultVO.fail("注册失败");
         String useraccount = request.getParameter("useraccount");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -38,10 +37,10 @@ public class UserRegisterController extends HttpServlet {
         regUser.setUsername(username);
         regUser.setPassword(password);
 
-        resultVO = userServices.resgister(regUser);
+        Boolean resgister = userServices.resgister(regUser);
         PrintWriter writer = response.getWriter();
 
-        if (resultVO.getSuccess()) {
+        if (resgister) {
             writer.write(
                     "<h1>注册成功</h1>"
                             + "<a href = '" + request.getContextPath() + "/pages/user/login.html'>返回</a>"

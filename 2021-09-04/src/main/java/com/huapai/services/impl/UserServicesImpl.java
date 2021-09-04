@@ -75,21 +75,21 @@ public class UserServicesImpl implements IUserServices {
      * @return
      */
     @Override
-    public ResultVO resgister(User user) {
-        ResultVO resultVO = ResultVO.fail(UserMessageConstant.REGISTER_FAIL);
+    public Boolean resgister(User user) {
         try {
             JdbcUtil.begin();
             int row = userDao.insertUser(user);
             if (0 < row) {
-                resultVO = ResultVO.ok(UserMessageConstant.RESGISTER_SUCCESS);
                 JdbcUtil.commit();
+                return true;
             } else {
                 JdbcUtil.rollback();
+                return false;
             }
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return resultVO;
+        return false;
     }
 }

@@ -23,6 +23,6 @@ public interface IUserServices {
      * @param user 用户
      * @return
      */
-    public ResultVO resgister(User user);
+    public Boolean resgister(User user);
     
 }
