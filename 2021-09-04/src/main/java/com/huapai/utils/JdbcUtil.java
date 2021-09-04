@@ -7,11 +7,11 @@ import java.sql.*;
 import java.util.Properties;
 
 /**
- * JDBC工具类
  * @author HuaPai
  * @email HuaPai@odcn.live
- * Created on 2021/9/3.
+ * Created on 2021/9/4.
  */
+
 public class JdbcUtil {
 
     private static final Properties PROPERTIES = new Properties();

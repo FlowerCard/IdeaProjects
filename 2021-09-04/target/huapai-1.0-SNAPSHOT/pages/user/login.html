@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <form action="../../user/login" method="post">
+        用户名：<input type="email" name="useraccount"><br>
+        密码：<input type="password" name="password"><br>
+        验证码：<input type="text" name="inputVcode"> <img src="../../validateCoide" id="vcode" onclick="getVcode(this);"><br>
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>
+<script>
+    function getVcode(obj) {
+        obj.src = "../../validateCoide?time=" + new Date().getTime();
+    }
+</script>
