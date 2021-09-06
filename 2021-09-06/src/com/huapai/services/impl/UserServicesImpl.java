@@ -124,7 +124,7 @@ public class UserServicesImpl implements IUserServices {
         ResultVO resultVO = ResultVO.fail("删除失败");
         try {
             
-            JdbcUtil.commit();
+            JdbcUtil.begin();
             int row = userDao.deleteById(id);
             if (0 < row) {
                 resultVO = ResultVO.ok("删除成功");
