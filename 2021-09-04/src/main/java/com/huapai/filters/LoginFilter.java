@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
 
         Object loginUser = request.getSession().getAttribute("loginUser");
         if (null == loginUser) {
-            response.sendRedirect(request.getContextPath() + "/pages/user/login.html");
+            response.sendRedirect(request.getContextPath() + "/pages/user/login.jsp");
             return;
         }
         

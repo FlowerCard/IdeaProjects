@@ -24,5 +24,11 @@ public interface IUserServices {
      * @return
      */
     public Boolean resgister(User user);
+
+    /**
+     * 用户列表
+     * @return
+     */
+    public ResultVO userList();
     
 }

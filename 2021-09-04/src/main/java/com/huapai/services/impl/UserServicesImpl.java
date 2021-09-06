@@ -11,6 +11,7 @@ import com.huapai.services.IUserServices;
 import com.huapai.utils.JdbcUtil;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author HuaPai
@@ -91,5 +92,24 @@ public class UserServicesImpl implements IUserServices {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * 用户列表
+     *
+     * @return
+     */
+    @Override
+    public ResultVO userList() {
+        ResultVO resultVO = ResultVO.fail("服务器忙，请稍后重试");
+        try {
+            List<User> users = userDao.queryAll();
+            
+            resultVO = ResultVO.ok("查询成功",users);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultVO;
     }
 }

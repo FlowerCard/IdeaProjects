@@ -43,12 +43,12 @@ public class UserRegisterController extends HttpServlet {
         if (resgister) {
             writer.write(
                     "<h1>注册成功</h1>"
-                            + "<a href = '" + request.getContextPath() + "/pages/user/login.html'>返回</a>"
+                            + "<a href = '" + request.getContextPath() + "/pages/user/login.jsp'>返回</a>"
             );
         } else {
             writer.write(
                     "<h1>用户已存在</h1>"
-                            + "<a href = '" + request.getContextPath() + "/pages/user/register.html'>返回</a>"
+                            + "<a href = '" + request.getContextPath() + "/pages/user/register.jsp'>返回</a>"
             );
         }
 

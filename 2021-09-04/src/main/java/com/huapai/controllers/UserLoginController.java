@@ -44,12 +44,12 @@ public class UserLoginController extends HttpServlet {
             request.getSession().setAttribute("loginUser",data);
             writer.write(
                     "<h1>" + data.getUsername() + "，登录成功</h1>" +
-                            "<a href='" + request.getContextPath() + "/pages/user/login.html>返回</a>"
+                            "<a href='" + request.getContextPath() + "/pages/user/login.jsp>返回</a>"
             );
         } else {
             writer.write(
                     "<h1>" + resultVO.getMessage() + "</h1>" +
-                            "<a href='" + request.getContextPath() + "/pages/user/login.html>返回</a>"
+                            "<a href='" + request.getContextPath() + "/pages/user/login.jsp>返回</a>"
             );
         }
 

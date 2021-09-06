@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
         验证码：<input type="text" name="inputVcode" placeholder="请输入验证码"> <img src="../../validateCoide" id="vcode" onclick="getVcode(this);"><br>
         <input type="submit" value="登录">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="register.html">注册</a>
+        <a href="register.jsp">注册</a>
     </form>
 </body>
 </html>
