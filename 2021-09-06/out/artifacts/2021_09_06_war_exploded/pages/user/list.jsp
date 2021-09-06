@@ -48,7 +48,7 @@
                             <fmt:formatDate value="${user.modifiedTime}" pattern="yyyy-MM-dd"/>
                         </td>
                         <td>
-                            <a href="../user/deleteUser?delid=${user.id}">删除</a>
+                            <a href="../../user/deleteUser?delid=${user.id}">删除</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="#" id="modif">修改</a>
                         </td>

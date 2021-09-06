@@ -28,8 +28,9 @@ public class UserListController extends HttpServlet {
         ResultVO resultVO = null;
         try {
             resultVO = userServices.userList();
-            request.setAttribute("users",resultVO.getData());
-            request.getRequestDispatcher("../pages/user/list.jsp").forward(request,response);
+            request.getSession().setAttribute("users",resultVO.getData());
+//            request.getRequestDispatcher("../pages/user/list.jsp").forward(request,response);
+            response.sendRedirect(request.getContextPath() + "/pages/user/list.jsp");
         } catch (Exception e) {
             e.printStackTrace();
             response.getWriter().write("查询失败");
