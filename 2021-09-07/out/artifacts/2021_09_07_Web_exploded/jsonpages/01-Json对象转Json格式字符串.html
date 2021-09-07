@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-Json对象转Json格式字符串.html</title>
+    <script>
+        var user = {
+            "id":1,
+            "username":"jack",
+            "gender":1,
+            "birthday":"1999-08-08"
+        }
+        // alert(user);
+        // alert(typeof user);
+        
+        var JsonStr1 = JSON.stringify(user);
+        alert(JsonStr1);
+        // alert(typeof JsonStr1);
+        
+        var arr = [10,20,30,40,50]
+        // alert(arr);
+        // alert(typeof arr);
+        
+        var JsonStr2 = JSON.stringify(arr);
+        alert(JsonStr2);
+        // alert(typeof JsonStr2);
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>
