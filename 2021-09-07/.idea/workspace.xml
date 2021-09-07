@@ -6,31 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4edbc8b0-ec14-4c21-8f24-02a029f7bdc2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/2021_09_07_Web_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2021-09-07.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qf/test0907/servlets/AjaxGetServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/qf/test0907/servlets/AjaxPostServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/ValidateCode.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-dbutils-1.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/druid-1.1.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/fastjson-1.2.68.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-annotations-2.9.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-core-2.9.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jackson-databind-2.9.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.25-bin.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/ajaxpages/01-原生Ajax发送GET请求.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/ajaxpages/02-原生Ajax发送POST请求.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsonpages/01-Json对象转Json格式字符串.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsonpages/02-Json格式字符串转Json对象.html" afterDir="false" />
+    <list default="true" id="4edbc8b0-ec14-4c21-8f24-02a029f7bdc2" name="Changes" comment="Ajax练习，与Json格式的转换练习">
+      <change afterPath="$PROJECT_DIR$/src/com/qf/test0907/jsontest/FastJsonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/qf/test0907/jsontest/JacksonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/qf/test0907/pojo/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hamcrest-core-1.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/junit-4.13.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2021-09-07.iml" beforeDir="false" afterPath="$PROJECT_DIR$/2021-09-07.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,12 +47,17 @@
     <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/ajaxpages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/qf/test0907" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22334455" />
@@ -77,11 +65,92 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IdeaProjects\2021-09-07\web\ajaxpages" />
+      <recent name="D:\IdeaProjects\2021-09-07\src\com\qf\test0907" />
       <recent name="D:\IdeaProjects\2021-09-07\web\WEB-INF\lib" />
+      <recent name="D:\IdeaProjects\2021-09-07\web\ajaxpages" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.JacksonTest.testJsonToList">
+    <configuration name="FastJsonTest.testJsonToArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="2021-09-07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qf.test0907.jsontest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qf.test0907.jsontest" />
+      <option name="MAIN_CLASS_NAME" value="com.qf.test0907.jsontest.FastJsonTest" />
+      <option name="METHOD_NAME" value="testJsonToArray" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JacksonTest.testJsonToList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="2021-09-07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qf.test0907.jsontest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qf.test0907.jsontest" />
+      <option name="MAIN_CLASS_NAME" value="com.qf.test0907.jsontest.JacksonTest" />
+      <option name="METHOD_NAME" value="testJsonToList" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JacksonTest.testJsonToObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="2021-09-07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qf.test0907.jsontest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qf.test0907.jsontest" />
+      <option name="MAIN_CLASS_NAME" value="com.qf.test0907.jsontest.JacksonTest" />
+      <option name="METHOD_NAME" value="testJsonToObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JacksonTest.testListToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="2021-09-07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qf.test0907.jsontest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qf.test0907.jsontest" />
+      <option name="MAIN_CLASS_NAME" value="com.qf.test0907.jsontest.JacksonTest" />
+      <option name="METHOD_NAME" value="testListToJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JacksonTest.testObjectToJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="2021-09-07" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qf.test0907.jsontest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.qf.test0907.jsontest" />
+      <option name="MAIN_CLASS_NAME" value="com.qf.test0907.jsontest.JacksonTest" />
+      <option name="METHOD_NAME" value="testObjectToJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.54" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.54" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -182,6 +251,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 8.5.54" />
+      <item itemvalue="JUnit.FastJsonTest.testJsonToArray" />
+      <item itemvalue="JUnit.JacksonTest.testObjectToJson" />
+      <item itemvalue="JUnit.JacksonTest.testListToJson" />
+      <item itemvalue="JUnit.JacksonTest.testJsonToObject" />
+      <item itemvalue="JUnit.JacksonTest.testJsonToList" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.JacksonTest.testJsonToList" />
+        <item itemvalue="JUnit.JacksonTest.testListToJson" />
+        <item itemvalue="JUnit.JacksonTest.testJsonToObject" />
+        <item itemvalue="JUnit.JacksonTest.testObjectToJson" />
+        <item itemvalue="JUnit.FastJsonTest.testJsonToArray" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -191,8 +277,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1631005337956</updated>
-      <workItem from="1631005338608" duration="2351000" />
+      <workItem from="1631005338608" duration="5036000" />
     </task>
+    <task id="LOCAL-00001" summary="Ajax练习，与Json格式的转换练习">
+      <created>1631007847054</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1631007847054</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,5 +302,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Ajax练习，与Json格式的转换练习" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajax练习，与Json格式的转换练习" />
   </component>
 </project>
