@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="huapai">
+    <output-path>$PROJECT_DIR$/out/artifacts/huapai</output-path>
+    <root id="archive" name="huapai.war">
+      <element id="artifact" artifact-name="2021-09-07-work:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
