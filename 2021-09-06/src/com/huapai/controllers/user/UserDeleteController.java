@@ -28,6 +28,8 @@ public class UserDeleteController extends HttpServlet {
         ResultVO resultVO = userServices.removeUserById(del);
         if (resultVO.getSuccess()) {
 //            request.getRequestDispatcher("../pages/user/list.jsp").forward(request,response);
+            resultVO = userServices.userList();
+            request.getSession().setAttribute("users",resultVO.getData());
             response.sendRedirect(request.getContextPath() + "/pages/user/list.jsp");
         } else {
             request.getRequestDispatcher("../pages/user/list.jsp").forward(request,response);
