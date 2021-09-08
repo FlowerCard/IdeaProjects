@@ -17,13 +17,13 @@ public class User {
     private String idcode;
     private Date createTime;
     private Date modifiedTime;
-    private String status;
-    private String isdelete;
+    private Integer status;
+    private Integer isdelete;
 
     public User() {
     }
 
-    public User(Long id, String useraccount, String username, String password, String realname, String idcode, Date createTime, Date modifiedTime, String status, String isdelete) {
+    public User(Long id, String useraccount, String username, String password, String realname, String idcode, Date createTime, Date modifiedTime, Integer status, Integer isdelete) {
         this.id = id;
         this.useraccount = useraccount;
         this.username = username;
@@ -100,19 +100,19 @@ public class User {
         this.modifiedTime = modifiedTime;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
-    public String getIsdelete() {
+    public Integer getIsdelete() {
         return isdelete;
     }
 
-    public void setIsdelete(String isdelete) {
+    public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
     }
 
