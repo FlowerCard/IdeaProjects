@@ -5,6 +5,7 @@ import com.huapai.pojo.User;
 import com.huapai.utils.JdbcUtil;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -73,8 +74,31 @@ public class UserDaoImpl implements IUserDao {
      * @return 用户对象
      */
     @Override
-    public User queryByAccount(String account) {
-        return null;
+    public User queryByAccount(String account) throws SQLException {
+        String sql = "select id, useraccount, username, password, realname, idcode, create_time, modified_time, status," +
+                " isdelete from t_account where useraccount = ?";
+        return queryRunner.query(
+                sql,
+                new BeanHandler<>(User.class),
+                account
+        );
+    }
+
+    /**
+     * 通过ID查询
+     *
+     * @param id 账号ID
+     * @return
+     */
+    @Override
+    public User queryById(String id) throws SQLException {
+        String sql = "select id, useraccount, username, password, realname, idcode, create_time, modified_time, status," +
+                " isdelete from t_account where id = ?";
+        return queryRunner.query(
+                sql,
+                new BeanHandler<>(User.class),
+                id
+        );
     }
 
     /**
@@ -83,7 +107,12 @@ public class UserDaoImpl implements IUserDao {
      * @return 用户列表
      */
     @Override
-    public List<User> queryAll() {
-        return null;
+    public List<User> queryAll() throws SQLException {
+        String sql = "select id, useraccount, username, password, realname, idcode, create_time, modified_time, status," +
+                " isdelete from t_account";
+        return queryRunner.query(
+                sql,
+                new BeanListHandler<>(User.class)
+        );
     }
 }

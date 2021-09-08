@@ -54,4 +54,9 @@ public interface UserMessageConstant {
      */
     String REGISTER_FAIL = "用户已存在";
 
+    /**
+     * 注册成功
+     */
+    String RESGISTER_SUCCESS = "注册成功";
+
 }

@@ -38,13 +38,20 @@ public interface IUserDao {
      * @param account 账号
      * @return 用户对象
      */
-    public User queryByAccount(String account);
+    public User queryByAccount(String account) throws SQLException;
+
+    /**
+     * 通过ID查询
+     * @param id 账号ID
+     * @return
+     */
+    public User queryById(String id) throws SQLException;
 
     /**
      * 查询所有
      * @return 用户列表
      */
-    public List<User> queryAll();
+    public List<User> queryAll() throws SQLException;
     
     
 }
