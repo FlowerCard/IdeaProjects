@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+
+    <!--
+    文件上传，客户端要求
+        1.提交方式必须是post
+        2.enctype必须是"multipart/form-data"【二进制流文件】
+        3.必须有文件域，且有name属性
+      -->
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="myFile">
+        <input type="submit" value="上传">
+    </form>
+
+</body>
+</html>
