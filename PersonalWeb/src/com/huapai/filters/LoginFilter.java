@@ -24,9 +24,10 @@ public class LoginFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) resp;
 
         String requestURI = request.getRequestURI();
-        if (requestURI.endsWith(".html") || requestURI.endsWith("/login") || requestURI.endsWith("/register")
+        if (requestURI.endsWith(".html") || (requestURI.endsWith(".css") ||(requestURI.endsWith(".js") 
+                || requestURI.endsWith("/login") || requestURI.endsWith("/register")
             || requestURI.endsWith("/validateCoide") || requestURI.endsWith("/login.jsp") || requestURI.endsWith("/register.jsp")
-            || requestURI.endsWith("exist")) {
+            || requestURI.endsWith("exist")))) {
             chain.doFilter(request,response);
             return;
         }
