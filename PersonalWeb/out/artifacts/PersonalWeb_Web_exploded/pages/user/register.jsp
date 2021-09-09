@@ -9,10 +9,15 @@
         $(function () {
             $("#inputEmail").change(function (){
                 var useraccountVal = $(this).val();
-                console.log(useraccountVal);
                 //$.post(url,data,success(response,status,xhr),dataType);
                 $.post("../../user/exist",{"useraccountValue":useraccountVal},function (result){
-                    
+                    if (result.success) {
+                        $("#useraccountMsg").html("<span style='color: green'>" + result.message + "</span>");
+                        $("#subBtn").attr("disabled",false);
+                    } else {
+                        $("#useraccountMsg").html("<span style='color: red'>" + result.message + "</span>");
+                        $("#subBtn").attr("disabled",true);
+                    }
                 },"json");
                 
             })
