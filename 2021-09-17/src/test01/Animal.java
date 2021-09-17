@@ -12,6 +12,7 @@ public abstract class Animal {
     private String brand;
 
     public Animal() {
+        super();
     }
     
     public Animal(String name, int age, String brand) {
@@ -43,6 +44,9 @@ public abstract class Animal {
     public String getBrand() {
         return brand;
     }
-    
+
+    /**
+     * 行为
+     */
     public abstract void track();
 }
