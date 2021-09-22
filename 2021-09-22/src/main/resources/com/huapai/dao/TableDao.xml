@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.TableDao">
+    
+    <insert id="insertTable">
+        <selectKey keyProperty="tableId" order="AFTER" resultType="integer">
+            select last_insert_id()
+        </selectKey>
+        insert into 
+            t_table 
+            (t_table_name, t_table_status, t_scheduled_time) 
+        VALUES (#{tableName},#{tableStatus},#{scheduledTime})
+    </insert>
+    
+    <update id="updateTableById">
+        update t_table
+        set
+            t_table_name = #{name},t_table_status = #{status},t_scheduled_time = #{time} where t_table_id = #{id}
+    </update>
+
+    <!--  Table queryById(@Param("id")Integer id);  -->
+    <select id="queryById" resultType="com.huapai.pojo.Table">
+        select 
+               t_table_id tableId, 
+               t_table_name tableName, 
+               t_table_status tableStatus, 
+               t_scheduled_time scheduledTime 
+        from 
+             t_table 
+        where 
+              t_table_id = #{id}
+    </select>
+    
+    <!--  List<Table> queryAll();  -->
+    <select id="queryAll" resultType="com.huapai.pojo.Table">
+        select
+            t_table_id tableId,
+            t_table_name tableName,
+            t_table_status tableStatus,
+            t_scheduled_time scheduledTime
+        from
+            t_table
+    </select>
+    
+</mapper>
