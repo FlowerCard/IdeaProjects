@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.EmployeeDao">
+    
+    <!--  Employee selectById(Integer empId);  -->
+    <select id="selectById" resultType="com.huapai.pojo.Employee">
+        select
+            emp_id empId,
+            emp_name empName,
+            emp_age empAge,
+            emp_gender empGender,
+            emp_email empEmail,
+            emp_entry_date empEntryDate,
+            emp_departure_date empDepartureDate,
+            emp_adder empAdder
+        from employee
+        where emp_id = ${empId}
+    </select>
+    
+    <!--  List<Employee> selectAll();  -->
+    <select id="selectAll" resultType="com.huapai.pojo.Employee">
+        select
+            emp_id empId,
+            emp_name empName,
+            emp_age empAge,
+            emp_gender empGender,
+            emp_email empEmail,
+            emp_entry_date empEntryDate,
+            emp_departure_date empDepartureDate,
+            emp_adder empAdder
+        from employee
+    </select>
+    
+    <!--  Integer insertEmployee(Employee employee);  -->
+    <insert id="insertEmployee">
+        <selectKey resultType="integer" keyProperty="empId" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into employee
+            (emp_name, emp_age, emp_gender, emp_email, emp_entry_date, emp_adder)
+        VALUES (#{empName},#{empAge},#{empGender},#{empEmail},#{empEntryDate},#{empAdder})
+    </insert>
+    
+    <!--  Integer updateById(...)  -->
+    <update id="updateById">
+        update employee
+        set emp_name = #{empName},emp_age = #{empAge},emp_gender = #{empGender},emp_email = #{empEmail},
+            emp_entry_date = #{empEntryDate},emp_departure_date = #{empDepartureDate},emp_adder = #{empAdder}
+        where emp_id = #{empId}
+    </update>
+    
+    <!--  Integer deleteById(Integer empId);  -->
+    <delete id="deleteById">
+        delete from employee where emp_id = #{empId}
+    </delete>
+    
+</mapper>
