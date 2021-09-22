@@ -11,7 +11,7 @@ import java.util.List;
  * @email HuaPai@odcn.live
  * Created on 2021/9/22.
  */
-public interface EmployeeDao {
+public interface IEmployeeDao {
 
     /**
      * 通过ID查询

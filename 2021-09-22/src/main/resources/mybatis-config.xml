@@ -19,8 +19,8 @@
         </environment>
     </environments>
     <mappers>
-<!--        <mapper resource="com/huapai/dao/TableDao.xml"/>-->
-        <mapper resource="com/huapai/dao/UserDao.xml"/>
-        <mapper resource="com/huapai/dao/EmployeeDao.xml"/>
+<!--        <mapper resource="com/huapai/dao/ITableDao.xml"/>-->
+        <mapper resource="com/huapai/dao/IUserDao.xml"/>
+        <mapper resource="com/huapai/dao/IEmployeeDao.xml"/>
     </mappers>
 </configuration>
