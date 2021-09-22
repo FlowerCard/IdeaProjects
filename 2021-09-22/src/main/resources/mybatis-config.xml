@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="druid.properties">
+<!--    <properties resource="druid.properties">-->
+    <properties resource="druid2.properties">
         
     </properties>
     <environments default="development">
@@ -18,6 +19,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/huapai/dao/TableDao.xml"/>
+<!--        <mapper resource="com/huapai/dao/TableDao.xml"/>-->
+        <mapper resource="com/huapai/dao/UserDao.xml"/>
     </mappers>
 </configuration>
