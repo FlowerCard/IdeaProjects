@@ -1,4 +1,4 @@
-package com.huapai;
+package com.huapai.uitils;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
