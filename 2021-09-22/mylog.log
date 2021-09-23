@@ -248,3 +248,51 @@
 2021-09-22 20:01:24,016 DEBUG deleteById:143 - ==>  Preparing: delete from employee where emp_id = ? 
 2021-09-22 20:01:24,044 DEBUG deleteById:143 - ==> Parameters: 3(Integer)
 2021-09-22 20:01:24,050 DEBUG deleteById:143 - <==    Updates: 1
+2021-09-22 20:25:07,414 DEBUG LogFactory:105 - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2021-09-22 20:25:07,451 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:07,452 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:07,452 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:07,452 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:07,629 DEBUG JdbcTransaction:136 - Opening JDBC Connection
+2021-09-22 20:25:07,959 DEBUG PooledDataSource:424 - Created connection 431506362.
+2021-09-22 20:25:07,959 DEBUG JdbcTransaction:100 - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@19b843ba]
+2021-09-22 20:25:07,965 DEBUG selectById:143 - ==>  Preparing: select emp_id empId, emp_name empName, emp_age empAge, emp_gender empGender, emp_email empEmail, emp_entry_date empEntryDate, emp_departure_date empDepartureDate, emp_adder empAdder from employee where emp_id = 1 
+2021-09-22 20:25:08,012 DEBUG selectById:143 - ==> Parameters: 
+2021-09-22 20:25:08,047 DEBUG selectById:143 - <==      Total: 1
+2021-09-22 20:25:21,759 DEBUG LogFactory:105 - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2021-09-22 20:25:21,798 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:21,798 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:21,798 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:21,798 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:21,929 DEBUG JdbcTransaction:136 - Opening JDBC Connection
+2021-09-22 20:25:22,243 DEBUG PooledDataSource:424 - Created connection 1552341957.
+2021-09-22 20:25:22,243 DEBUG JdbcTransaction:100 - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@5c86dbc5]
+2021-09-22 20:25:22,256 DEBUG selectAll:143 - ==>  Preparing: select emp_id empId, emp_name empName, emp_age empAge, emp_gender empGender, emp_email empEmail, emp_entry_date empEntryDate, emp_departure_date empDepartureDate, emp_adder empAdder from employee 
+2021-09-22 20:25:22,288 DEBUG selectAll:143 - ==> Parameters: 
+2021-09-22 20:25:22,329 DEBUG selectAll:143 - <==      Total: 3
+2021-09-22 20:25:33,661 DEBUG LogFactory:105 - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2021-09-22 20:25:33,706 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:33,706 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:33,706 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:33,707 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-22 20:25:33,844 DEBUG JdbcTransaction:136 - Opening JDBC Connection
+2021-09-22 20:25:34,161 DEBUG PooledDataSource:424 - Created connection 418958713.
+2021-09-22 20:25:34,162 DEBUG JdbcTransaction:100 - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@18f8cd79]
+2021-09-22 20:25:34,168 DEBUG insertEmployee:143 - ==>  Preparing: insert into employee (emp_name, emp_age, emp_gender, emp_email, emp_entry_date, emp_adder) VALUES (?,?,?,?,?,?) 
+2021-09-22 20:25:34,212 DEBUG insertEmployee:143 - ==> Parameters: 张飞(String), 33(Integer), 2(Integer), zhangfei@163.com(String), 2021-09-22 20:25:33.826(Timestamp), 银河(String)
+2021-09-22 20:25:34,217 DEBUG insertEmployee:143 - <==    Updates: 1
+2021-09-22 20:25:34,220 DEBUG insertEmployee!selectKey:143 - ==>  Preparing: select last_insert_id() 
+2021-09-22 20:25:34,220 DEBUG insertEmployee!selectKey:143 - ==> Parameters: 
+2021-09-22 20:25:34,251 DEBUG insertEmployee!selectKey:143 - <==      Total: 1
+2021-09-22 20:25:34,252 DEBUG JdbcTransaction:69 - Committing JDBC Connection [com.mysql.jdbc.JDBC4Connection@18f8cd79]
+2021-09-23 17:02:49,230 DEBUG LogFactory:105 - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2021-09-23 17:02:49,325 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-23 17:02:49,326 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-23 17:02:49,326 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-23 17:02:49,326 DEBUG PooledDataSource:353 - PooledDataSource forcefully closed/removed all connections.
+2021-09-23 17:02:49,559 DEBUG JdbcTransaction:136 - Opening JDBC Connection
+2021-09-23 17:02:49,877 DEBUG PooledDataSource:424 - Created connection 1042306518.
+2021-09-23 17:02:49,877 DEBUG JdbcTransaction:100 - Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@3e2055d6]
+2021-09-23 17:02:49,884 DEBUG deleteById:143 - ==>  Preparing: delete from employee where emp_id = ? 
+2021-09-23 17:02:49,915 DEBUG deleteById:143 - ==> Parameters: 3(Integer)
+2021-09-23 17:02:49,923 DEBUG deleteById:143 - <==    Updates: 1
