@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.IUserDao">
+    <cache/>
+    <!--  SQL片段  -->
+    <sql id="BaseSelect">
+        select user_id, username, password from t_user
+    </sql>
+    <!-- 
+        public User selectById(Integer id);
+        通过ID查询 
+    -->
+    <select id="selectById" resultType="com.huapai.pojo.User">
+        <include refid="BaseSelect"/>
+        where user_id=${userId}
+    </select>
+    
+    <!--  
+         public List<User> selectByCondition(User user);
+         通过条件查询
+    -->
+    <select id="selectByCondition" resultType="com.huapai.pojo.User">
+        <include refid="BaseSelect"/>
+        <where>
+            <if test="userId != null">
+                user_id=#{userId}
+            </if>
+            <if test="username != null">
+                and username like #{username}
+            </if>
+        </where>
+    </select>
+    
+    <!--  
+      public Integer insertUser(User user);
+      -->
+    <insert id="insertUser">
+        insert into t_user (username, password) VALUES (#{username},#{password})
+    </insert>
+    
+    <!--  
+       public Integer insertUserList(List<User> userList);
+      -->
+    <insert id="insertUserList">
+        insert into t_user (username, password) 
+        VALUES 
+               <foreach collection="list" item="user" separator=",">
+                   (#{user.username},#{user.password})
+               </foreach>
+    </insert>
+    
+    <!--  
+      public Integer updateUser(User user);
+      -->
+    <update id="updateUser">
+        update t_user
+        <set>
+            <if test="username != null">
+                username=#{username}
+            </if>
+            <if test="password != null">
+                password=#{password}
+            </if>
+        </set>
+        where user_id=#{userId}
+    </update>
+    
+    <!--  public Integer deleteUserById(Integer id);  -->
+    <delete id="deleteUserById">
+        delete from t_user where user_id=#{userId}
+    </delete>
+    
+</mapper>
