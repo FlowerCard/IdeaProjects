@@ -12,6 +12,13 @@
         <result column="t_dishes_img" property="dishesImg"></result>
         <result column="t_dishes_introduction" property="dishesIntroduction"></result>
         <result column="t_dishes_status" property="dishesStatus"></result>
+        <collection property="cuisine" ofType="com.qf.java2105.huangzihao.pojo.Cuisine">
+            <id column="t_cuisine_id" property="cuisineId"></id>
+            <result column="t_cuisine_name" property="cuisineName"></result>
+            <result column="t_cuisine_create_time" property="cuisineCreateTime"></result>
+            <result column="t_cuisine_modifie_time" property="cuisineModifieTime"></result>
+            <result column="t_cuisine_modifie_user" property="cuisineModifieUser"></result>
+        </collection>
     </resultMap>
     
     <!--  List<Dishes> queryByName(String dishName)  -->
@@ -25,6 +32,7 @@
              d.t_dishes_img ,
              d.t_dishes_introduction ,
              d.t_dishes_status ,
+             c.t_cuisine_id ,
              c.t_cuisine_name 
         from t_dishes d,t_cuisine c 
         where d.t_cuisine_id = c.t_cuisine_id
