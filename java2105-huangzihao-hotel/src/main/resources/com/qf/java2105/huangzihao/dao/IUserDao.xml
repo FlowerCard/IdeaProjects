@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.java2105.huangzihao.dao.IUserDao">
+    <resultMap id="queryUserSetMap" type="com.qf.java2105.huangzihao.pojo.User">
+        <id column="t_user_id" property="userId"></id>
+        <result column="t_username" property="username"></result>
+        <result column="t_password" property="password"></result>
+        <result column="t_nickname" property="nickname"></result>
+        <result column="t_admin" property="admin"></result>
+        <result column="t_phone" property="phone"></result>
+        <result column="t_gender" property="gender"></result>
+        <result column="t_status" property="status"></result>
+        <result column="t_create_time" property="userCreateTime"></result>
+        <result column="t_modifie_time" property="userModifieTime"></result>
+        <result column="t_deleted" property="deleted"></result>
+        <result column="t_member" property="member"></result>
+        <result column="t_balance" property="balance"></result>
+    </resultMap>
+
+    <!--  User queryByUsername(String username)  -->
+    <select id="queryByUsername" resultMap="queryUserSetMap">
+        select t_create_time,
+               t_modifie_time,
+               t_user_id,
+               t_username,
+               t_password,
+               t_nickname,
+               t_admin,
+               t_phone,
+               t_gender,
+               t_status,
+               t_deleted d,
+               t_member,
+               t_balance
+        from t_user
+        where t_username = #{username}
+          and t_status = 1
+          and t_deleted != 2
+    </select>
+
+    <!--  List<User> searchUser(String username)  -->
+    <select id="searchUser" resultMap="queryUserSetMap">
+        select t_user_id,
+               t_username,
+               t_password,
+               t_nickname,
+               t_admin,
+               t_phone,
+               t_gender,
+               t_status,
+               t_create_time,
+               t_modifie_time,
+               t_deleted,
+               t_member,
+               t_balance
+        from t_user
+        where t_deleted != 2 and t_username like #{username}
+    </select>
+
+    <!--  User queryById(Integer userId)  -->
+    <select id="queryById" resultMap="queryUserSetMap">
+        select t_user_id,
+               t_username,
+               t_password,
+               t_nickname,
+               t_admin,
+               t_phone,
+               t_gender,
+               t_status,
+               t_create_time,
+               t_modifie_time,
+               t_deleted,
+               t_member,
+               t_balance
+        from t_user
+        where t_user_id = ?
+    </select>
+
+    <!--  void update(User user)  -->
+    <update id="update">
+        update t_user
+        <set>
+            <if test="nickname != null">
+                t_nickname = #{nickname},
+            </if>
+            <if test="admin != null">
+                t_admin = #{admin},
+            </if>
+            <if test="phone != null">
+                t_phone = #{phone},
+            </if>
+            <if test="gender != null">
+                t_gender = #{gender},
+            </if>
+            <if test="status != null">
+                t_status = #{status},
+            </if>
+            <if test="member != null">
+                t_member = #{member},
+            </if>
+            <if test="userModifieTime != null">
+                t_modifie_time = #{userModifieTime},
+            </if>
+            <if test="balance != null">
+                t_balance = #{balance},
+            </if>
+        </set>
+        where t_user_id = #{userId}
+    </update>
+
+    <!--  void updateDelete(User user)  -->
+    <update id="updateDelete" parameterType="com.qf.java2105.huangzihao.pojo.User">
+        update t_user
+        <set>
+            <if test="username != null">
+                t_username = #{username},
+            </if>
+            <if test="password != null">
+                t_password = #{password},
+            </if>
+            <if test="nickname != null">
+                t_nickname = #{nickname},
+            </if>
+            <if test="userCreateTime != null">
+                t_create_time = #{userCreateTime},
+            </if>
+            t_deleted = 1
+        </set>
+        where t_user_id = ${userId}
+    </update>
+
+    <!--  Integer queryDelete(String username)  -->
+    <select id="queryDelete" resultType="integer">
+        select t_user_id
+        from t_user
+        where t_username = #{username}
+          and t_deleted = 2
+    </select>
+
+    <!--  void deleteById(Integer userId)  -->
+    <update id="deleteById">
+        update t_user
+        set t_deleted = 2
+        where t_user_id = #{userId}
+    </update>
+
+    <!--  void insert(User user)  -->
+    <insert id="insert" parameterType="com.qf.java2105.huangzihao.pojo.User">
+        insert into t_user (t_username, t_password, t_nickname, t_create_time)
+        values (#{username}, #{password}, #{nickname}, #{userCreateTime})
+    </insert>
+    
+    <!--  Integer exitisName(String username)  -->
+    <select id="exitisName" resultType="integer">
+        select t_user_id from t_user where t_username = #{username} and t_deleted != 2
+    </select>
+
+</mapper>

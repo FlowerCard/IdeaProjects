@@ -51,7 +51,7 @@ public interface IUserDao {
      * @param username 用户名
      * @return
      */
-    public Integer queryDeltet(String username) throws SQLException;
+    public Integer queryDelete(String username) throws SQLException;
 
     /**
      * 删除用户
@@ -63,7 +63,7 @@ public interface IUserDao {
      * 新增用户
      * @param user 用户对象
      */
-    public void inster(User user) throws SQLException;
+    public void insert(User user) throws SQLException;
 
     /**
      * 用户名是否存在

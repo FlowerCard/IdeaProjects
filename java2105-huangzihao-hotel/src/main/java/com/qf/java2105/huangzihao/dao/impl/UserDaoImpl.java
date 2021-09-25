@@ -45,7 +45,7 @@ public class UserDaoImpl implements IUserDao {
                 "t_member member, \n" +
                 "t_balance balance \n" +
                 "from t_user \n" +
-                "where t_username = ? and t_status = 1 and t_deleted != 2;";
+                "where t_username = ? and t_status = 1 and t_deleted != 2";
         return queryRunner.query(sql,new BeanHandler<>(User.class),username);
     }
 
@@ -146,7 +146,7 @@ public class UserDaoImpl implements IUserDao {
      * @return
      */
     @Override
-    public Integer queryDeltet(String username) throws SQLException {
+    public Integer queryDelete(String username) throws SQLException {
         queryRunner = new QueryRunner(JdbcUtil.getDataSource());
         String sql = "select t_user_id from t_user where t_username = ? and t_deleted = 2";
         return queryRunner.query(sql,new ScalarHandler<>(),username);
@@ -170,7 +170,7 @@ public class UserDaoImpl implements IUserDao {
      * @param user 用户对象
      */
     @Override
-    public void inster(User user) throws SQLException {
+    public void insert(User user) throws SQLException {
         queryRunner = new QueryRunner(JdbcUtil.getDataSource());
         String sql = "insert into t_user (t_username,t_password,t_nickname,t_create_time) values (?,?,?,?)";
         queryRunner.update(sql,user.getUsername(),user.getPassword(),user.getNickname(),user.getUserCreateTime());

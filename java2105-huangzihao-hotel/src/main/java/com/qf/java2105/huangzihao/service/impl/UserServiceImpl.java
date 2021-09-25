@@ -9,6 +9,7 @@ import com.qf.java2105.huangzihao.pojo.User;
 import com.qf.java2105.huangzihao.service.IUserService;
 import com.qf.java2105.huangzihao.utils.JdbcUtil;
 import com.qf.java2105.huangzihao.utils.MD5Utils;
+import com.qf.java2105.huangzihao.utils.MybatisUtil;
 
 import java.util.Date;
 import java.util.List;
@@ -32,6 +33,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<User> login(String username, String password) {
         try {
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             User user = userDao.queryByUsername(username);
             if (null != user) {
                 //不为空则用户存在
@@ -55,6 +57,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<List<User>> search(String username) {
         try {
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             if (StringUtils.isEmpty(username)) {
                 username = "%%";
             } else {
@@ -77,6 +80,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<User> updateui(Integer userId) {
         try {
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             User user = userDao.queryById(userId);
             return ResultVO.ok(MessageConstant.QUERY_SUCCESS,user);
         } catch (Exception e) {
@@ -94,14 +98,14 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<String> update(User user) {
         try {
-            JdbcUtil.begin();
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             user.setUserModifieTime(new Date());
             userDao.update(user);
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.UPDATE_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.UPDATE_FAIL);
         }
     }
@@ -115,13 +119,13 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<String> deleteById(Integer userId) {
         try {
-            JdbcUtil.begin();
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             userDao.deleteById(userId);
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.DELETE_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.DELETE_FAIL);
         }
     }
@@ -135,20 +139,20 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<String> register(User user) {
         try {
-            JdbcUtil.begin();
-            Integer queryDeltet = userDao.queryDeltet(user.getUsername());
+            userDao = MybatisUtil.getMapper(IUserDao.class);
+            Integer queryDeltet = userDao.queryDelete(user.getUsername());
             user.setUserCreateTime(new Date());
             if (queryDeltet == null) {
-                userDao.inster(user);
+                userDao.insert(user);
             } else {
                 user.setUserId(Long.valueOf(queryDeltet));
                 userDao.updateDelete(user);
             }
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.REG_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.REG_FAIL);
         }
     }
@@ -162,6 +166,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResultVO<String> exitisName(String username) {
         try {
+            userDao = MybatisUtil.getMapper(IUserDao.class);
             Integer exitisName = userDao.exitisName(username);
             if (null != exitisName) {
                 return ResultVO.error(MessageConstant.EXITIS_NAME);
