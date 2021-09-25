@@ -8,6 +8,7 @@ import com.qf.java2105.huangzihao.factory.BeanFacotry;
 import com.qf.java2105.huangzihao.pojo.Cuisine;
 import com.qf.java2105.huangzihao.service.ICuisineService;
 import com.qf.java2105.huangzihao.utils.JdbcUtil;
+import com.qf.java2105.huangzihao.utils.MybatisUtil;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -30,16 +31,14 @@ public class CuisineServiceImpl implements ICuisineService {
      */
     @Override
     public ResultVO queryByName(String cuisineName) {
-
         try {
+            cuisineDao = MybatisUtil.getMapper(ICuisineDao.class);
             //处理字符串
             if (StringUtils.isEmpty(cuisineName)) {
                 cuisineName = "%%";
             } else {
                 cuisineName = "%" + cuisineName.trim() + "%";
             }
-
-            //调用Dao层
             List<Cuisine> cuisineList = cuisineDao.queryByName(cuisineName);
             return ResultVO.ok(MessageConstant.QUERY_SUCCESS,cuisineList);
         } catch (SQLException e) {
@@ -57,6 +56,7 @@ public class CuisineServiceImpl implements ICuisineService {
     @Override
     public ResultVO<Cuisine> queryById(Integer cuisineId) {
         try {
+            cuisineDao = MybatisUtil.getMapper(ICuisineDao.class);
             Cuisine cuisine = cuisineDao.queryById(cuisineId);
             return ResultVO.ok(MessageConstant.QUERY_SUCCESS,cuisine);
         } catch (SQLException e) {
@@ -75,14 +75,18 @@ public class CuisineServiceImpl implements ICuisineService {
     @Override
     public ResultVO<String> updateById(Integer cuisineId, String cuisineName, Integer userId) {
         try {
+            cuisineDao = MybatisUtil.getMapper(ICuisineDao.class);
             //开始事务
-            JdbcUtil.begin();
-            cuisineDao.updateById(cuisineId, cuisineName, userId);
-            JdbcUtil.commit();
+            Cuisine cuisine = new Cuisine();
+            cuisine.setCuisineId(cuisineId);
+            cuisine.setCuisineName(cuisineName);
+            cuisine.setCuisineModifieUser(userId);
+            cuisineDao.updateByCondition(cuisine);
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.UPDATE_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.UPDATE_FAIL);
         }
     }
@@ -96,13 +100,13 @@ public class CuisineServiceImpl implements ICuisineService {
     @Override
     public ResultVO<String> deleteById(Integer cuisineId) {
         try {
-            JdbcUtil.begin();
+            cuisineDao = MybatisUtil.getMapper(ICuisineDao.class);
             cuisineDao.deleteById(cuisineId);
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.DELETE_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.ok(MessageConstant.DELETE_FAIL);
         }
     }
@@ -116,18 +120,18 @@ public class CuisineServiceImpl implements ICuisineService {
     @Override
     public ResultVO<String> save(Cuisine cuisine) {
         try {
-            JdbcUtil.begin();
+            cuisineDao = MybatisUtil.getMapper(ICuisineDao.class);
             Integer deleteStatus = cuisineDao.queryDeleteStatus(cuisine.getCuisineName());
             if (null != deleteStatus) {
                 cuisineDao.updateCuisineStatus(deleteStatus);
             } else {
                 cuisineDao.save(cuisine);
             }
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.INSERT_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.INSERT_FAIL);
         }
     }

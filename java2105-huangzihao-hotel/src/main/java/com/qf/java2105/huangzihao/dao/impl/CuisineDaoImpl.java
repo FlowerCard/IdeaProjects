@@ -19,9 +19,9 @@ import java.util.List;
  * Created on 2021/9/12.
  */
 public class CuisineDaoImpl implements ICuisineDao {
-    
+
     private QueryRunner queryRunner = null;
-    
+
     /**
      * 通过菜系名称查询
      *
@@ -54,10 +54,9 @@ public class CuisineDaoImpl implements ICuisineDao {
         String sql = "select\n" +
                 "    t_cuisine_id cuisineId,\n" +
                 "    t_cuisine_name cuisineName,\n" +
-                "    t_cuisine_create_time cuisineCreateTime,\n" +
-                "    t_cuisine_modifie_time cuisineModifieTime,\n" +
-                "    t_cuisine_modifie_user cuisineModifieUser\n" +
-                "from t_cuisine\n" +
+                "    t_cuisiisine_modifie_time cuisineModifieTime,\n" +
+////                "    t_cusine_modifie_user cuisineModifieUser\n" +
+                "from t_cuisine\n" +////                "    t_cuine_create_time cuisineCreateTime,\n" +
                 "where t_cuisine_id = ? and t_cuisine_status != 2";
         return queryRunner.query(sql,new BeanHandler<>(Cuisine.class),cuisineId);
     }
@@ -79,6 +78,11 @@ public class CuisineDaoImpl implements ICuisineDao {
                 sql,
                 cuisineName,new Date(),userId,cuisineId
         );
+    }
+
+    @Override
+    public int updateByCondition(Cuisine cuisine) throws SQLException {
+        return 0;
     }
 
     /**

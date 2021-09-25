@@ -35,6 +35,7 @@ public interface ICuisineDao {
      * @return 受影响行数
      */
     public int updateById(Integer cuisineId, String cuisineName, Integer userId) throws SQLException;
+    public int updateByCondition(Cuisine cuisine) throws SQLException;
 
     /**
      * 通过菜系ID删除

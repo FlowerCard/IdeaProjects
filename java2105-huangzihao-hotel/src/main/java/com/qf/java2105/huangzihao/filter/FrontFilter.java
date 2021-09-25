@@ -13,7 +13,6 @@ import java.io.IOException;
  * @email HuaPai@odcn.live
  * Created on 2021/9/14.
  */
-@WebFilter("/backend/*")
 public class FrontFilter implements Filter {
     @Override
     public void destroy() {

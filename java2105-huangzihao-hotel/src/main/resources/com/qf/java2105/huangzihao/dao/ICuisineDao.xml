@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.java2105.huangzihao.dao.ICuisineDao">
+    <cache/>
+    <resultMap id="queryCuisineSetMap" type="com.qf.java2105.huangzihao.pojo.Cuisine">
+        <id column="t_cuisine_id" property="cuisineId"></id>
+        <result column="t_cuisine_name" property="cuisineName"></result>
+        <result column="t_cuisine_create_time" property="cuisineCreateTime"></result>
+        <result column="t_cuisine_modifie_time" property="cuisineModifieTime"></result>
+        <result column="t_cuisine_modifie_user" property="cuisineModifieUser"></result>
+    </resultMap>
+    <!--  public List<Cuisine> queryByName(String cuisineName)  -->
+    <select id="queryByName" resultMap="queryCuisineSetMap">
+        select t_cuisine_id,t_cuisine_name,t_cuisine_create_time,t_cuisine_modifie_time,t_cuisine_modifie_user
+        from t_cuisine where t_cuisine_status != 2 and t_cuisine_name like #{cuisineName}
+    </select>
+    
+    <!--  Cuisine queryById(Integer cuisineId)  -->
+    <select id="queryById" resultMap="queryCuisineSetMap">
+        select t_cuisine_id,t_cuisine_name,t_cuisine_create_time,t_cuisine_modifie_time,t_cuisine_modifie_user
+        from t_cuisine where t_cuisine_status != 2 and t_cuisine_id = #{cuisineId}
+    </select>
+    
+    <!--  updateById(Integer cuisineId, String cuisineName, Integer userId)  -->
+    <update id="updateByCondition" parameterType="com.qf.java2105.huangzihao.pojo.Cuisine">
+        update t_cuisine
+        <trim prefix="set" suffixOverrides=",">
+            <if test="cuisineName != null">
+                t_cuisine_name=#{cuisineName},
+            </if>
+            <if test="cuisineModifieUser != null">
+                t_cuisine_modifie_user=#{cuisineModifieUser}
+            </if>
+        </trim>
+        where t_cuisine_id=#{cuisineId}
+    </update>
+    
+    <!--  deleteById(Integer cuisineId)  -->
+    <update id="deleteById">
+        update t_cuisine set t_cuisine_status = 2 where t_cuisine_id = #{cuisineId}
+    </update>
+    
+    <!--  save(Cuisine cuisine)  -->
+    <insert id="save" parameterType="com.qf.java2105.huangzihao.pojo.Cuisine">
+        insert into t_cuisine (t_cuisine_name, t_cuisine_create_time, t_cuisine_modifie_time, t_cuisine_modifie_user)
+                VALUES (#{cuisineName},#{cuisineCreateTime},#{cuisineModifieTime},#{cuisineModifieUser})
+    </insert>
+    
+    <!--  existsCuisineName(String cuisineName)  -->
+    <select id="existsCuisineName" resultType="integer">
+        select t_cuisine_id from t_cuisine where t_cuisine_status !=2 and t_cuisine_name = #{cuisineName} limit 1
+    </select>
+    
+    <!--  updateCuisineStatus(Integer cuisineId)  -->
+    <update id="updateCuisineStatus">
+        update t_cuisine set t_cuisine_status = 1 where t_cuisine_id = #{cuisineId}
+    </update>
+    
+    <!--  queryDeleteStatus(String cuisineName)  -->
+    <select id="queryDeleteStatus" resultType="integer">
+        select t_cuisine_id from t_cuisine where t_cuisine_name = #{cuisineName} and t_cuisine_status = 2
+    </select>
+    
+</mapper>
