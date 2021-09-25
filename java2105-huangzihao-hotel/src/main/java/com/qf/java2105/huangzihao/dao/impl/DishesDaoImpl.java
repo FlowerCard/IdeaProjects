@@ -31,23 +31,34 @@ public class DishesDaoImpl implements IDishesDao {
      * @param dishName 菜品名称
      * @return 查询集合
      */
+//    @Override
+//    public List<Map<String, Object>> queryByName(String dishName) throws SQLException {
+//        queryRunner = new QueryRunner(JdbcUtil.getDataSource());
+//        String sql = "select \n" +
+//                "    d.t_dishes_id dishesId,\n" +
+//                "    d.t_cuisine_id cuisineId, \n" +
+//                "    d.t_dishes_name dishesName, \n" +
+//                "    d.t_dishes_price dishesPrice, \n" +
+//                "    d.t_dishes_member_price dishesMemberPrice, \n" +
+//                "    d.t_dishes_img dishesImg, \n" +
+//                "    d.t_dishes_introduction dishesIntroduction, \n" +
+//                "    d.t_dishes_status dishesStatus, \n" +
+//                "    c.t_cuisine_name cuisineName\n" +
+//                "from t_dishes d,t_cuisine c \n" +
+//                "where d.t_cuisine_id = c.t_cuisine_id\n" +
+//                "and d.t_dishes_status != 3 and d.t_dishes_name like ?";
+//        return queryRunner.query(sql, new MapListHandler(), dishName);
+//    }
+
+    /**
+     * 通过菜品名称查询
+     *
+     * @param dishName 菜品名称
+     * @return 查询集合
+     */
     @Override
-    public List<Map<String, Object>> queryByName(String dishName) throws SQLException {
-        queryRunner = new QueryRunner(JdbcUtil.getDataSource());
-        String sql = "select \n" +
-                "    d.t_dishes_id dishesId,\n" +
-                "    d.t_cuisine_id cuisineId, \n" +
-                "    d.t_dishes_name dishesName, \n" +
-                "    d.t_dishes_price dishesPrice, \n" +
-                "    d.t_dishes_member_price dishesMemberPrice, \n" +
-                "    d.t_dishes_img dishesImg, \n" +
-                "    d.t_dishes_introduction dishesIntroduction, \n" +
-                "    d.t_dishes_status dishesStatus, \n" +
-                "    c.t_cuisine_name cuisineName\n" +
-                "from t_dishes d,t_cuisine c \n" +
-                "where d.t_cuisine_id = c.t_cuisine_id\n" +
-                "and d.t_dishes_status != 3 and d.t_dishes_name like ?";
-        return queryRunner.query(sql, new MapListHandler(), dishName);
+    public List<Dishes> queryByName(String dishName) throws SQLException {
+        return null;
     }
 
     /**

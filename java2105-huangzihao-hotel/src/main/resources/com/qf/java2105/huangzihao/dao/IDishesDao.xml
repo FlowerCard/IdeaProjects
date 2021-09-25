@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.java2105.huangzihao.dao.IDishesDao">
+    <resultMap id="queryDishesSetMap" type="com.qf.java2105.huangzihao.pojo.Dishes">
+        <id column="t_dishes_id" property="dishesId"></id>
+        <result column="t_cuisine_id" property="cuisineId"></result>
+        <result column="t_dishes_name" property="dishesName"></result>
+        <result column="t_dishes_price" property="dishesPrice"></result>
+        <result column="t_dishes_member_price" property="dishesMemberPrice"></result>
+        <result column="t_dishes_img" property="dishesImg"></result>
+        <result column="t_dishes_introduction" property="dishesIntroduction"></result>
+        <result column="t_dishes_status" property="dishesStatus"></result>
+    </resultMap>
+    
+    <!--  List<Dishes> queryByName(String dishName)  -->
+    <select id="queryByName" resultMap="queryDishesSetMap">
+        select 
+             d.t_dishes_id,
+             d.t_cuisine_id ,
+             d.t_dishes_name ,
+             d.t_dishes_price ,
+             d.t_dishes_member_price ,
+             d.t_dishes_img ,
+             d.t_dishes_introduction ,
+             d.t_dishes_status ,
+             c.t_cuisine_name 
+        from t_dishes d,t_cuisine c 
+        where d.t_cuisine_id = c.t_cuisine_id
+        and d.t_dishes_status != 3 and d.t_dishes_name like #{dishName}
+    </select>
+    
+    <!-- save(Dishes dishes)   -->
+    <insert id="save" parameterType="com.qf.java2105.huangzihao.pojo.Dishes">
+        insert into t_dishes (t_cuisine_id, t_dishes_name, t_dishes_price, t_dishes_member_price,
+                t_dishes_img, t_dishes_introduction) 
+        VALUES 
+               (#{cuisineId},#{dishesName},#{dishesPrice},#{dishesMemberPrice},#{dishesImg},#{dishesIntroduction})
+    </insert>
+    
+    <!--  Dishes queryById(Integer dishesId)  -->
+    <select id="queryById" resultMap="queryDishesSetMap">
+        select
+            t_dishes_id,
+            t_cuisine_id ,
+            t_dishes_name ,
+            t_dishes_price ,
+            t_dishes_member_price ,
+            t_dishes_img ,
+            t_dishes_introduction ,
+            t_dishes_status
+        from t_dishes
+        where t_dishes_id = #{dishesId}
+    </select>
+    
+    <!--  updateById(Dishes dishes)  -->
+    <update id="updateById" parameterType="com.qf.java2105.huangzihao.pojo.Dishes">
+        update t_dishes 
+        <set>
+            <if test="cuisineId != null">
+                t_cuisine_id = #{cuisineId},
+            </if>
+            <if test="dishesName != null">
+                t_dishes_name = #{dishesName},
+            </if>
+            <if test="dishesPrice != null">
+                t_dishes_price = #{dishesPrice},
+            </if>
+            <if test="dishesMemberPrice != null">
+                t_dishes_member_price = #{dishesMemberPrice},
+            </if>
+            <if test="dishesImg != null">
+                t_dishes_img = #{dishesImg},
+            </if>
+            <if test="dishesIntroduction != null">
+                t_dishes_introduction = #{dishesIntroduction}
+            </if>
+        </set>      
+        where t_dishes_id = #{dishesId}
+    </update>
+    
+    <!--  deleteById(Integer dishesId)  -->
+    <update id="deleteById">
+        update t_dishes set t_dishes_status = 3 where t_dishes_id = #{dishesId}
+    </update>
+
+    <!--  Integer existsDishesName(String dishesName)  -->
+    <select id="existsDishesName" resultType="integer">
+        select t_dishes_id from t_dishes where t_dishes_status !=3 and t_dishes_name = #{dishesName} limit 1
+    </select>
+    
+    <!--  updateDishesStatus(Integer dishesId)  -->
+    <update id="updateDishesStatus">
+        update t_dishes set t_dishes_status = 1 where t_dishes_id = #{dishesId}
+    </update>
+    
+    <!--  Integer queryDeleteStatus(String cuisineName)  -->
+    <select id="queryDeleteStatus" resultType="integer">
+        select t_dishes_id from t_dishes where t_dishes_name = #{dishesName} and t_dishes_status = 3
+    </select>
+    
+    <!--  Long countByCondition(@Param("cuisineId") Integer cuisineId,@Param("dishesName") String dishesName)  -->
+    <select id="countByCondition" resultType="long">
+        select count(1) from t_dishes
+        <where>
+            1=1 and t_dishes_status != 3
+            <if test="dishesName != null">
+                and t_dishes_name like #{dishesName}
+            </if>
+            <if test="cuisineId != null">
+                and t_cuisine_id = #{cuisineId}
+            </if>
+        </where> 
+    </select>
+    
+    <!--  List<Dishes> queryByPage(@Param("begin") Integer begin,@Param("end") Integer end,
+                                   @Param("cuisineId") Integer cuisineId,@Param("dishesName") String dishesName)  -->
+    <select id="queryByPage" resultMap="queryDishesSetMap">
+        select
+            t_dishes_id,
+            t_cuisine_id ,
+            t_dishes_name ,
+            t_dishes_price ,
+            t_dishes_member_price ,
+            t_dishes_img ,
+            t_dishes_introduction ,
+            t_dishes_status
+        from t_dishes
+        <where>
+            1=1 and t_dishes_status != 3
+            <if test="dishesName != null">
+                and t_dishes_name like #{dishesName}
+            </if>
+            <if test="cuisineId != null">
+                and t_cuisine_id = #{cuisineId}
+            </if>
+        </where>
+        limit #{begin},#{end};
+    </select>
+    
+</mapper>

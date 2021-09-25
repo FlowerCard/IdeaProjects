@@ -5,16 +5,13 @@ import com.qf.java2105.huangzihao.constant.MessageConstant;
 import com.qf.java2105.huangzihao.dao.IDishesDao;
 import com.qf.java2105.huangzihao.entity.ResultVO;
 import com.qf.java2105.huangzihao.factory.BeanFacotry;
-import com.qf.java2105.huangzihao.pojo.Cuisine;
 import com.qf.java2105.huangzihao.pojo.Dishes;
 import com.qf.java2105.huangzihao.service.IDishesService;
 import com.qf.java2105.huangzihao.utils.JdbcUtil;
+import com.qf.java2105.huangzihao.utils.MybatisUtil;
 
-import java.math.BigDecimal;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 菜品业务层实现
@@ -36,39 +33,15 @@ public class DishesServiceImpl implements IDishesService {
     public ResultVO<List<Dishes>> queryByName(String dishName) {
 
         try {
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             //判断传入的用户是否为空
             if (StringUtils.isEmpty(dishName)) {
                 dishName = "%%";
             } else {
                 dishName = "%" + dishName.trim() + "%";
             }
-            List<Map<String, Object>> dishNameList = dishesDao.queryByName(dishName);
-            
-            //处理数据
-            List<Dishes> dishesList = new ArrayList<>();
-            for (Map<String, Object> map : dishNameList) {
-                Integer dishesId = (Integer) map.get("dishesId");
-                Integer cuisineId = (Integer) map.get("cuisineId");
-                String dishesName = (String) map.get("dishesName");
-                BigDecimal dishesPrice = (BigDecimal) map.get("dishesPrice");
-                BigDecimal dishesMemberPrice = (BigDecimal) map.get("dishesMemberPrice");
-                String dishesImg = (String) map.get("dishesImg");
-                String dishesIntroduction = (String) map.get("dishesIntroduction");
-                Integer dishesStatus = (Integer) map.get("dishesStatus"); 
-                String cuisineName = (String) map.get("cuisineName");
-
-                Cuisine cuisine = new Cuisine();
-                cuisine.setCuisineId(cuisineId);
-                cuisine.setCuisineName(cuisineName);
-                
-                Dishes dishes = new Dishes(
-                        dishesId,cuisineId,dishesName,dishesPrice,dishesMemberPrice,dishesImg,dishesIntroduction,dishesStatus
-                );
-                dishes.setCuisine(cuisine);
-                dishesList.add(dishes);
-            }
-            
-            return ResultVO.ok(MessageConstant.QUERY_SUCCESS,dishesList);
+            List<Dishes> dishList = dishesDao.queryByName(dishName);
+            return ResultVO.ok(MessageConstant.QUERY_SUCCESS, dishList);
         } catch (SQLException e) {
             e.printStackTrace();
             return ResultVO.error(MessageConstant.QUERY_FAIL);
@@ -85,7 +58,7 @@ public class DishesServiceImpl implements IDishesService {
     public ResultVO<String> save(Dishes dishes) {
 
         try {
-            JdbcUtil.begin();
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             Integer queryDeleteStatus = dishesDao.queryDeleteStatus(dishes.getDishesName());
             if (null != queryDeleteStatus) {
                 //更新删除状态
@@ -97,11 +70,11 @@ public class DishesServiceImpl implements IDishesService {
             } else {
                 dishesDao.save(dishes);
             }
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.INSERT_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.INSERT_FAIL);
         }
     }
@@ -116,6 +89,7 @@ public class DishesServiceImpl implements IDishesService {
     public ResultVO<Dishes> queryById(Integer dishesId) {
 
         try {
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             Dishes dishes = dishesDao.queryById(dishesId);
             return ResultVO.ok(MessageConstant.QUERY_SUCCESS,dishes);
         } catch (Exception e) {
@@ -132,13 +106,13 @@ public class DishesServiceImpl implements IDishesService {
     @Override
     public ResultVO<String> updateById(Dishes dishes) {
         try {
-            JdbcUtil.begin();
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             dishesDao.updateById(dishes);
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.UPDATE_SUCCESS);
         } catch (SQLException e) {
             e.printStackTrace();
-            JdbcUtil.rollback();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.UPDATE_FAIL);
         }
     }
@@ -153,12 +127,13 @@ public class DishesServiceImpl implements IDishesService {
     public ResultVO<String> deleteById(Integer dishesId) {
 
         try {
-            JdbcUtil.begin();
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             dishesDao.deleteById(dishesId);
-            JdbcUtil.commit();
+            MybatisUtil.commit();
             return ResultVO.ok(MessageConstant.DELETE_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
+            MybatisUtil.rollback();
             return ResultVO.error(MessageConstant.DELETE_FAIL);
         }
     }
@@ -172,6 +147,7 @@ public class DishesServiceImpl implements IDishesService {
     @Override
     public ResultVO existsDishesName(String dishesName) {
         try {
+            dishesDao = MybatisUtil.getMapper(IDishesDao.class);
             Integer existsDishesName = dishesDao.existsDishesName(dishesName);
             if (null != existsDishesName) {
                 return ResultVO.error(MessageConstant.EXITIS_NAME);

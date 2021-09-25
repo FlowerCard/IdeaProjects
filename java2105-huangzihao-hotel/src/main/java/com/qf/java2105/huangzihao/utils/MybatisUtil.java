@@ -66,6 +66,7 @@ public class MybatisUtil {
     public static void commit() {
         SqlSession sqlSession = THREADLOCAL.get();
         sqlSession.commit();
+        closeSession();
     }
 
     /**
@@ -74,6 +75,7 @@ public class MybatisUtil {
     public static void rollback() {
         SqlSession sqlSession = THREADLOCAL.get();
         sqlSession.rollback();
+        closeSession();
     }
 
     /**

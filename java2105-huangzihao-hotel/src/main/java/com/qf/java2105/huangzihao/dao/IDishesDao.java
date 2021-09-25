@@ -1,6 +1,9 @@
 package com.qf.java2105.huangzihao.dao;
 
 import com.qf.java2105.huangzihao.pojo.Dishes;
+import org.apache.ibatis.annotations.CacheNamespace;
+import org.apache.ibatis.annotations.CacheNamespaceRef;
+import org.apache.ibatis.annotations.Param;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,7 +22,7 @@ public interface IDishesDao {
      * @param dishName 菜品名称
      * @return 查询集合
      */
-    public List<Map<String ,Object>> queryByName(String dishName) throws SQLException;
+    public List<Dishes> queryByName(String dishName) throws SQLException;
 
     /**
      * 新增菜品
@@ -79,7 +82,7 @@ public interface IDishesDao {
      * @param dishesName 菜品名称
      * @return
      */
-    Long countByCondition(Integer cuisineId, String dishesName) throws SQLException;
+    public Long countByCondition(@Param("cuisineId") Integer cuisineId,@Param("dishesName") String dishesName) throws SQLException;
 
     /**
      * 条件分页查询 
@@ -90,6 +93,7 @@ public interface IDishesDao {
      * @return
      * @throws SQLException
      */
-    public List<Dishes> queryByPage(Integer begin, Integer end, Integer cuisineId, String dishesName) throws SQLException;
+    public List<Dishes> queryByPage(@Param("begin") Integer begin,@Param("end") Integer end,
+                                   @Param("cuisineId") Integer cuisineId,@Param("dishesName") String dishesName) throws SQLException;
     
 }
