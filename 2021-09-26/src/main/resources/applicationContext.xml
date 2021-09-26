@@ -24,4 +24,15 @@
         <constructor-arg name="username" value="哈士奇"></constructor-arg>
     </bean>
 
+
+    <!--  
+        accountService01  
+        使用自动注入时，如果不在类中New对象，就要在配置文件中创建好对象的引用
+        使用byType时，配置文件中只有一份
+    -->
+    <bean name="accountDao" class="com.huapai.dao.impl.AccountDaoImpl"></bean>
+<!--    <bean name="accountDao02" class="com.huapai.dao.impl.AccountDaoImpl"></bean>-->
+    <bean name="accountService01" class="com.huapai.service.impl.AccountServiceImpl" autowire="byType"></bean>
+    <bean name="accountService02" class="com.huapai.service.impl.AccountServiceImpl" autowire="byName"></bean>
+
 </beans>
