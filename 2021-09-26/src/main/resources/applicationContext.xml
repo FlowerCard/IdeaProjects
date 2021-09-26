@@ -7,5 +7,12 @@
     <bean id="userDao" class="com.huapai.dao.impl.UserDaoImpl">
         <!-- collaborators and configuration for this bean go here -->
     </bean>
+    
+    <bean id="user" class="com.huapai.pojo.User">
+        <property name="id" value="1002"></property>
+        <property name="username" value="苟勾"></property>
+        <property name="password" value="gougou"></property>
+        <property name="info" value="一直在稳定发挥"></property>
+    </bean>
 
 </beans>
