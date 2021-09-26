@@ -7,12 +7,21 @@
     <bean id="userDao" class="com.huapai.dao.impl.UserDaoImpl">
         <!-- collaborators and configuration for this bean go here -->
     </bean>
-    
+    <!--  Set注入  -->
     <bean id="user" class="com.huapai.pojo.User">
         <property name="id" value="1002"></property>
         <property name="username" value="苟勾"></property>
         <property name="password" value="gougou"></property>
         <property name="info" value="一直在稳定发挥"></property>
+    </bean>
+    
+    <!-- 定义User -->
+    <bean id="user02" class="com.huapai.pojo.User">
+        <constructor-arg name="id" value="1003"></constructor-arg>
+    </bean>
+    <bean id="user03" class="com.huapai.pojo.User">
+        <constructor-arg name="id" value="1003"></constructor-arg>
+        <constructor-arg name="username" value="哈士奇"></constructor-arg>
     </bean>
 
 </beans>
