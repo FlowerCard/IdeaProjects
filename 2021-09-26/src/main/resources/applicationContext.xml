@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -34,5 +35,8 @@
 <!--    <bean name="accountDao02" class="com.huapai.dao.impl.AccountDaoImpl"></bean>-->
     <bean name="accountService01" class="com.huapai.service.impl.AccountServiceImpl" autowire="byType"></bean>
     <bean name="accountService02" class="com.huapai.service.impl.AccountServiceImpl" autowire="byName"></bean>
+    
+    <!--  p命名空间注入  -->
+    <bean name="account" class="com.huapai.pojo.Account" p:id="1200" p:username="test02"></bean>
 
 </beans>
