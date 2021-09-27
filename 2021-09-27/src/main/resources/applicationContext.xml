@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  person普通注入  -->
+    <bean id="person01" class="com.huapai.pojo.Person">
+        <property name="id" value="1001"/>
+        <property name="username" value="test01"/>
+        <property name="gender" value="男"/>
+        <property name="info" value="测试01号"/>
+    </bean>
+    
+    <!--  person数组注入  -->
+    <bean id="person02" class="com.huapai.pojo.Person">
+        <property name="hobbies">
+            <array>
+                <value>唱</value>
+                <value>跳</value>
+                <value>RAP</value>
+            </array>
+        </property>
+    </bean>
+    
+    <!--  person-List注入  -->
+    <bean id="person03" class="com.huapai.pojo.Person">
+        <property name="friends">
+            <list>
+                <value>test02</value>
+                <value>test03</value>
+                <value>test04</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!--  person-Map注入  -->
+    <bean id="person04" class="com.huapai.pojo.Person">
+        <property name="phones">
+            <map>
+                <entry key="test02" value="1002"/>
+                <entry key="test03" value="1003"/>
+                <entry key="test04" value="1004"/>
+            </map>
+        </property>
+    </bean>
+
+
+</beans>
