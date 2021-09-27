@@ -44,6 +44,12 @@
             </map>
         </property>
     </bean>
+    
+    <!--  自定义的connection生成  -->
+    <bean id="connection" class="com.huapai.factory.ConnectFactoryBean"/>
+    
+    <!--  自定义的sqlSession生成  -->
+    <bean id="sqlSession" class="com.huapai.factory.SqlSessionFactoryBean"/>
 
 
 </beans>
