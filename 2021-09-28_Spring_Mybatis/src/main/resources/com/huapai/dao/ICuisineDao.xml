@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.ICuisineDao">
+  <resultMap id="BaseResultMap" type="com.huapai.pojo.Cuisine">
+    <id column="t_cuisine_id" jdbcType="INTEGER" property="tCuisineId" />
+    <result column="t_cuisine_name" jdbcType="VARCHAR" property="tCuisineName" />
+    <result column="t_cuisine_create_time" jdbcType="TIMESTAMP" property="tCuisineCreateTime" />
+    <result column="t_cuisine_modifie_time" jdbcType="TIMESTAMP" property="tCuisineModifieTime" />
+    <result column="t_cuisine_modifie_user" jdbcType="INTEGER" property="tCuisineModifieUser" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    t_cuisine_id, t_cuisine_name, t_cuisine_create_time, t_cuisine_modifie_time, t_cuisine_modifie_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_cuisine
+    where t_cuisine_id = #{tCuisineId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_cuisine
+    where t_cuisine_id = #{tCuisineId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="t_cuisine_id" keyProperty="tCuisineId" parameterType="com.huapai.pojo.Cuisine" useGeneratedKeys="true">
+    insert into t_cuisine (t_cuisine_name, t_cuisine_create_time, 
+      t_cuisine_modifie_time, t_cuisine_modifie_user
+      )
+    values (#{tCuisineName,jdbcType=VARCHAR}, #{tCuisineCreateTime,jdbcType=TIMESTAMP}, 
+      #{tCuisineModifieTime,jdbcType=TIMESTAMP}, #{tCuisineModifieUser,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="t_cuisine_id" keyProperty="tCuisineId" parameterType="com.huapai.pojo.Cuisine" useGeneratedKeys="true">
+    insert into t_cuisine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tCuisineName != null">
+        t_cuisine_name,
+      </if>
+      <if test="tCuisineCreateTime != null">
+        t_cuisine_create_time,
+      </if>
+      <if test="tCuisineModifieTime != null">
+        t_cuisine_modifie_time,
+      </if>
+      <if test="tCuisineModifieUser != null">
+        t_cuisine_modifie_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tCuisineName != null">
+        #{tCuisineName,jdbcType=VARCHAR},
+      </if>
+      <if test="tCuisineCreateTime != null">
+        #{tCuisineCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tCuisineModifieTime != null">
+        #{tCuisineModifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tCuisineModifieUser != null">
+        #{tCuisineModifieUser,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.huapai.pojo.Cuisine">
+    update t_cuisine
+    <set>
+      <if test="tCuisineName != null">
+        t_cuisine_name = #{tCuisineName,jdbcType=VARCHAR},
+      </if>
+      <if test="tCuisineCreateTime != null">
+        t_cuisine_create_time = #{tCuisineCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tCuisineModifieTime != null">
+        t_cuisine_modifie_time = #{tCuisineModifieTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tCuisineModifieUser != null">
+        t_cuisine_modifie_user = #{tCuisineModifieUser,jdbcType=INTEGER},
+      </if>
+    </set>
+    where t_cuisine_id = #{tCuisineId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.huapai.pojo.Cuisine">
+    update t_cuisine
+    set t_cuisine_name = #{tCuisineName,jdbcType=VARCHAR},
+      t_cuisine_create_time = #{tCuisineCreateTime,jdbcType=TIMESTAMP},
+      t_cuisine_modifie_time = #{tCuisineModifieTime,jdbcType=TIMESTAMP},
+      t_cuisine_modifie_user = #{tCuisineModifieUser,jdbcType=INTEGER}
+    where t_cuisine_id = #{tCuisineId,jdbcType=INTEGER}
+  </update>
+</mapper>
