@@ -2,12 +2,14 @@ package com.huapai.service.impl;
 
 import com.huapai.pojo.Account;
 import com.huapai.service.IAccountService;
+import org.springframework.stereotype.Service;
 
 /**
  * @author HuaPai
  * @email HuaPai@odcn.live
  * Created on 2021/9/28.
  */
+@Service
 public class AccountServiceImpl implements IAccountService {
     @Override
     public Integer addAccount(Account account) {
@@ -23,6 +25,7 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public Integer removeAccount(Integer id) {
+        System.out.println("AccountServiceImpl =====》 removeAccount");
         return null;
     }
 

@@ -35,10 +35,11 @@
 
         <!--    配置切面    -->
         <aop:aspect ref="transactionAdvice">
-            <aop:before method="begin" pointcut-ref="pt"/>
-            <aop:after-returning method="commit" pointcut-ref="pt"/>
-            <aop:after-throwing method="rollback" pointcut-ref="pt"/>
-            <aop:after method="release" pointcut-ref="pt"/>
+<!--            <aop:before method="begin" pointcut-ref="pt"/>-->
+<!--            <aop:after-returning method="commit" pointcut-ref="pt"/>-->
+<!--            <aop:after-throwing method="rollback" pointcut-ref="pt"/>-->
+<!--            <aop:after method="release" pointcut-ref="pt"/>-->
+            <aop:around method="around" pointcut-ref="pt"/>
         </aop:aspect>
         
         <aop:aspect ref="loggerAdvice">

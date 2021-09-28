@@ -10,3 +10,122 @@
 2021-09-28 19:36:37,816 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
 2021-09-28 19:36:37,817 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
 2021-09-28 19:36:37,849 DEBUG Logger:21 - com.huapai.service.impl.AccountServiceImpl@3270d194 ===> addAccount ===> 方法执行，开启日志记录 [null]
+2021-09-28 19:42:44,951 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:42:44,973 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:42:45,171 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:42:45,174 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:42:45,177 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:42:45,179 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:42:45,188 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:42:45,286 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:43:05,570 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:43:05,595 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:43:05,693 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\service\impl\AccountServiceImpl.class]
+2021-09-28 19:43:05,815 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:43:05,818 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:43:05,822 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:43:05,825 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:43:05,834 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:43:05,940 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:43:05,949 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountServiceImpl'
+2021-09-28 19:45:09,252 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:45:09,275 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:45:09,380 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\advice\TransactionAdvice.class]
+2021-09-28 19:45:09,386 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\service\impl\AccountServiceImpl.class]
+2021-09-28 19:45:09,508 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:45:09,511 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:45:09,513 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:45:09,516 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:45:09,521 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:45:09,626 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:45:09,663 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.around(org.aspectj.lang.ProceedingJoinPoint)
+2021-09-28 19:45:09,813 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:45:09,813 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountServiceImpl'
+2021-09-28 19:47:09,164 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:47:09,442 DEBUG XmlBeanDefinitionReader:391 - Loaded 7 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:47:09,481 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:47:09,564 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:47:09,565 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:47:09,758 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:47:09,804 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:47:09,805 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
+2021-09-28 19:48:36,869 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:48:36,894 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:48:36,985 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\advice\TransactionAdvice.class]
+2021-09-28 19:48:36,991 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\service\impl\AccountServiceImpl.class]
+2021-09-28 19:48:37,130 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:48:37,134 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:48:37,137 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:48:37,139 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:48:37,145 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:48:37,230 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:48:37,277 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.begin()
+2021-09-28 19:48:37,280 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.release()
+2021-09-28 19:48:37,282 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.commit()
+2021-09-28 19:48:37,284 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.rollback()
+2021-09-28 19:48:37,515 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:48:37,517 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountServiceImpl'
+2021-09-28 19:49:15,392 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:49:15,417 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:49:15,529 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\advice\TransactionAdvice.class]
+2021-09-28 19:49:15,536 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\service\impl\AccountServiceImpl.class]
+2021-09-28 19:49:15,696 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:49:15,698 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:49:15,701 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:49:15,704 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:49:15,711 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:49:15,803 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:49:15,844 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.begin()
+2021-09-28 19:49:15,847 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.commit()
+2021-09-28 19:49:15,848 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.release()
+2021-09-28 19:49:15,849 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.rollback()
+2021-09-28 19:49:16,020 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:49:16,021 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountServiceImpl'
+2021-09-28 19:50:11,006 DEBUG AnnotationConfigApplicationContext:595 - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@71c7db30
+2021-09-28 19:50:11,026 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2021-09-28 19:50:11,119 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\advice\TransactionAdvice.class]
+2021-09-28 19:50:11,125 DEBUG ClassPathBeanDefinitionScanner:435 - Identified candidate component class: file [D:\QfCode\IdeaProjects\2021-09-28\target\classes\com\huapai\service\impl\AccountServiceImpl.class]
+2021-09-28 19:50:11,246 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2021-09-28 19:50:11,249 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2021-09-28 19:50:11,251 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2021-09-28 19:50:11,255 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2021-09-28 19:50:11,262 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:50:11,357 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'springConfig'
+2021-09-28 19:50:11,399 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.begin()
+2021-09-28 19:50:11,401 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.commit()
+2021-09-28 19:50:11,402 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.release()
+2021-09-28 19:50:11,402 DEBUG ReflectiveAspectJAdvisorFactory:245 - Found AspectJ method: public void com.huapai.advice.TransactionAdvice.rollback()
+2021-09-28 19:50:11,568 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:50:11,570 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountServiceImpl'
+2021-09-28 19:50:17,054 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:50:17,287 DEBUG XmlBeanDefinitionReader:391 - Loaded 7 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:50:17,333 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:50:17,415 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:50:17,415 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:50:17,584 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:50:17,633 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:50:17,634 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
+2021-09-28 19:51:26,691 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:51:26,982 DEBUG XmlBeanDefinitionReader:391 - Loaded 7 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:51:27,032 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:51:27,109 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:51:27,109 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:51:27,279 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:51:27,322 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:51:27,322 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
+2021-09-28 19:52:00,050 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:52:00,280 DEBUG XmlBeanDefinitionReader:391 - Loaded 7 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:52:00,321 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:52:00,399 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:52:00,400 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:52:00,583 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:52:00,637 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:52:00,638 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
+2021-09-28 19:52:05,847 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:52:06,078 DEBUG XmlBeanDefinitionReader:391 - Loaded 7 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:52:06,122 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:52:06,198 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:52:06,199 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:52:06,369 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:52:06,414 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:52:06,415 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
