@@ -1,0 +1,12 @@
+2021-09-28 19:36:37,163 DEBUG ClassPathXmlApplicationContext:595 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1fbc7afb
+2021-09-28 19:36:37,398 DEBUG XmlBeanDefinitionReader:391 - Loaded 10 bean definitions from class path resource [applicationContext.xml]
+2021-09-28 19:36:37,439 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+2021-09-28 19:36:37,515 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'accountService'
+2021-09-28 19:36:37,516 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0'
+2021-09-28 19:36:37,736 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#1'
+2021-09-28 19:36:37,743 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#2'
+2021-09-28 19:36:37,752 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#3'
+2021-09-28 19:36:37,757 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#4'
+2021-09-28 19:36:37,816 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'transactionAdvice'
+2021-09-28 19:36:37,817 DEBUG DefaultListableBeanFactory:213 - Creating shared instance of singleton bean 'loggerAdvice'
+2021-09-28 19:36:37,849 DEBUG Logger:21 - com.huapai.service.impl.AccountServiceImpl@3270d194 ===> addAccount ===> 方法执行，开启日志记录 [null]

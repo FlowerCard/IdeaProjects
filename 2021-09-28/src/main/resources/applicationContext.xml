@@ -18,6 +18,7 @@
 
     <!--  Advice  -->
     <bean id="transactionAdvice" class="com.huapai.advice.TransactionAdvice"/>
+    <bean id="loggerAdvice" class="com.huapai.advice.LoggerAdvice"/>
 
     <!--  
         AOP配置
@@ -38,6 +39,10 @@
             <aop:after-returning method="commit" pointcut-ref="pt"/>
             <aop:after-throwing method="rollback" pointcut-ref="pt"/>
             <aop:after method="release" pointcut-ref="pt"/>
+        </aop:aspect>
+        
+        <aop:aspect ref="loggerAdvice">
+            <aop:before method="begin" pointcut-ref="pt"/>
         </aop:aspect>
     </aop:config>
 
