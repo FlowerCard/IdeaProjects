@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/aop
+                           https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--  包路径扫描  -->
+<!--    <context:component-scan base-package="com.huapai"/>-->
+
+    <!--  Service  -->
+    <bean id="accountService" class="com.huapai.service.impl.AccountServiceImpl"/>
+
+    <!--  Advice  -->
+    <bean id="transactionAdvice" class="com.huapai.advice.TransactionAdvice"/>
+
+    <!--  
+        AOP配置
+            把切点和增强织入
+    -->
+    <aop:config>
+        <!--
+            配置切点
+                id  切点的标识
+                expression  找到切点
+        -->
+        <aop:pointcut id="pt"
+                      expression="execution(public * com.huapai.service.impl..addAccount(..))"/>
+
+        <!--    配置切面    -->
+        <aop:aspect ref="transactionAdvice">
+            <aop:before method="begin" pointcut-ref="pt"/>
+            <aop:after-returning method="commit" pointcut-ref="pt"/>
+            <aop:after-throwing method="rollback" pointcut-ref="pt"/>
+            <aop:after method="release" pointcut-ref="pt"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
