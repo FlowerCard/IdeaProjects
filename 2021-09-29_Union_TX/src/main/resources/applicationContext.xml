@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tr="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
@@ -35,20 +35,40 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!--  事务通知  -->
-    <tr:advice id="txAdvice" transaction-manager="transactionManager">
-        <tr:attributes>
+    <!--
+        事务通知
+            name="transfer"
+                方法的名字
+            rollback-for="java.lang.Exception"
+                哪些情况回滚
+            timeout="-1"
+                连接超时时间
+            read-only="false"
+                是否只是读的操作
+            propagation="REQUIRED"
+                事务传播行为
+            isolation="DEFAULT"
+                事务隔离级别
+     -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
             <!--     需要被管理事务的方法       -->
-            <tr:method name="transfer"/>
-        </tr:attributes>
-    </tr:advice>
+            <tx:method name="transfer"/>
+            <tx:method name="selectAccountByAccount" read-only="true" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
     
     <aop:config>
         <!-- 切点 -->
         <aop:pointcut id="pt" expression="execution(* com.huapai.service.impl.AccountServiceImpl.transfer(..))"/>
         
         <!-- 配置增强 -->
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+<!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>-->
     </aop:config>
+    
+    <!-- 事务注解驱动 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <aop:aspectj-autoproxy/>
     
 </beans>

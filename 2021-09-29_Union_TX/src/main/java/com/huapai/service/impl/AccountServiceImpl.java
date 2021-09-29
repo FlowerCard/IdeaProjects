@@ -5,6 +5,7 @@ import com.huapai.pojo.Account;
 import com.huapai.service.IAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 账户业务层接口实现类
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
  * Created on 2021/9/29.
  */
 @Service
+@Transactional
 public class AccountServiceImpl implements IAccountService {
     
     @Autowired
