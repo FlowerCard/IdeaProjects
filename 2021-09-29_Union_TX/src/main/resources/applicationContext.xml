@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tr="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--  包扫描路径  -->
+    <context:component-scan base-package="com.huapai"/>
+    
+    <!--  JDBC配置文件  -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    
+    <!--  Dao层扫描  -->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.huapai.dao"/>
+    </bean>
+    
+    <!--  sqlSession  -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    
+    <!--  配置数据源  -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--    要管理和SQLSession同一个的数据源才能有效的管理事务    -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--  事务通知  -->
+    <tr:advice id="txAdvice" transaction-manager="transactionManager">
+        <tr:attributes>
+            <!--     需要被管理事务的方法       -->
+            <tr:method name="transfer"/>
+        </tr:attributes>
+    </tr:advice>
+    
+    <aop:config>
+        <!-- 切点 -->
+        <aop:pointcut id="pt" expression="execution(* com.huapai.service.impl.AccountServiceImpl.transfer(..))"/>
+        
+        <!-- 配置增强 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+    </aop:config>
+    
+</beans>
