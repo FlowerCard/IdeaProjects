@@ -1,5 +1,6 @@
 package com.huapai.controller;
 
+import com.huapai.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -50,6 +51,12 @@ public class ParamController {
         System.out.println("ParamController ====> getParam04 ====> num ====> " + num);
         System.out.println("ParamController ====> getParam04 ====> username ====> " + username);
         System.out.println("ParamController ====> getParam04 ====> birth ====> " + birth);
+        return "index";
+    }
+    
+    @RequestMapping("/p06")
+    public String getParam06(User user){
+        System.out.println("ParamController ====> getParam04 ====> user ====> " + user);
         return "index";
     }
     
