@@ -3,6 +3,8 @@ package com.huapai.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
+
 /**
  * @author HuaPai
  * @email HuaPai@odcn.live
@@ -32,6 +34,22 @@ public class ParamController {
     public String getParam03(Integer num, String username){
         System.out.println("ParamController ====> getParam03 ====> num ====> " + num);
         System.out.println("ParamController ====> getParam03 ====> username ====> " + username);
+        return "index";
+    }
+    
+    @RequestMapping("/p04")
+    public String getParam04(Integer num, String username,String password){
+        System.out.println("ParamController ====> getParam04 ====> num ====> " + num);
+        System.out.println("ParamController ====> getParam04 ====> username ====> " + username);
+        System.out.println("ParamController ====> getParam04 ====> password ====> " + password);
+        return "index";
+    }
+    
+    @RequestMapping("/p05")
+    public String getParam05(Integer num, String username, Date birth){
+        System.out.println("ParamController ====> getParam04 ====> num ====> " + num);
+        System.out.println("ParamController ====> getParam04 ====> username ====> " + username);
+        System.out.println("ParamController ====> getParam04 ====> birth ====> " + birth);
         return "index";
     }
     
