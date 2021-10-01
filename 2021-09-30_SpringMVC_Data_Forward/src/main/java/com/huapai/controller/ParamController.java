@@ -3,6 +3,7 @@ package com.huapai.controller;
 import com.huapai.pojo.User;
 import com.huapai.pojo.Users;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
@@ -77,6 +78,30 @@ public class ParamController {
     @RequestMapping("/p08")
     public String getParam08(Users users){
         System.out.println("ParamController ====> getParam08 ====> users ====> " + users);
+        return "index";
+    }
+
+    /**
+     * 路径收参
+     * @return
+     */
+    @RequestMapping("/p09/{id}")
+    public String getParam09(@PathVariable Integer id){
+        System.out.println("ParamController ====> getParam09 ====> id ====> " + id);
+        return "index";
+    }
+    
+    @RequestMapping("/p10/{id}")
+    public String getParam10(@PathVariable("id") Integer uid){
+        System.out.println("ParamController ====> getParam10 ====> uid ====> " + uid);
+        return "index";
+    }
+    
+    @RequestMapping("/p11/{id}/{username}/{password}")
+    public String getParam11(@PathVariable Integer id,@PathVariable String username,@PathVariable String password){
+        System.out.println("ParamController ====> getParam11 ====> id ====> " + id);
+        System.out.println("ParamController ====> getParam11 ====> username ====> " + username);
+        System.out.println("ParamController ====> getParam11 ====> password ====> " + password);
         return "index";
     }
     
