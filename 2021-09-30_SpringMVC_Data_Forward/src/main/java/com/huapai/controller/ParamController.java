@@ -4,6 +4,7 @@ import com.huapai.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -57,6 +58,12 @@ public class ParamController {
     @RequestMapping("/p06")
     public String getParam06(User user){
         System.out.println("ParamController ====> getParam04 ====> user ====> " + user);
+        return "index";
+    }
+    
+    @RequestMapping("/p07")
+    public String getParam07(String[] hobby){
+        System.out.println("ParamController ====> getParam04 ====> arr ====> " + Arrays.toString(hobby));
         return "index";
     }
     
