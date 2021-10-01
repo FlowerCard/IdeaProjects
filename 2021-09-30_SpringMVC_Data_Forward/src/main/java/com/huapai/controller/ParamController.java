@@ -1,6 +1,7 @@
 package com.huapai.controller;
 
 import com.huapai.pojo.User;
+import com.huapai.pojo.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -49,21 +50,33 @@ public class ParamController {
     
     @RequestMapping("/p05")
     public String getParam05(Integer num, String username, Date birth){
-        System.out.println("ParamController ====> getParam04 ====> num ====> " + num);
-        System.out.println("ParamController ====> getParam04 ====> username ====> " + username);
-        System.out.println("ParamController ====> getParam04 ====> birth ====> " + birth);
+        System.out.println("ParamController ====> getParam05 ====> num ====> " + num);
+        System.out.println("ParamController ====> getParam05 ====> username ====> " + username);
+        System.out.println("ParamController ====> getParam05 ====> birth ====> " + birth);
         return "index";
     }
     
     @RequestMapping("/p06")
     public String getParam06(User user){
-        System.out.println("ParamController ====> getParam04 ====> user ====> " + user);
+        System.out.println("ParamController ====> getParam06 ====> user ====> " + user);
         return "index";
     }
     
     @RequestMapping("/p07")
     public String getParam07(String[] hobby){
-        System.out.println("ParamController ====> getParam04 ====> arr ====> " + Arrays.toString(hobby));
+        System.out.println("ParamController ====> getParam07 ====> arr ====> " + Arrays.toString(hobby));
+        return "index";
+    }
+
+    /**
+     * 集合收参
+     *  http://localhost:8080/day59/param/p08?users[0].id=10010&users[0].username=zhangsan
+     * @param users 对象集合
+     * @return
+     */
+    @RequestMapping("/p08")
+    public String getParam08(Users users){
+        System.out.println("ParamController ====> getParam08 ====> users ====> " + users);
         return "index";
     }
     
