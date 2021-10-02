@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -76,6 +77,39 @@ public class DataController {
         model.addAttribute("num",num);
         model.addAttribute("username",username);
         return "redirect:/data03.jsp";
+    }
+    
+    @RequestMapping("changeModelAndView01")
+    public ModelAndView changeModelAndView01(Integer num, String username) {
+        ModelAndView modelAndView = new ModelAndView();
+        num += 100;
+        username += num;
+        
+        //存入数据
+        modelAndView.addObject("num",num);
+        modelAndView.addObject("username",username);
+        
+        //设置视图
+        modelAndView.setViewName("data04");
+        
+        return modelAndView;
+    }
+    
+    @RequestMapping("changeModelAndView02")
+    public ModelAndView changeModelAndView02(Integer num, String username) {
+        // 模型和视图对象 —— 既能存数据，又能存视图
+        ModelAndView modelAndView = new ModelAndView();
+        num += 100;
+        username += num;
+        
+        //存入数据
+        modelAndView.addObject("num",num);
+        modelAndView.addObject("username",username);
+        
+        //设置视图
+        modelAndView.setViewName("redirect:/data04.jsp");
+        
+        return modelAndView;
     }
     
 }
