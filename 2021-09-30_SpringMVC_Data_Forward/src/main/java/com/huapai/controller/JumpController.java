@@ -51,5 +51,41 @@ public class JumpController {
         System.out.println("JumpController ===> forwardToHello");
         return "forward:/hello/hi02";
     }
+
+    /**
+     * 重定向到内部handler
+     * @return
+     */
+    @RequestMapping("/redirectToH01")
+    public String redirectToH01(){
+        System.out.println("JumpController ===> redirectToH01");
+        return "redirect:/jump/hi";
+    }
+    
+    @RequestMapping("/redirectToH02")
+    public String redirectToH02(){
+        System.out.println("JumpController ===> redirectToH02");
+        return "redirect:hi";
+    }
+
+    /**
+     * 重定向到外部的handler
+     * @return
+     */
+    @RequestMapping("/redirectToHello")
+    public String redirectToHello(){
+        System.out.println("JumpController ===> redirectToHello");
+        return "redirect:/hello/hi02";
+    }
+
+    /**
+     * 重定向到外部的JSP
+     * @return
+     */
+    @RequestMapping("/redirectToIndex")
+    public String redirectToIndex(){
+        System.out.println("JumpController ===> redirectToIndex");
+        return "redirect:/index.jsp";
+    }
     
 }
