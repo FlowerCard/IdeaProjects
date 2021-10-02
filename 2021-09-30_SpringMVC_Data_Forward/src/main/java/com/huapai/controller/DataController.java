@@ -3,7 +3,9 @@ package com.huapai.controller;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @RequestMapping("/data")
+@SessionAttributes({"username"})
 public class DataController {
     
     @RequestMapping("/modify")
@@ -51,6 +54,28 @@ public class DataController {
         request.setAttribute("num",num);
         session.setAttribute("username",username);
         return "redirect:/data02.jsp";
+    }
+    
+    @RequestMapping("/changeModel01")
+    public String changeModel01(Model model,Integer num,String username){
+        num += 66;
+        username = username + num;
+        System.out.println("num ===> " + num);
+        System.out.println("username ===> " + username);
+        model.addAttribute("num",num);
+        model.addAttribute("username",username);
+        return "data03";
+    }
+    
+    @RequestMapping("/changeModel02")
+    public String changeModel02(Model model,Integer num,String username){
+        num += 66;
+        username = username + num;
+        System.out.println("num ===> " + num);
+        System.out.println("username ===> " + username);
+        model.addAttribute("num",num);
+        model.addAttribute("username",username);
+        return "redirect:/data03.jsp";
     }
     
 }
