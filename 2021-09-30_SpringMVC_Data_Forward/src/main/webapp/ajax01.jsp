@@ -20,16 +20,18 @@
                 obj.username="张三";
                 obj.password="san";
                 obj.birth="2020-08-09";
-                
+                var s = JSON.stringify(obj);
+                console.log(s);
                 $.ajax({
-                    url:"ajax/user03",
+                    url:"ajax/users01",
                     type:"post",
                     // 请求头
                     // headers:{
                     //     token:"10001"
                     // },
                     contentType:"application/json",
-                    data:JSON.stringify(obj),
+                    dataType:"json",
+                    data:s,
                     // data:obj,
                     success:function (res){
                         console.log(res);

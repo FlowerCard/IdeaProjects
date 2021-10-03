@@ -1,6 +1,8 @@
 package com.huapai.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -10,6 +12,8 @@ import java.util.Date;
  * Created on 2021/10/1.
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     private Integer id;
     private String username;
