@@ -18,4 +18,24 @@ public class HelloController {
         return "index";
     }
     
+    @RequestMapping("/hi02")
+    public String hi02(Integer num1,Integer num2){
+        System.out.println("HelloController ===> num1 ====>" + num1);
+        System.out.println("HelloController ===> num2 ====>" + num2);
+        System.out.println(num1 / num2);
+        return "index";
+    }
+    
+    @RequestMapping("/hi03")
+    public String hi03(Integer num1,Integer num2){
+        System.out.println("HelloController ===> num1 ====>" + num1);
+        System.out.println("HelloController ===> num2 ====>" + num2);
+        try {
+            System.out.println(num1 / num2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "index";
+    }
+    
 }
