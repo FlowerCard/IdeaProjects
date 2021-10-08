@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    
+<!--    包路径扫描-->
+    <context:component-scan base-package="com.huapai"/>
+    
+<!--    注解驱动-->
+    <mvc:annotation-driven>
+<!--        安装FastJson转换器-->
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+<!--                声明转换器类型：Json-->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>APPLICATION/JSON</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+<!--    视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    
+<!--    静态资源访问-->
+<!--    <mvc:resources mapping="/html/**" location="html"/>-->
+    
+<!--    添加额外的handler-->
+    <mvc:default-servlet-handler/>
+    
+</beans>
