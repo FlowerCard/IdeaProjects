@@ -40,4 +40,7 @@
 <!--    添加额外的handler-->
     <mvc:default-servlet-handler/>
     
+<!--    异常解析器-->
+    <bean class="com.huapai.resolver.MyExceptionResolver"/>
+    
 </beans>
