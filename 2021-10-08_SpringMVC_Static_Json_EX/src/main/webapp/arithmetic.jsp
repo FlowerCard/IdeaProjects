@@ -12,5 +12,7 @@
     </head>
     <body>
         <h1>算术运算异常</h1>
+        <h1>${msg}</h1>
+        <h1>${mes}</h1>
     </body>
 </html>

@@ -31,7 +31,7 @@
     $("#btn_sendUser").click(function (){
         var user = {};
         user.id=1002;
-        user.username="test02";
+        user.username="测试02";
         user.password="123";
         user.birth="2010-11-21";
         user.balance=123.123;

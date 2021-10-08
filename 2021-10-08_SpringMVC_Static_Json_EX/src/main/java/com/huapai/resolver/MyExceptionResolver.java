@@ -27,6 +27,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
         if (e instanceof MyArithmeticException) {
             System.err.println("算术运算异常");
             modelAndView.addObject("msg","算术运算异常");
+            httpServletRequest.getSession().setAttribute("mes","算术运算异常");
             modelAndView.setViewName("redirect:/arithmetic.jsp");
         } else if (e instanceof MyFormattingException) {
             System.err.println("格式化异常");
