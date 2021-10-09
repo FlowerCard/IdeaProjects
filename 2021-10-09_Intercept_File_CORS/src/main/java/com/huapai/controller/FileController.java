@@ -66,7 +66,7 @@ public class FileController {
     }
     
     @RequestMapping("/download")
-    public String download(String name,HttpSession session, HttpServletResponse response) throws IOException {
+    public void download(String name,HttpSession session, HttpServletResponse response) throws IOException {
         //文件夹位置
         String realPath = session.getServletContext().getRealPath("/files/");
         
@@ -80,7 +80,7 @@ public class FileController {
         IOUtils.copy(new FileInputStream(downloadFile),outputStream);
         outputStream.close();
         
-        return "redirect:downloadUi";
+//        return "redirect:downloadUi";
     }
     
 }
