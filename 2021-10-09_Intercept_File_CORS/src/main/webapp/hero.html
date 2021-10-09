@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hero</title>
+        <script src="js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <button onclick="addHero()">添加Hero</button>
+        <button onclick="deleteHero()">删除Hero</button>
+        <button onclick="modifyHero()">修改Hero</button>
+        <button onclick="getHero()">查询Hero</button>
+        <button onclick="getHeroes()">查询Heroes</button>
+    </body>
+    <script type="text/javascript">
+        function addHero() {
+            var hero = {"id":"112233","username":"lisisi"};
+            hero = JSON.stringify(hero);
+            $.ajax({
+                method:"post",
+                url:"http://10.31.161.7:8080/demo/heroes/hero",
+                data:hero,
+                contentType:"application/json",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+
+        function deleteHero() {
+            $.ajax({
+                method:"delete",
+                url:"http://10.31.161.7:8080/demo/heroes/hero/10010",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+
+        function modifyHero() {
+            var hero = {"id":"112233","username":"zhangsansan"};
+            hero = JSON.stringify(hero);
+            $.ajax({
+                method:"put",
+                url:"http://10.31.161.7:8080/demo/heroes/hero",
+                data:hero,
+                contentType:"application/json",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+
+        function getHero() {
+            $.ajax({
+                method:"get",
+                url:"http://10.31.161.7:8080/demo/heroes/hero/10010",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+
+        function getHeroes() {
+            $.ajax({
+                method:"get",
+                url:"http://10.31.161.7:8080/demo/heroes/heroes",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result);
+                }
+            })
+        }
+    </script>
+
+</html>
