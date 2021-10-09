@@ -14,7 +14,17 @@
     <context:component-scan base-package="com.huapai"/>
 
     <!--    注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--    视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

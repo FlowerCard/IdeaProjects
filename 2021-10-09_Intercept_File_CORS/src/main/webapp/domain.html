@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Domain</title>
+        <script src="js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <a href="http://10.31.161.7:8080/demo/heroes/heroes">获取Heroes</a>
+        <button id="getHeroes">获取Heroes</button>
+    </body>
+</html>
+<script>
+    $("#getHeroes").click(function (){
+        $.ajax({
+            method:"get",
+            url:"http://10.31.161.7:8080/demo/heroes/heroes",
+            dataType:"json",
+            xhrFields: {
+                // 跨域携带cookie
+                withCredentials: true
+            },
+            success:function (res){
+                console.log(res)
+            }
+        })
+    });
+</script>
