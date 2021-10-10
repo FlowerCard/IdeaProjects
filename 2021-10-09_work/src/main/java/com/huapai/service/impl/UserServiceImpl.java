@@ -39,4 +39,15 @@ public class UserServiceImpl implements IUserService {
     public User searchUserById(Integer id) {
         return userDao.selectUserById(id);
     }
+
+    /**
+     * 新增用户
+     *
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    @Override
+    public Integer addUser(User user) {
+        return userDao.insertUser(user);
+    }
 }

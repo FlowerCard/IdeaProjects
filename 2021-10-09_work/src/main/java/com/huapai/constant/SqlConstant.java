@@ -11,4 +11,6 @@ public interface SqlConstant {
     
     String SELECT_USER_BY_ID = "select id, username, password, info from user where id=#{id}";
     
+    String INSERT_USER = "insert into user(username, password, info) VALUES (#{username},#{password},#{info})";
+    
 }

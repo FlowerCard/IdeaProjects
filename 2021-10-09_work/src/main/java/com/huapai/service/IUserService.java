@@ -25,5 +25,12 @@ public interface IUserService {
      * @return 用户对象
      */
     public User searchUserById(Integer id);
+
+    /**
+     * 新增用户
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    public Integer addUser(User user);
     
 }

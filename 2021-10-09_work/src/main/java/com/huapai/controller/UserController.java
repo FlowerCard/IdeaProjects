@@ -31,4 +31,10 @@ public class UserController {
         return userService.searchUserById(id);
     }
     
+    @PostMapping("/users")
+    public Integer addUser(@RequestBody User user){
+        System.out.println("addUser ===> user ===> " + user);
+        return userService.addUser(user);
+    }
+    
 }

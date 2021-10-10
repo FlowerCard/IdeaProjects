@@ -29,5 +29,13 @@ public interface IUserDao {
      */
     @Select(SqlConstant.SELECT_USER_BY_ID)
     public User selectUserById(Integer id);
+
+    /**
+     * 插入用户
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    @Select(SqlConstant.INSERT_USER)
+    public Integer insertUser(User user);
     
 }
