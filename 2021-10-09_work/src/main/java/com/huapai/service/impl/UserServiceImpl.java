@@ -50,4 +50,26 @@ public class UserServiceImpl implements IUserService {
     public Integer addUser(User user) {
         return userDao.insertUser(user);
     }
+
+    /**
+     * 修改用户
+     *
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    @Override
+    public Integer modifyUser(User user) {
+        return userDao.updateUserById(user);
+    }
+
+    /**
+     * 删除用户
+     *
+     * @param id 用户id
+     * @return 受影响行数
+     */
+    @Override
+    public Integer removeUser(Integer id) {
+        return userDao.deleteUserById(id);
+    }
 }

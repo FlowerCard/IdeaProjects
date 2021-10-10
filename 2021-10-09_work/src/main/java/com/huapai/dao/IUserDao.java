@@ -37,5 +37,21 @@ public interface IUserDao {
      */
     @Select(SqlConstant.INSERT_USER)
     public Integer insertUser(User user);
+
+    /**
+     * 通过用户ID修改用户
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    @Select(SqlConstant.UPDATE_USER_BY_ID)
+    public Integer updateUserById(User user);
+
+    /**
+     * 通过id删除用户
+     * @param id 用户id
+     * @return 受影响行数
+     */
+    @Select(SqlConstant.DELETE_USER_BY_ID)
+    public Integer deleteUserById(Integer id);
     
 }

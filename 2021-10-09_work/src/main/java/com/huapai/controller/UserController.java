@@ -1,5 +1,6 @@
 package com.huapai.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.huapai.pojo.User;
 import com.huapai.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,18 @@ public class UserController {
     public Integer addUser(@RequestBody User user){
         System.out.println("addUser ===> user ===> " + user);
         return userService.addUser(user);
+    }
+    
+    @PutMapping("/users")
+    public Integer modifyUser(@RequestBody User user){
+        System.out.println("modify ====> user ====> " + user);
+        return userService.modifyUser(user);
+    }
+    
+    @DeleteMapping("/users/{id}")
+    public Integer removeUser(@PathVariable Integer id){
+        System.out.println("removeUse ====> id ====> " + id);
+        return userService.removeUser(id);
     }
     
 }

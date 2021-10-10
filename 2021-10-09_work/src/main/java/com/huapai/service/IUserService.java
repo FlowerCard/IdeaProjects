@@ -32,5 +32,19 @@ public interface IUserService {
      * @return 受影响行数
      */
     public Integer addUser(User user);
+
+    /**
+     * 修改用户
+     * @param user 用户对象
+     * @return 受影响行数
+     */
+    public Integer modifyUser(User user);
+
+    /**
+     * 删除用户
+     * @param id 用户id
+     * @return 受影响行数
+     */
+    public Integer removeUser(Integer id);
     
 }
