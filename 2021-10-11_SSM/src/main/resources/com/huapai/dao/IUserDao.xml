@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.IUserDao">
+
+    <resultMap id="userMap" type="com.huapai.pojo.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="info" property="info"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="userMap">
+        select id, username, password, email, info
+        from user
+    </select>
+    
+    <select id="selectById" resultMap="userMap" parameterType="user">
+        select id, username, password, email, info
+        from user where id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="user">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="info != null">
+                info
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="info != null">
+                #{info}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="user">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="info != null">
+                info = #{info}
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+    
+    <delete id="deleteById" parameterType="integer">
+        delete from user where id = #{id}
+    </delete>
+
+</mapper>
