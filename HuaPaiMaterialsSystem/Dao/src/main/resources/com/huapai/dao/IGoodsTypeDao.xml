@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.IGoodsTypeDao">
+    
+    <resultMap id="goodsTypeMap" type="goodsType">
+        <id column="id" property="id"/>
+        <result column="type_id" property="typeId"/>
+        <result column="type_name" property="typeName"/>
+        <result column="type_info" property="typeInfo"/>
+    </resultMap>
+    
+    <select id="selectAll" resultMap="goodsTypeMap">
+        select id, type_id, type_name, type_info from t_goods_type
+    </select>
+    
+    <select id="selectById" resultMap="goodsTypeMap">
+        select id, type_id, type_name, type_info from t_goods_type where id = #{id}
+    </select>
+    
+    <select id="searchByTypeId" resultType="integer">
+        select id from t_goods_type where type_id=#{typeId}
+    </select>
+    
+    <insert id="insertGoodsType" parameterType="goodsType">
+        insert into t_goods_type 
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="typeId != null">type_id,</if>
+                <if test="typeName != null">type_name,</if>
+                <if test="typeInfo != null">type_info</if>
+            </trim>
+            VALUES
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="typeId != null">#{typeId},</if>
+                <if test="typeName != null">#{typeName},</if>
+                <if test="typeInfo != null">#{typeInfo}</if>
+            </trim>
+    </insert>
+    
+    <update id="updateGoodsType" parameterType="goodsType">
+        update t_goods_type 
+        <set>
+            <if test="typeId != null">type_id = #{typeId},</if>
+            <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="typeInfo != null">type_info = #{typeInfo}</if>
+        </set>
+        where id=#{id}
+    </update>
+    
+    <delete id="deleteById" parameterType="goodsType">
+        delete from t_goods_type where id = #{id}
+    </delete>
+    
+    <select id="hasItem" resultType="integer">
+        select count(1) from t_goods where goods_type = #{typeId}
+    </select>
+
+</mapper>

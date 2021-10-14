@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.IUserDao">
+
+    <resultMap id="userMap" type="user">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="telephone" property="telephone"/>
+        <result column="address" property="address"/>
+        <result column="is_admin" property="isAdmin"/>
+        <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="userMap">
+        select id,
+               username,
+               password,
+               nickname,
+               telephone,
+               address,
+               is_admin,
+               is_delete
+        from t_user
+    </select>
+
+    <select id="selectByUsernameUser" resultMap="userMap">
+        select id,
+               username,
+               password,
+               nickname,
+               telephone,
+               address,
+               is_admin,
+               is_delete
+        from t_user
+        where is_delete != 1
+        and username = #{username}
+    </select>
+    
+    <select id="selectIsDelete" resultType="integer">
+        select id
+        from t_user
+        where is_delete = 1
+        and username = #{username}
+    </select>
+    
+    <update id="updateIsDelete" parameterType="user">
+        update t_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname},
+            </if>
+            <if test="telephone != null">
+                telephone = #{telephone},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="isAdmin != null">
+                is_admin = #{isAdmin},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete}
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+    
+    <select id="selectById" resultMap="userMap">
+        select id,
+               username,
+               password,
+               nickname,
+               telephone,
+               address,
+               is_admin,
+               is_delete
+        from t_user
+        where id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="nickname != null">
+                nickname,
+            </if>
+            <if test="telephone != null">
+                telephone,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="isAdmin != null">
+                is_admin,
+            </if>
+            <if test="isDelete != null">
+                is_delete
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="password != null">
+                #{password},
+            </if>
+            <if test="nickname != null">
+                #{nickname},
+            </if>
+            <if test="telephone != null">
+                #{telephone},
+            </if>
+            <if test="address != null">
+                #{address},
+            </if>
+            <if test="isAdmin != null">
+                ${isAdmin},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete}
+            </if>
+        </trim>
+    </insert>
+    
+    <update id="updateUser" parameterType="user">
+        update t_user 
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname},
+            </if>
+            <if test="telephone != null">
+                telephone = #{telephone},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="isAdmin != null">
+                is_admin = #{isAdmin},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete}
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+    
+    <update id="setIsDelete" parameterType="integer">
+        update t_user set is_delete = 1 where id = #{id}
+    </update>
+
+</mapper>
