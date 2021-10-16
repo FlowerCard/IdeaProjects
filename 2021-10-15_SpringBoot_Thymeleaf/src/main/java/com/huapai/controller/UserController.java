@@ -49,7 +49,7 @@ public class UserController {
         return "userList";
     }
 
-    @RequestMapping("/users/{id}")
+    @GetMapping("/users/{id}")
     public String getUser(@PathVariable Integer id, Model model) {
         User user = userService.queryById(id);
 //        System.out.println(user);
@@ -57,7 +57,7 @@ public class UserController {
         return "userInfo";
     }
     
-    @RequestMapping("/addUi")
+    @GetMapping("/addUi")
     @ApiIgnore
     public String addUi(){
         return "userAdd";
