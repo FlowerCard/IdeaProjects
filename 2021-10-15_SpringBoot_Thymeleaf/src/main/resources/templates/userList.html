@@ -9,7 +9,7 @@
         <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" >
 
-        <script src="../static/js/jquery-3.4.1.min.js"></script>
+        <script src="../js/jquery-3.4.1.min.js"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" ></script>
     </head>
@@ -42,16 +42,16 @@
             </table>
             <nav aria-label="Page navigation">
                 <ul class="pagination">
-                    <li th:if="${userList.getPageNum() > 1}">
-                        <a th:href="|/users/users?start=${userList.getPageNum()-1}|" aria-label="Previous">
+                    <li th:if="${userList.hasPreviousPage}">
+                        <a th:href="|/users/users?start=${userList.prePage}|" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <li th:each="pages : ${userList.getNavigatepageNums()}">
                         <a th:href="|/users/users?start=${pages}|" th:text="${pages}">1</a>
                     </li>
-                    <li th:if="${userList.getPageNum() < userList.getPages()}">
-                        <a th:href="|/users/users?start=${userList.getPageNum()+1}|" aria-label="Next">
+                    <li th:if="${userList.hasNextPage}">
+                        <a th:href="|/users/users?start=${userList.nextPage}|" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
