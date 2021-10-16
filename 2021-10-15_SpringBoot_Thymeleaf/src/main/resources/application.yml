@@ -15,3 +15,5 @@ spring:
 logging:
   level: 
     com.huapai.dao: debug
+    com.huapai.service: debug
+    com.huapai.controller: debug

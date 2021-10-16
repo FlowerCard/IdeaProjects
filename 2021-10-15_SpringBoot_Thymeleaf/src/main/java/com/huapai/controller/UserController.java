@@ -4,13 +4,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.huapai.entity.User;
 import com.huapai.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
@@ -21,15 +23,21 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/users")
+@Api(value = "提供用户的登录，注册和管理接口", tags = "用户管理")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @ApiOperation("用户列表接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(dataType = "int", name = "start",value = "起始页",required = true, defaultValue = "1"),
+            @ApiImplicitParam(dataType = "int", name = "limit",value = "页大小", defaultValue = "3")
+    })
     @RequestMapping("/users")
     public String getUsers(Model model, Integer start, Integer limit) {
         if (start == null) {
-            start = 0;
+            start = 1;
         }
         if (limit == null) {
             limit = 3;
@@ -50,6 +58,7 @@ public class UserController {
     }
     
     @RequestMapping("/addUi")
+    @ApiIgnore
     public String addUi(){
         return "userAdd";
     }
@@ -67,9 +76,20 @@ public class UserController {
     }
 
     @RequestMapping("/remove")
+    @ApiIgnore
     public String removeUser(Integer id) {
         userService.removeUser(id);
         return "redirect:/users/users";
+    }
+
+    @ApiOperation("单个用户查询接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(dataType = "int", name = "id",value = "用户ID",required = true)
+    })
+    @RequestMapping(value = "/swagger",method = RequestMethod.GET)
+    @ResponseBody
+    public User swagger(Integer id) {
+        return userService.queryById(id);
     }
 
 }
