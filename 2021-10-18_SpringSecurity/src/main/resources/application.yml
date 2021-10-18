@@ -1,0 +1,12 @@
+#spring:
+#  security:
+#    user:
+#      name: lisi
+#      password: sili
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db01
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
