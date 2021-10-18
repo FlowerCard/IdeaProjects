@@ -48,6 +48,17 @@ public class UserController {
         model.addAttribute("userList", pageInfo);
         return "userList";
     }
+    
+    @GetMapping("/userList")
+    @ResponseBody
+    @ApiOperation("用户列表接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(dataType = "int", name = "start",value = "起始页",required = true, defaultValue = "1"),
+            @ApiImplicitParam(dataType = "int", name = "limit",value = "页大小", defaultValue = "3")
+    })
+    public List<User> getUserList(){
+        return userService.queryAll();
+    }
 
     @GetMapping("/users/{id}")
     public String getUser(@PathVariable Integer id, Model model) {
