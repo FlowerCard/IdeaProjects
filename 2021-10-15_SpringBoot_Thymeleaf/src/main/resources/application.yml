@@ -17,3 +17,6 @@ logging:
     com.huapai.dao: debug
     com.huapai.service: debug
     com.huapai.controller: debug
+
+server:
+  port: 8081

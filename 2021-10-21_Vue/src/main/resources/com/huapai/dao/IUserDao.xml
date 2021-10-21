@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huapai.dao.IUserDao">
+    
+    <resultMap id="userMap" type="com.huapai.entity.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="info" property="info"/>
+        <result column="role" property="role"/>
+        <result column="auth" property="auth"/>
+    </resultMap>
+    
+    <select id="selectAll" resultMap="userMap">
+        select id, username, password, email, info, role, auth from user
+    </select>
+    
+    <select id="selectById" resultMap="userMap">
+        select id, username, password, email, info, role, auth from user where id = #{id}
+    </select>
+    
+    <select id="selectByUsername" resultMap="userMap">
+        select id, username, password, email, info, role, auth from user where username = #{username}
+    </select>
+
+</mapper>
