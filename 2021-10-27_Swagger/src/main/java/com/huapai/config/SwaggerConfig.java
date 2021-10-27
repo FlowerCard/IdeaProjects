@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author HuaPai
  * @email HuaPai@odcn.live
  * Created on 2021/10/27.
+ * Swagger配置类
  */
 @Configuration
 @EnableSwagger2
