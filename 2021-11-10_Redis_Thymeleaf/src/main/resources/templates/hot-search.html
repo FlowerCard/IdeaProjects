@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>热搜</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li th:each="val:${hostSearch}">
+                <a th:href="@{'http://localhost:8081/hot/increment?hotName='+${val}+'&score=1'}">
+                    <span th:text="${val}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
