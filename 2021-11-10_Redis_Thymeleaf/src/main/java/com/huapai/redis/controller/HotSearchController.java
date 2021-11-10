@@ -22,13 +22,7 @@ public class HotSearchController {
     
     @RequestMapping("/index")
     private String hosSearch(Model model) {
-        redisTemplate.opsForZSet().incrementScore("hotSearch","热搜1",1);
-        redisTemplate.opsForZSet().incrementScore("hotSearch","热搜2",1);
-        redisTemplate.opsForZSet().incrementScore("hotSearch","热搜3",1);
-        redisTemplate.opsForZSet().incrementScore("hotSearch","热搜4",1);
-        redisTemplate.opsForZSet().incrementScore("hotSearch","热搜5",1);
         Set<String> set = redisTemplate.opsForZSet().reverseRange("hotSearch", 0, -1);
-        System.out.println("set = " + set);
         model.addAttribute("hostSearch",set);
         return "hot-search";
     }
