@@ -29,9 +29,7 @@ public class HotSearchController {
     
     @RequestMapping("/increment")
     private String incrementScoreHot(String hotName,Double score) {
-        Double hotSearch = redisTemplate.opsForZSet().score("hotSearch", hotName);
-        hotSearch += score;
-        redisTemplate.opsForZSet().incrementScore("hotSearch",hotName,hotSearch);
+        redisTemplate.opsForZSet().incrementScore("hotSearch",hotName,score);
         return "redirect:index";
     }
     
