@@ -2,9 +2,7 @@ package com.huapai.zookeeper.testcode;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.CreateMode;
-//import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
 
 //@SpringBootTest
 class ApplicationTests {
