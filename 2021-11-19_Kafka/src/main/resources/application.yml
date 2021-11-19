@@ -1,0 +1,16 @@
+server:
+  port: 9001
+
+spring:
+  kafka:
+    bootstrap-servers: 192.168.148.143:9092,192.168.148.143:9093,192.168.148.143:9094
+    # ???
+    producer: 
+      # ???? 0 ????????????????????
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+      acks: 1
+      # ???? key ??????????
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
