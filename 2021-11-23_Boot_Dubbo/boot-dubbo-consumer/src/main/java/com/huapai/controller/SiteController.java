@@ -20,7 +20,8 @@ public class SiteController {
 //    @Reference
 //    @Reference(id = "siteService", version = "default")
 //    @Reference(id = "siteService", version = "async")
-    @Reference(id = "siteService", version = "v2")
+//    @Reference(id = "siteService", version = "v2")
+    @Reference(id = "siteService", version = "default", url = "dubbo://127.0.0.1:20881/com.huapai.api.SiteService:default")
     private SiteService siteService;
     
     @GetMapping("/get/{id}")
