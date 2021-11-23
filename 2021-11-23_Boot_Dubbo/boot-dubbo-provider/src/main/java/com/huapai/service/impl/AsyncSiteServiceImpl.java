@@ -4,6 +4,8 @@ import com.huapai.api.SiteService;
 import com.huapai.entity.Site;
 import org.apache.dubbo.config.annotation.Service;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @author HuaPai
  * @email HuaPai@odcn.live
@@ -31,5 +33,13 @@ public class AsyncSiteServiceImpl implements SiteService {
     @Override
     public String siteName(String name) {
         return "async: " + name;
+    }
+
+    @Override
+    public CompletableFuture<String> siteNameAsync(String name) {
+        System.out.println("异步调用： " + name);
+        return CompletableFuture.supplyAsync(() -> {
+            return siteName(name);
+        });
     }
 }

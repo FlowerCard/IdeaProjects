@@ -2,6 +2,8 @@ package com.huapai.api;
 
 import com.huapai.entity.Site;
 
+import java.util.concurrent.CompletableFuture;
+
 /**
  * @author HuaPai
  * @email HuaPai@odcn.live
@@ -23,7 +25,13 @@ public interface SiteService {
      */
     String siteName(String name);
 
+    //回调方法
     default String siteName(String name, String key, SiteServiceListener siteServiceListener) {
+        return null;
+    }
+
+    //异步调用方法
+    default CompletableFuture<String> siteNameAsync(String name) {
         return null;
     }
     
