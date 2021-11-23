@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    
+    <dubbo:application name="device-consumer" />
+    
+    <dubbo:registry address="zookeeper://192.168.148.142:2181,zookeeper://192.168.148.142:2182,zookeeper://192.168.148.142:2183" />
+    
+    <!--消费者告知Dubbo，要订阅的服务，在消费者启动时会向注册中心获取该服务的地址列表-->
+    <dubbo:reference interface="com.huapai.dubbo.api.DeviceService" id="deviceService"/>
+
+</beans>

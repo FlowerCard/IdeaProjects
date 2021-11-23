@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    
+    <!--应用的名称-->
+    <dubbo:application name="device-service" />
+    
+    <!--注册中心-->
+    <dubbo:registry address="zookeeper://192.168.148.142:2181,zookeeper://192.168.148.142:2182,zookeeper://192.168.148.142:2183" />
+    
+    <!--使用Dubbo协议，指明当前服务在Dubbo中的接口-->
+    <dubbo:protocol name="dubbo" port="20881" />
+
+    <!--注册服务-->
+    <dubbo:service interface="com.huapai.dubbo.api.DeviceService" ref="deviceService" />
+    
+    <!--向IOC容器中注入具体的服务实现类-->
+    <bean class="com.huapai.dubbo.api.impl.DeviceServiceImpl" id="deviceService" />
+</beans>
