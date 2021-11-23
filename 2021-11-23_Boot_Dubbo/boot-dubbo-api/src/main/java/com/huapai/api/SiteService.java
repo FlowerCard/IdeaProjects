@@ -22,5 +22,9 @@ public interface SiteService {
      * @return 工地名称
      */
     String siteName(String name);
+
+    default String siteName(String name, String key, SiteServiceListener siteServiceListener) {
+        return null;
+    }
     
 }
