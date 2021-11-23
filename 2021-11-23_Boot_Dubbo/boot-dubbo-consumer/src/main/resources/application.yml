@@ -1,0 +1,8 @@
+server:
+  port: 8001
+
+dubbo:
+  application:
+    name: site-consumer
+  registry:
+    address: zookeeper://192.168.148.142:2181,zookeeper://192.168.148.142:2182,zookeeper://192.168.148.142:2183

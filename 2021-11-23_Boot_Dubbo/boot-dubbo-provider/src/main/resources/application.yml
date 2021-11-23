@@ -1,0 +1,10 @@
+server:
+  port: 9001
+
+dubbo:
+  application:
+    name: site-service-provider
+  registry:
+    address: zookeeper://192.168.148.142:2181,zookeeper://192.168.148.142:2182,zookeeper://192.168.148.142:2183
+  protocol:
+    port: 20881
