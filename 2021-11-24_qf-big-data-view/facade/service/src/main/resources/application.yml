@@ -1,0 +1,22 @@
+dubbo:
+  application:
+    name: view-facade
+  registry:
+    address: zookeeper://192.168.148.142:2181
+  protocol:
+    port: 20881
+server:
+  port: 9091
+
+# 指明 mapper 映射文件的所在位置
+mybatis:
+  mapper-locations: classpath:META-INF/mapper/*.xml
+  
+# 配置连接池Druid
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.148.139:3306/ISMS?useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource

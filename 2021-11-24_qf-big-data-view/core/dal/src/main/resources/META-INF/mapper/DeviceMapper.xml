@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.data.core.dal.dao.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.qf.data.core.dal.po.DevicePO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_key" jdbcType="VARCHAR" property="deviceKey" />
+    <result column="last_active_time" jdbcType="TIMESTAMP" property="lastActiveTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, device_key, last_active_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from my_device
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+<!-- selectByDeviceKey -->
+  <select id="selectByDeviceKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from my_device
+    where device_key = #{deviceKey,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from my_device
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.qf.data.core.dal.po.DevicePO" useGeneratedKeys="true">
+    insert into my_device (device_key, last_active_time)
+    values (#{deviceKey,jdbcType=VARCHAR}, #{lastActiveTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.qf.data.core.dal.po.DevicePO" useGeneratedKeys="true">
+    insert into my_device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceKey != null">
+        device_key,
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceKey != null">
+        #{deviceKey,jdbcType=VARCHAR},
+      </if>
+      <if test="lastActiveTime != null">
+        #{lastActiveTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.data.core.dal.po.DevicePO">
+    update my_device
+    <set>
+      <if test="deviceKey != null">
+        device_key = #{deviceKey,jdbcType=VARCHAR},
+      </if>
+      <if test="lastActiveTime != null">
+        last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.data.core.dal.po.DevicePO">
+    update my_device
+    set device_key = #{deviceKey,jdbcType=VARCHAR},
+      last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
