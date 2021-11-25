@@ -23,4 +23,6 @@ public interface DeviceMapper {
 
     int updateByPrimaryKey(DevicePO record);
     
+    int updateByDeviceKey(DevicePO devicePO);
+    
 }

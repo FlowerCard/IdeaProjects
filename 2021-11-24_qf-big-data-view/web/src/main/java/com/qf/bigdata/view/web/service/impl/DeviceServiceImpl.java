@@ -3,16 +3,19 @@ package com.qf.bigdata.view.web.service.impl;
 import com.qf.bigdata.view.web.service.DeviceService;
 import com.qf.data.view.core.model.request.AddDeviceRequest;
 import com.qf.data.view.core.model.request.GetDeviceRequest;
+import com.qf.data.view.core.model.request.ModifyDeviceRequest;
 import com.qf.data.view.core.model.response.GetDeviceResponse;
 import com.qf.data.view.core.model.result.ResultModel;
 import com.qf.data.view.facade.api.device.DeviceFacade;
 import com.qf.data.view.facade.request.device.AddDeviceModelRequest;
 import com.qf.data.view.facade.request.device.GetDeviceModelRequest;
+import com.qf.data.view.facade.request.device.ModifyDeviceModelRequest;
 import com.qf.data.view.facade.response.GetDeviceModelResponse;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -53,7 +56,13 @@ public class DeviceServiceImpl implements DeviceService {
     public ResultModel<String> insert(AddDeviceRequest request) {
         AddDeviceModelRequest addDeviceModelRequest = new AddDeviceModelRequest();
         addDeviceModelRequest.setDeviceKey(request.getDeviceKey());
-        addDeviceModelRequest.setLastActiveTime(request.getLastActiveTime());
         return deviceFacade.addDeviceInfo(addDeviceModelRequest);
+    }
+
+    @Override
+    public ResultModel modify(ModifyDeviceRequest request) {
+        ModifyDeviceModelRequest modifyDeviceModelRequest = new ModifyDeviceModelRequest();
+        modifyDeviceModelRequest.setDeviceKey(request.getDeviceKey());
+        return deviceFacade.modifyDeviceInfo(modifyDeviceModelRequest);
     }
 }

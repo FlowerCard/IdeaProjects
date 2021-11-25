@@ -69,4 +69,9 @@
       last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updateByDeviceKey" parameterType="com.qf.data.core.dal.po.DevicePO">
+    update my_device
+    set last_active_time = #{lastActiveTime,jdbcType=TIMESTAMP}
+    where device_key = #{deviceKey,jdbcType=VARCHAR}
+  </update>
 </mapper>

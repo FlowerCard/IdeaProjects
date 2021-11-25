@@ -1,5 +1,6 @@
 package com.qf.data.view.facade.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,6 +27,7 @@ public class GetDeviceModelResponse implements Serializable {
     /**
      * 最后活跃时间
      */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date lastActiveTime;
     
 }

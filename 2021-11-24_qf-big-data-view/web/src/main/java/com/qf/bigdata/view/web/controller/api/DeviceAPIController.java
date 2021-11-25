@@ -4,6 +4,7 @@ import com.qf.bigdata.view.web.service.DeviceService;
 import com.qf.data.view.core.model.exception.DeviceException;
 import com.qf.data.view.core.model.request.AddDeviceRequest;
 import com.qf.data.view.core.model.request.GetDeviceRequest;
+import com.qf.data.view.core.model.request.ModifyDeviceRequest;
 import com.qf.data.view.core.model.response.GetDeviceResponse;
 import com.qf.data.view.core.model.result.ResultModel;
 import org.apache.dubbo.common.utils.StringUtils;
@@ -52,6 +53,11 @@ public class DeviceAPIController {
     @PostMapping("/add")
     public ResultModel<String> addDevice(@RequestBody AddDeviceRequest request) {
         return deviceService.insert(request);
+    }
+    
+    @PostMapping("/modify")
+    public ResultModel modifyDevice(@RequestBody ModifyDeviceRequest request) {
+        return deviceService.modify(request);
     }
     
 }

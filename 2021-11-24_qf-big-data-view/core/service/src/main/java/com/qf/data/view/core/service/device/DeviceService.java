@@ -13,4 +13,5 @@ public interface DeviceService extends BaseService<DevicePO> {
     
     DevicePO selectByDeviceKey(String deviceKey);
     
+    int updateByDeviceKey(DevicePO record);
 }

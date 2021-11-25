@@ -20,7 +20,7 @@ public class DeviceServiceImpl implements DeviceService {
     
     @Override
     public int insert(DevicePO record) {
-        return deviceMapper.insertSelective(record);
+        return 0;
     }
 
     @Override
@@ -31,5 +31,15 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public DevicePO selectByDeviceKey(String deviceKey) {
         return deviceMapper.selectByDeviceKey(deviceKey);
+    }
+
+    @Override
+    public int updateByDeviceKey(DevicePO record) {
+        return deviceMapper.updateByDeviceKey(record);
+    }
+
+    @Override
+    public int insertSelective(DevicePO record) {
+        return deviceMapper.insertSelective(record);
     }
 }

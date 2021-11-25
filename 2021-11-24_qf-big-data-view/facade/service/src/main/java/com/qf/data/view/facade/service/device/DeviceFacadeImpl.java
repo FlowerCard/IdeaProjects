@@ -9,6 +9,7 @@ import com.qf.data.view.core.service.device.DeviceService;
 import com.qf.data.view.facade.api.device.DeviceFacade;
 import com.qf.data.view.facade.request.device.AddDeviceModelRequest;
 import com.qf.data.view.facade.request.device.GetDeviceModelRequest;
+import com.qf.data.view.facade.request.device.ModifyDeviceModelRequest;
 import com.qf.data.view.facade.response.GetDeviceModelResponse;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,5 +76,32 @@ public class DeviceFacadeImpl implements DeviceFacade {
         }
 
         return ResultModel.error("插入失败");
+    }
+
+    @Override
+    public ResultModel<GetDeviceModelResponse> modifyDeviceInfo(ModifyDeviceModelRequest request) {
+        if (Objects.isNull(request) || StringUtils.isBlank(request.getDeviceKey())) {
+            try {
+                throw new DeviceException("参数异常");
+            } catch (DeviceException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        DevicePO devicePO = new DevicePO();
+        devicePO.setDeviceKey(request.getDeviceKey());
+        devicePO.setLastActiveTime(new Date());
+
+        int row = deviceService.updateByDeviceKey(devicePO);
+
+        GetDeviceModelResponse getDeviceModelResponse = new GetDeviceModelResponse();
+        if (row > 0) {
+            DevicePO select = deviceService.selectByDeviceKey(request.getDeviceKey());
+            getDeviceModelResponse.setDeviceKey(select.getDeviceKey());
+            getDeviceModelResponse.setLastActiveTime(select.getLastActiveTime());
+            return ResultModel.success("修改后的数据为",getDeviceModelResponse);
+        } else {
+            return ResultModel.error("修改失败");
+        }
     }
 }
