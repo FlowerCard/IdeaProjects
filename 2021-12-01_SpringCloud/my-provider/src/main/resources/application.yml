@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: my-user-provider
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db01?serverTimezone=GMT-8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defalutZone: http://localhost:8761/eureka/
+      
