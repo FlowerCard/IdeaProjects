@@ -16,6 +16,7 @@
         <module>../my-eureka</module>
         <module>../my-provider</module>
         <module>../my-consumer</module>
+        <module>../my-consumer-feign</module>
     </modules>
 
     <properties>
