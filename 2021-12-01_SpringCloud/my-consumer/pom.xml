@@ -14,6 +14,12 @@
     <artifactId>my-consumer</artifactId>
     
     <dependencies>
+        
+        <!-- Hystrix 熔断器 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.huapai</groupId>

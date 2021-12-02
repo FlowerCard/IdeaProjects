@@ -1,6 +1,7 @@
 package com.huapai.controller;
 
 import com.huapai.po.User;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.sun.jndi.toolkit.url.Uri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -30,9 +31,15 @@ public class MyTestController01 {
     private String serverName = "MY-USER-PROVIDER";
 
     @GetMapping("/show")
+    @HystrixCommand(fallbackMethod = "hiError")
     public String test01(Long id) {
         String url = "http://" + serverName + "/test01/show?id=" + id;
         return restTemplate.getForObject(url, String.class);
+    }
+    
+    // 预设的结果
+    public String hiError(Long id) {
+        return "Hello Hystrix";
     }
     
     @GetMapping("/get1")
