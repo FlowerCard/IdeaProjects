@@ -1,5 +1,6 @@
 package com.huapai.feign.api;
 
+import com.huapai.feign.fallback.MyFeignFallBack;
 import com.huapai.feign.interceptor.MyFeignInterceptor;
 import com.huapai.po.User;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -13,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @email HuaPai@odcn.live
  * Created on 2021/12/2.
  */
+// 配置feign客户端
 //@FeignClient(name = "MY-USER-PROVIDER", path = "/test01")
-@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", configuration = MyFeignInterceptor.class)
+// 配置feign客户端携带cookie
+//@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", configuration = MyFeignInterceptor.class)
+// 配置熔断回调函数
+@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", configuration = MyFeignInterceptor.class, fallback = MyFeignFallBack.class)
 public interface TestFeignAPI {
 
     @GetMapping("/show")

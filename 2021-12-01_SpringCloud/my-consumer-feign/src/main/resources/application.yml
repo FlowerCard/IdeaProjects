@@ -9,3 +9,16 @@ eureka:
   client:
     service-url: 
       defaultZone: http://localhost:8761/eureka/
+
+# open hystrix
+feign:
+  hystrix:
+    enabled: true
+
+# 如果feign配置了拦截器和熔断器，那么需要在配置文件中设置线程的隔离策略
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
