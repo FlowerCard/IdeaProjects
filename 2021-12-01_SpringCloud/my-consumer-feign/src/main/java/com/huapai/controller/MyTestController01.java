@@ -3,6 +3,7 @@ package com.huapai.controller;
 import com.huapai.feign.api.TestFeignAPI;
 import com.huapai.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/test01")
 public class MyTestController01 {
-    
+
+    @Qualifier("com.huapai.feign.api.TestFeignAPI")
     @Autowired
     private TestFeignAPI testFeignAPI;
 

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 // 配置feign客户端携带cookie
 //@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", configuration = MyFeignInterceptor.class)
 // 配置熔断回调函数
-@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", configuration = MyFeignInterceptor.class, fallback = MyFeignFallBack.class)
+@FeignClient(name = "MY-USER-PROVIDER", path = "/test01", fallback = MyFeignFallBack.class)
 public interface TestFeignAPI {
 
     @GetMapping("/show")

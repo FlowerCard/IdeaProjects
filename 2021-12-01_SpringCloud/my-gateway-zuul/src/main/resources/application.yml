@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: my-gateway
+
+server:
+  port: 8765
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/
+  # 编写路由表
+zuul:
+  routes: 
+    api-consumer-ribbon: # 自定义的路由对象的名称
+      path: /ribbon/** # URL 中匹配的路径 pattern
+      serviceId: MY-USER-PROVIDER # 对应的服务器名称（来自配置中心）
+      # strip-prefix: false # 表示/ribbon/**在DEVICE-CONSUMER服务中的路径是真实存在的
+    api-consumer-feign:
+      path: /feign/**
+      serviceId: TEST-CONSUMER-FEIGN
+  prefix: /api # 抽取前缀
+  strip-prefix: true
+  # 如果路径中出现 admin ，就认为这样的路径是敏感路径，不予转发
+  ignored-patterns: /**/admin/**
+  # 默认情况下 sensitive-headers 中有 cookie。通过这样设置。给 sensitive-headers 设置成 null，取消 cookie 作为敏感头
+  sensitive-headers: 

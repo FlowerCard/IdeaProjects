@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <artifactId>netflix-dependencies</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.3.7.RELEASE</version>
+        <relativePath>../netflix-dependencies/pom.xml</relativePath>
+    </parent>
+    
+    <groupId>com.huapai</groupId>
+    <artifactId>my-gateway-zuul</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>my-gateway-zuul</name>
+    <description>my-gateway-zuul</description>
+    
+
+    <dependencies>
+
+        <!-- zuul 网关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.7.RELEASE</version>
+                <configuration>
+                    <mainClass>com.huapai.MyGatewayZuulApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
