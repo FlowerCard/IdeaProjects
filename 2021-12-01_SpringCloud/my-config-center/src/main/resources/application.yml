@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: my-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/flowercard/my-config-center.git
+          search-paths: repo
+      label: master
+server:
+  port: 8888
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/
