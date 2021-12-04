@@ -5,8 +5,6 @@ dubbo:
     address: zookeeper://192.168.148.142:2181
   protocol:
     port: 20881
-  consumer:
-    timeout: 5000
 server:
   port: 9091
 # 指明mapper映射文件的位置

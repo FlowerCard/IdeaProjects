@@ -1,11 +1,16 @@
 dubbo:
   application:
-    name: view-web
+    name: device-web
   registry:
     address: zookeeper://192.168.148.142:2181
-  consumer:
-    timeout: 5000
 
 server:
   port: 8090
-
+  
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  application:
+    name: device-web

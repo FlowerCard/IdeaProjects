@@ -1,9 +1,11 @@
 dubbo:
   application:
-    name: view-web
+    name: admin-web
   registry:
-    address: zookeeper://172.16.253.6:2181
+    address: zookeeper://192.168.148.142:2181
+  consumer:
+    timeout: 5000
 
 server:
-  port: 8090
+  port: 8091
 
