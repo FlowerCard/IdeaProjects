@@ -13,7 +13,7 @@ public class StringComposeTest {
     @Test
     public void stringComposeTest01() {
         StringBuffer result = new StringBuffer();
-        String str = "aavvcccsssb";
+        String str = "xxxrryyyyyyz";
         int c = 1;
 
         for (int i = 0; i <= str.length() - 1; i++) {
@@ -21,10 +21,11 @@ public class StringComposeTest {
             if (i !=str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
                 c++;
             } else {
-                if (c != 1) {
-                    result.append(c);
-                }
                 result.append(str.charAt(i));
+                /*if (c != 1) {
+                    result.append("(" + c + ")");
+                }*/
+                result.append("(" + c + ")");
                 c = 1;
             }
             
